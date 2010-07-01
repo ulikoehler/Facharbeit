@@ -1,0 +1,23 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usefonttheme{serif}
+\mode<presentation> { \usetheme{Berkeley} }
+
+\title{3D-Tumorvisualisation}
+
+\AtBeginSection[]{} % for optional outline or other recurrent slide
+
+\pgfdeclareimage[width=5cm]{Workflow}{ws-1.jpg} 
+
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+   \frametitle{Image}
+   $\begin{pmatrix}\cos\Psi\cos\Phi - \cos\Theta\sin\Phi\sin\Psi & -\sin\Psi\cos\Phi - \cos\Theta\sin\Phi\cos\Psi & \sin\Theta\sin\Phi\\\cos\Psi\sin\Phi + \cos\Theta\cos\Phi\sin\Psi & -\sin\Psi\sin\Phi + \cos\Theta\cos\Phi\cos\Psi & -\sin\Theta\cos\Phi\\\sin\Psi\sin\Theta & \cos\Psi\sin\Theta & \cos\Theta\end{pmatrix}$
+\end{frame}
+\end{document}
