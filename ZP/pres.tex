@@ -1,9 +1,9 @@
-\documentclass{beamer}
+\documentclass[14pt]{beamer}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 \usetheme[secheader]{Boadilla}
-
+\usefonttheme{serif}
 
 \title{3D-Tumorvisualisation}
 \subtitle{Zwischenpräsentation}
@@ -13,7 +13,9 @@
 
 \AtBeginSection[]{} % for optional outline or other recurrent slide
 
-\pgfdeclareimage[width=5cm]{Workflow}{ws-1.jpg} 
+\pgfdeclareimage{Workflow}{ws-1.jpg}
+\pgfdeclareimage{F36-Original}{F36.large.jpg}
+\pgfdeclareimage{F36-Rendered}{F36-rendered.pg}
 
 
 \begin{document}
@@ -33,8 +35,15 @@
      \item Architektur
      \item Fortschritt
     \end{itemize}
-
    \end{itemize}
-
+\end{frame}
+  \section{Behandelte Hauptkonzepte}
+\begin{frame}
+ \frametitle{Hervorhebung von Tumoren}
+\begin{columns}
+        \column{.55\textwidth}
+        \column{.45\textwidth}
+	\pgfimage[width=\textwidth]{F36-Original}
+\end{columns}
 \end{frame}
 \end{document}
