@@ -1,11 +1,15 @@
 \documentclass{beamer}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
-\usefonttheme{serif}
-\mode<presentation> { \usetheme{Berkeley} }
+\usetheme[secheader]{Boadilla}
+
 
 \title{3D-Tumorvisualisation}
+\subtitle{Zwischenpräsentation}
+\author{Uli Köhler}
+\institute[EMG]{Ernst-Mach-Gymnasium Haar}
+\date{8.~Juli 2010}
 
 \AtBeginSection[]{} % for optional outline or other recurrent slide
 
@@ -13,11 +17,18 @@
 
 
 \begin{document}
+\frame{\titlepage}
 \begin{frame}
-\titlepage
-\end{frame}
-\begin{frame}
-   \frametitle{Image}
-   $\begin{pmatrix}\cos\Psi\cos\Phi - \cos\Theta\sin\Phi\sin\Psi & -\sin\Psi\cos\Phi - \cos\Theta\sin\Phi\cos\Psi & \sin\Theta\sin\Phi\\\cos\Psi\sin\Phi + \cos\Theta\cos\Phi\sin\Psi & -\sin\Psi\sin\Phi + \cos\Theta\cos\Phi\cos\Psi & -\sin\Theta\cos\Phi\\\sin\Psi\sin\Theta & \cos\Psi\sin\Theta & \cos\Theta\end{pmatrix}$
+   \frametitle{Inhalt}
+   \begin{itemize}
+    \item  Behandelte Hauptkonzepte
+    \begin{itemize}
+      \item Hervorhebung von Tumoren
+      \item Generierung von Zwischenbildern
+      \item Interaktive Navigation im 3D-Koordinatensystem
+    \end{itemize}
+    \item Projekt: MediGL
+   \end{itemize}
+
 \end{frame}
 \end{document}
