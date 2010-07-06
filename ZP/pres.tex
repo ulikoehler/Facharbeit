@@ -13,10 +13,6 @@
 
 \AtBeginSection[]{} % for optional outline or other recurrent slide
 
-\pgfdeclareimage{Workflow}{ws-1.jpg}
-\pgfdeclareimage{F36}{F36-rendered.png}
-
-
 \begin{document}
 \frame{\titlepage}
 \begin{frame}
@@ -37,8 +33,19 @@
    \end{itemize}
 \end{frame}
   \section{Behandelte Hauptkonzepte}
-\begin{frame}
+\begin{frame}[allowframebreaks]
  \frametitle{Hervorhebung von Tumoren}
+    \begin{itemize}
+     \item \textbf{Idee:} Mediziner sollen Tumoren schnell erkennen können
+     \item Automatisierte Erkennung anhand der HUs\\
+	  $\Rightarrow$ Algorithmus: Abbildung der Hounsfield-Skala auf einen Farbverlauf
+     \item Grenzen des Verfahrens:
+      \begin{itemize}
+	\item Tumoren mit geringem Kontrast zum umliegenden Gewebe
+	\item Menschliche Kenntnis zur Zuordnung von anatomischen Strukturen nötig
+      \end{itemize}
+    \end{itemize}
+
 	\pgfimage[width=\textwidth]{F36-rendered.png}
 \end{frame}
 \end{document}
