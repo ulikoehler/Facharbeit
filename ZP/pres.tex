@@ -15,7 +15,10 @@
 
 \begin{document}
 \frame{\titlepage}
-\frame{\tableofcontents}
+\begin{frame}
+\frametitle{Inhalt}
+\tableofcontents
+\end{frame}
 \begin{frame}
    \frametitle{Inhalt}
    \begin{itemize}
@@ -52,19 +55,24 @@
 \end{frame}
 %%%%%%
 \subsection{Generierung von Zwischenbildern}
-
 \begin{frame}[allowframebreaks]
  \frametitle{Generierung von Zwischenbildern}
+      \begin{block}{Problem}
+	      Bildstapel mit geringer Anzahl an Bildern können von der Seite aus nur in ungenügender
+	      Auflösung betrachtet werden.
+      \end{block}
     \begin{itemize}
-     \item \textbf{Idee:} Mediziner sollen Tumoren schnell erkennen können
-     \item Automatisierte Erkennung anhand der HUs\\
-	  $\Rightarrow$ Algorithmus: Abbildung der Hounsfield-Skala auf einen Farbverlauf
-     \item Grenzen des Verfahrens:
+     \item Lösungsmöglichkeit: \textit{Interpolation} von Zwischenbildern:
       \begin{itemize}
-	\item Tumoren mit geringem Kontrast zum umliegenden Gewebe
-	\item Menschliche Kenntnis zur Zuordnung von anatomischen Strukturen nötig
+	\item Automatisch, z.B. Farbverlauf zwischen \textit{Vertices} in OpenGL
+	\item Manuell $\rightarrow$ Vorberechnung von virtuellen Bildern
       \end{itemize}
     \end{itemize}
     \pgfimage[width=\textwidth]{interimage1.jpg}
+\end{frame}
+%%%%%%
+\subsection{Interaktive Navigation im 3D-Koordinatensystem}
+\begin{frame}[allowframebreaks]
+ \frametitle{}
 \end{frame}
 \end{document}
