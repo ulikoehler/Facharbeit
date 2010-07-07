@@ -16,6 +16,7 @@
 \AtBeginSection[]{} % for optional outline or other recurrent slide
 
 \begin{document}
+\nocite{*}
 \bibliography{../Library/visualisation}
 \bibliographystyle{simple}
 \frame{\titlepage}
@@ -31,7 +32,7 @@
     \begin{itemize}
      \item \textbf{Idee:} Mediziner sollen Tumoren schnell erkennen können
      \item Automatisierte Erkennung anhand der HUs\\
-	  $\Rightarrow$ Algorithmus: Abbildung der Hounsfield-Skala auf einen Farbverlauf
+	  $\Rightarrow$ Algorithmus: Abbildung der Hounsfield-Skala auf einen Farbverlauf (`Klassifizierung`)
      \item Grenzen des Verfahrens:
       \begin{itemize}
 	\item Tumoren mit geringem Kontrast zum umliegenden Gewebe
@@ -78,13 +79,30 @@
 \section{Projekt: MediGL}
 %
 \subsection{Architektur}
-\begin{frame}
+\begin{frame}[allowframebreaks]
 \frametitle{Architektur}
+\pgfimage[width=\textwidth]{ws-1-1.jpg}\\
+\pgfimage[width=\textwidth]{ws-1-2.jpg}
 \end{frame}
 %
 \subsection{Fortschritt}
 \begin{frame}
 \frametitle{Fortschritt}
+\begin{itemize}
+ \item Implementiert:
+  \begin{itemize}
+   \item Point Cloud Rendering
+   \item 3D-Navigation
+   \item DICOM- und Image-Import
+  \end{itemize}
+  \item Noch fehlend:
+  \begin{itemize}
+   \item Zwischenbildberechnung
+   \item Einschränkung des HU-Intervalls
+   \item Weitere Rendering- und Klassifizierungsmethoden
+  \end{itemize}
+\end{itemize}
+
 \end{frame}
 %
 %
@@ -99,7 +117,6 @@
 \section{Literatur}
 \begin{frame}
 \frametitle{Literatur}
-\nocite{*}
-\cite{*}
+\cite{Azuma1997}
 \end{frame}
 \end{document}
