@@ -17,8 +17,6 @@
 \AtBeginSection[]{} % for optional outline or other recurrent slide
 
 \begin{document}
-\bibliography{pres}
-\bibliographystyle{simple}
 \frame{\titlepage}
 \begin{frame}
 \frametitle{Inhalt der Zwischenpräsentation}
@@ -127,8 +125,10 @@
 %
 %
 \section{Literatur}
-\begin{frame}
+\begin{frame}[allowframebreaks]
 \frametitle{Literatur}
+\bibliography{pres}
+\bibliographystyle{alpha}
 \nocite{*}
 \end{frame}
 %
