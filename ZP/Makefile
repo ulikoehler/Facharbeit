@@ -1,5 +1,5 @@
 all:
-	pdflatex pres.tex
-	bibtex pres.bib
-	pdflatex pres.tex
-	pdflatex pres.tex
+	pdflatex pres
+	bibtex pres
+	pdflatex pres
+	pdflatex pres
