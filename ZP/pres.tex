@@ -2,6 +2,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
+\usepackage{cite}
 \usetheme[secheader]{Boadilla}
 \usefonttheme{serif}
 
@@ -11,32 +12,18 @@
 \institute[EMG]{Ernst-Mach-Gymnasium Haar}
 \date{8.~Juli 2010}
 
+
 \AtBeginSection[]{} % for optional outline or other recurrent slide
 
 \begin{document}
+\bibliography{../Library/visualisation}
+\bibliographystyle{simple}
 \frame{\titlepage}
 \begin{frame}
 \frametitle{Inhalt}
 \tableofcontents
 \end{frame}
-\begin{frame}
-   \frametitle{Inhalt}
-   \begin{itemize}
-    \item  Behandelte Hauptkonzepte
-    \begin{itemize}
-      \item Hervorhebung von Tumoren
-      \item Generierung von Zwischenbildern
-      \item Interaktive Navigation im 3D-Koordinatensystem
-    \end{itemize}
-    \pause
-    \item Projekt: MediGL
-    \begin{itemize}
-     \item Architektur
-     \item Fortschritt
-    \end{itemize}
-   \end{itemize}
-\end{frame}
- \section{Behandelte Hauptkonzepte}
+\section{Behandelte Hauptkonzepte}
 %%%%%%
 \subsection{Hervorhebung von Tumoren}
 \begin{frame}[allowframebreaks]
@@ -71,8 +58,46 @@
     \pgfimage[width=\textwidth]{interimage1.jpg}
 \end{frame}
 %%%%%%
-\subsection{Interaktive Navigation im 3D-Koordinatensystem}
-\begin{frame}[allowframebreaks]
- \frametitle{}
+\subsection{3D-Navigation}
+\begin{frame}
+ \frametitle{3D-Navigation}
+ \begin{itemize}
+  \item Grundoperationen (Transformationen):
+  \begin{itemize}
+   \item Translation
+   \item Rotation
+   \item Skalierung
+  \end{itemize}
+  \item Algorithmen für die Umsetzung Eingabegerät $\rightarrow$ -> Transformation
+  \item Ziel: Intuitive Bedienbarkeit
+ \end{itemize}
+\end{frame}
+%
+%
+%
+\section{Projekt: MediGL}
+%
+\subsection{Architektur}
+\begin{frame}
+\frametitle{Architektur}
+\end{frame}
+%
+\subsection{Fortschritt}
+\begin{frame}
+\frametitle{Fortschritt}
+\end{frame}
+%
+%
+%
+\section{Augmented Reality - Zukunft der Visualisation}
+\begin{frame}
+\frametitle{Augmented Reality}
+\end{frame}
+%
+%
+%
+\section{Literatur}
+\begin{frame}
+\frametitle{Literatur}
 \end{frame}
 \end{document}
