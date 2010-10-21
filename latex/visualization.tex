@@ -12,16 +12,31 @@
 \date{9.~November 2010}
 
 \begin{document}
+\maketitle
 \tableofcontents
 \section{Einleitung}
 \subsection{Themenstellung}
 \subsection{Ziele der Arbeit}
-\section{Echtzeit-Tumorvisualisationssystem}
+\section{Echtzeit-Tumorvisualisationssysteme}
 \subsection{Anforderungen}
 \subsection{Anwendungsmöglichkeiten}
 \section{Algorithmen und Methoden am Beispiel des Projektes VERTEBRA}
+\section{Echtzeit-Tumorvisualisationssysteme}
+Als Begleitprojekt zu dieser Arbeit wurde das Programm VERTEBRA
+(Volumetric Examiner for Radiological and Tomographical Experimental Basic Realtime Analysis) geschrieben, dessen Hauptzweck
+darin besteht, die Machbarkeit in dieser Arbeit vorgestellten Konzepte zu demonstrieren und im Rahmen der erreichbaren Genauigkeit
+vergleichbare Daten über die Echtzeittauglichkeit der Algorithmen und Verfahren zu liefern.\\
+VERTEBRA ist ein Proof-of-Concept-Projekt, zielt also nicht darauf ab, ein im medizinischen Alltag einsetzbares Produkt zu sein oder
+die für eine Zulassung nach dem Medizinproduktegesetz (bezogen auf deutsches Recht) notwendigen Vorraussetzungen zu schaffen.
 \subsection{Konzepte zur Hervorhebung von Tumoren}
 \subsection{Algorithmen zur Navigation im 3D-Koordinatensystem}
+\subsection{Grenzen der in dieser Arbeit vorgestellten Konzepte}
+\paragraph{Abhängigkeit von den Eingabedaten}
+Die in dieser Arbeit vorgestellten Verfahren benutzen mathematische Verfahren, um eine Eingabedatenmenge variabler Größe
+in eine Menge an Eingabedaten zu übersetzen, die von spezialisierter Grafikhardware mathematisch in ein zweidimensionales Ausgangsbild
+umgerechnet wird, um auf einem visuellen Ausgabegerät, zum Beispiel einem Monitor angezeigt zu werden. Aufgrund dieser mathematischen
+Umrechnung basieren die Ausgabedatenmengen dieser Algorithmen ausschließlich auf den Eingabedatenmengen, die üblicherweise Datensätze aus
+tomografischen Scannern repräsentieren und den Konfigurationsparametern der Algorithmen.
 \subsection{Vergleich von Methoden zur Berechnung von Visualisationsdaten über große Datenmengen}
 \subsubsection{CPU-Vorabberechnung}
 \subsubsection{Berechnung auf Grafikkarten}
@@ -29,7 +44,6 @@
 In letzter Zeit zeigt sich vor allem durch die große Zahl der Publikationen über dieses Thema, dass sich die Zunkunft von medizinischen
 Visualisationssystemen in der Augmented Reality befindet. Dieser Begriff, der sich mit 'Virtuelle Relatität' übersetzen lässt, \cite{Botden2009}
 \appendix
-\section{Quellenverzeichnis}
 \section{Quellcode von VERTEBRA}
 \section{Anleitung zur Übersetzung von VERTEBRA}
 \section{Doxygen-Dokumentation von VERTEBRA}
