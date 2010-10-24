@@ -4,6 +4,7 @@
 \usepackage[ngerman]{babel}
 \usepackage{hyperref}
 \usepackage{cite}
+\usepackage[german]{varioref}
 
 \title{3D-Tumorvisualisation}
 \subtitle{Seminararbeit}
@@ -11,26 +12,30 @@
 %\institute[EMG]{Ernst-Mach-Gymnasium Haar}
 \date{9.~November 2010}
 
+
 \begin{document}
 \maketitle
-\tableofcontents
-\section{Einleitung}
-\subsection{Themenstellung}
-\subsection{Ziele der Arbeit}
-\section{Echtzeit-Tumorvisualisationssysteme}
-\subsection{Anforderungen}
-\subsection{Anwendungsmöglichkeiten}
-\section{Algorithmen und Methoden am Beispiel des Projektes VERTEBRA}
-\section{Echtzeit-Tumorvisualisationssysteme}
+\tableofcontents \newpage
+\section{Einleitung}\label{sec:introduction}
+In dieser Arbeit sollen Methoden und Algorithmen dargestellt werden, die zur dreidimensionalen Visualisation von Tumoren in Echtzeit dienen. Hierzu werden zuerst in Kapitel \vref{ssec:requirements} die allgemeinen Anforderungen und in Kapitel \vref{ssec:applications}
+Anwendungsmöglichkeiten für solche Systeme dargestellt. Darauf aufbauend werden in Kapitel \vref{ssec:concepts} die Konzepte und Algorithmen dargestellt, die im Rahmen dieser Arbeit entwickelt wurden. Zur anschaulichen Darstellung und als Beweis für die Implementierbarkeit dieser Konzepte in Software wurde begleitend zu dieser Arbeit ein Programm (`VERTEBRA`) geschrieben, anhand dessen in Kapitel \vref{ssec:implementations} Möglichkeiten der Implementation der zuvor dargestellten Konzepte und deren Anwendbarkeit in der modernen Medizin diskutiert werden. Da sich diese Arbeit auf dreidimensionale Visualisationssysteme beschränkt, werden in Kapitel \vref{ssec:3dnav} zusätzlich Verfahren zur Navigation im dreidimensionalen Koordinatensystem vorgestellt, wobei besonderen Wert auf die in Kapitel \ref{ssec:requirements} dargestellten Anforderungen gelegt wird.
+
+Letztendlich wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augmented Reality` diskutiert, die in Zukunft eine wichtige Rolle in der medizinischen Visualisationstechnik und speziell im Bereich der Chirurgie spielen könnte.
+
+Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten.
+\section{Echtzeit-Tumorvisualisationssysteme}\label{sec:vissystems}
+\subsection{Anforderungen}\label{ssec:requirements}
+\subsection{Anwendungsmöglichkeiten}\label{ssec:applications}
 Als Begleitprojekt zu dieser Arbeit wurde das Programm VERTEBRA
 (Volumetric Examiner for Radiological and Tomographical Experimental Basic Realtime Analysis) geschrieben, dessen Hauptzweck
 darin besteht, die Machbarkeit in dieser Arbeit vorgestellten Konzepte zu demonstrieren und im Rahmen der erreichbaren Genauigkeit
 vergleichbare Daten über die Echtzeittauglichkeit der Algorithmen und Verfahren zu liefern.\\
 VERTEBRA ist ein Proof-of-Concept-Projekt, zielt also nicht darauf ab, ein im medizinischen Alltag einsetzbares Produkt zu sein oder
 die für eine Zulassung nach dem Medizinproduktegesetz (bezogen auf deutsches Recht) notwendigen Vorraussetzungen zu schaffen.
-\subsection{Konzepte zur Hervorhebung von Tumoren}
-\subsection{Algorithmen zur Navigation im 3D-Koordinatensystem}
-\subsection{Grenzen der in dieser Arbeit vorgestellten Konzepte}
+\section{Konzepte zur Visualisation von Tumoren}\label{ssec:concepts}
+\subsection{Implementationsmöglichkeiten am Beispiel des Projektes VERTEBRA}\label{ssec:implementations}
+\subsection{Algorithmen zur Navigation im 3D-Koordinatensystem}\label{ssec:3dnav}
+\subsection{Grenzen der in dieser Arbeit vorgestellten Konzepte}\label{ssec:limits}
 \paragraph{Abhängigkeit von den Eingabedaten}
 Die in dieser Arbeit vorgestellten Verfahren benutzen mathematische Verfahren, um eine Eingabedatenmenge variabler Größe
 in eine Menge an Eingabedaten zu übersetzen, die von spezialisierter Grafikhardware mathematisch in ein zweidimensionales Ausgangsbild
@@ -38,12 +43,15 @@ umgerechnet wird, um auf einem visuellen Ausgabegerät, zum Beispiel einem Monit
 Umrechnung basieren die Ausgabedatenmengen dieser Algorithmen ausschließlich auf den Eingabedatenmengen, die üblicherweise Datensätze aus
 tomografischen Scannern repräsentieren und den Konfigurationsparametern der Algorithmen.
 \subsection{Vergleich von Methoden zur Berechnung von Visualisationsdaten über große Datenmengen}
-\subsubsection{CPU-Vorabberechnung}
-\subsubsection{Berechnung auf Grafikkarten}
-\subsection{Augmented Reality - Zukunft von Visualisationssystemen}
+\subsubsection{Vergleich von Software- und Hardware-Algorithmen zum Rendern der Visualisationsdaten}\label{ssec:swhwcomparison}
+\subsubsection{CPU-Vorabberechnung}\label{sssec:cpucalculation}
+\subsubsection{Berechnung auf GPUs}\label{sssec:gpucalculation}
+\subsection{Augmented Reality - Zukunft von Visualisationssystemen}\label{sec:augmentedreality}
 In letzter Zeit zeigt sich vor allem durch die große Zahl der Publikationen über dieses Thema, dass sich die Zunkunft von medizinischen
 Visualisationssystemen in der Augmented Reality befindet. Dieser Begriff, der sich mit 'Virtuelle Relatität' übersetzen lässt, \cite{Botden2009}
-\appendix
+\appendix \label{appendixstart}
+\section{Testplattform}\newpage\newpage\newpage
+\subsection{Anforderungen}\label{ssec:requirements}
 \section{Quellcode von VERTEBRA}
 \section{Anleitung zur Übersetzung von VERTEBRA}
 \section{Doxygen-Dokumentation von VERTEBRA}
