@@ -23,7 +23,7 @@ Anwendungsmöglichkeiten für solche Systeme dargestellt. Darauf aufbauend werde
 
 Abschließend wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augmented Reality` diskutiert, die in Zukunft eine wichtige Rolle in der medizinischen Visualisationstechnik und speziell im Bereich der Chirurgie spielen könnte.
 
-Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten werden die folgenden Themen 
+Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten wurden die Folgenden Themen nicht im Einzelnen behandelt:
 \section{Echtzeit-Tumorvisualisationssysteme}\label{sec:vissystems}
 \subsection{Anforderungen}\label{ssec:requirements}
 \subsection{Anwendungsmöglichkeiten}\label{ssec:applications}
@@ -34,14 +34,15 @@ Als Begleitprojekt zu dieser Arbeit wurde das Programm VERTEBRA
 (Volumetric Examiner for Radiological and Tomographical Experimental Basic Realtime Analysis) geschrieben, dessen Hauptzweck darin besteht, die Machbarkeit in dieser Arbeit vorgestellten Konzepte zu demonstrieren und im Rahmen der erreichbaren Genauigkeit vergleichbare Daten über die Echtzeittauglichkeit der Algorithmen und Verfahren zu liefern \\
 VERTEBRA ist ein Proof-of-Concept-Projekt, zielt also nicht darauf ab, ein im medizinischen Alltag einsetzbares Produkt zu sein oder die für eine Zulassung nach dem Medizinproduktegesetz (bezogen auf deutsches Recht) notwendigen Vorraussetzungen zu schaffen.
 \subsection{Algorithmen zur Navigation im 3D-Koordinatensystem}\label{ssec:3dnav}
-\subsection{Grenzen der in dieser Arbeit vorgestellten Konzepte}\label{ssec:limits}
+\subsection{Grenzen der vorgestellten Konzepte}\label{ssec:limits}
 \paragraph{Abhängigkeit von den Eingabedaten}
 Die in dieser Arbeit vorgestellten Verfahren benutzen mathematische Verfahren, um eine Eingabedatenmenge variabler Größe in eine Menge an Eingabedaten zu übersetzen, die von spezialisierter Grafikhardware mathematisch in ein zweidimensionales Ausgangsbild umgerechnet wird, um auf einem visuellen Ausgabegerät, zum Beispiel einem Monitor angezeigt zu werden. Aufgrund dieser mathematischen Umrechnung basieren die Ausgabedatenmengen dieser Algorithmen ausschließlich auf den Eingabedatenmengen, die üblicherweise Datensätze aus tomografischen Scannern repräsentieren und den Konfigurationsparametern der Algorithmen.
 \subsection{Vergleich von Methoden zur Berechnung von Visualisationsdaten über große Datenmengen}
 \subsubsection{Vergleich von Algorithmen}\label{ssec:swhwcomparison}
 \subsubsection{Berechnung auf dem Hauptprozessor}\label{sssec:cpucalculation}
-Die naheliegendste Möglichkeit, Operationen  auf großen Mengen volumetrischen Daten durchzuführen
+Die naheliegendste Möglichkeit, Operationen auf großen Mengen volumetrischen Daten durchzuführen, ist, die Berechnungen vom Hauptprozessor des Computers durchführen zu lassen. Die Vorraussetzung hierfür ist, dass 
 \subsubsection{Berechnung auf GPUs}\label{sssec:gpucalculation}
+\subsubsection{}
 \subsection{Augmented Reality - Zukunft von Visualisationssystemen}\label{sec:augmentedreality}
 In letzter Zeit zeigt sich vor allem durch die große Zahl der Publikationen über dieses Thema, dass sich die Zunkunft von medizinischen Visualisationssystemen in der Augmented Reality befindet. Dieser Begriff, der sich mit 'Virtuelle Realität' übersetzen lässt, \cite{Botden2009}
 \appendix \label{appendixstart}
