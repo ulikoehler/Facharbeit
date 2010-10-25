@@ -1,6 +1,6 @@
 \documentclass[a4paper,titlepage,12pt]{scrartcl}
 \usepackage[utf8x]{inputenc}
-\usepackage[paper=a4paper,left=30mm,right=20mm,top=20mm,bottom=20mm]{geometry}
+\usepackage[paper=a4paper,includefoot,includehead,left=30mm,right=20mm,top=20mm,bottom=20mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage[ngerman]{babel}
@@ -51,7 +51,7 @@ Die naheliegendste Möglichkeit, Operationen auf großen Mengen volumetrischen D
 \subsubsection{Berechnung auf GPUs}\label{sssec:gpucalculation}
 Da die Rechenleistung der Hauptprozessoren moderner Computer für viele der heutigen 3D-Anwendungen nicht mehr ausreicht, enthält ein Grossteil der heutigen Computer Grafikhardware, die in der Lage ist, 3D-Anwendungen zu beschleunigen. Hierbei berechnet der Hauptprozessor die darzustellenden Daten und gibt sie an die Grafikhardware weiter, die diese Daten mithilfe der GPU\footnote{GPU - Graphics Processing Unit - Grafikprozessor} in ein zweidimensionales Bild umwandelt (rendert), das beispielsweise auf einem Monitor angezeigt werden kann.
 
-Um der GPU mitzuteilen, welche Objekte wo im dreidimensionalen Koordinatensystem auf welche Art gerendert werden sollen, müssen Programme ein Grafik-API\footnote{API - Application Programming Interface - Programmierschnittstelle} wie OpenGL (\cite{OpenGLWebsite}) oder DirectX (\cite{DirectXWebsite}) benutzen. Im konkreten Fall von VERTEBRA fiel die Entscheidung aufgrund der Plattformunabhängigkeit und der Erfahrung der Autors auf OpenGL.
+Um der GPU mitzuteilen, welche Objekte wo im dreidimensionalen Koordinatensystem auf welche Art gerendert werden sollen, müssen Programme ein Grafik-API\footnote{API - Application Programming Interface - Programmierschnittstelle} wie OpenGL oder DirectX benutzen. Im konkreten Fall von VERTEBRA fiel die Entscheidung aufgrund der Plattformunabhängigkeit und der Erfahrung der Autors in diesem Bereich.
 
 GPUs neueren Datums können ausserdem so genannte Shader ausführen - kleine Programme, die für bestimmte Untereinheiten der zu visualisierenden Objekte ausgeführt werden. Je nachdem, worauf ein Shader angewandt wird, TODO Die Shader-Prozessoren (Untereinheiten der GPU, die die Shader ausführen), arbeiten massiv parallel ... TODO
 \subsubsection{Berechnung auf FPGAs}
@@ -59,9 +59,10 @@ Abgesehen von den bereits diskutierten Möglichkeiten ist mit so genannten FPGAs
 \subsubsection{Surface Rendering}
 Die in dieser Arbeit behandelten Methoden beschränken sich auf das Volume Rendering (`Volumenrendern`), d.h. die Daten werden unter Beachtung der räumlichen Information gerendert. Als Alternative bietet sich das so genannte Surface Rendering (`Oberflächenrendern`) an, bei dem durch mathematische Verfahren Oberflächen im Datensatz gesucht werden, die dann als zusammenhängende Fläche gerendert werden.
 
-Kuszyk et al. stellen in \cite{Kuszyk1996} die Nachteile des Surface Renderings gegenüber dem Volume Rendering dar. Als Beispiel für einen Nachteil des Surface Rendering wird dargestellt, dass Läsionen unter Knochen verborgen werden während Volume Rendering-Algorithmen diese korrekt darstellen (Quelle: \cite{Kuszyk1996}, Abstract). Da die Publikation jedoch schon 1996 veröffentlicht wurde, gelten die Resultate unter Umständen für die heutigen Algorithmen und hochauflösenden Tomographen. Eine aktuellere Darstellung liefern Udupa et al. in \cite{Udupa2009}. Die Autoren kommen zu dem Schluss, dass Surface Rendering-Algorithmen im Bereich der Informationsdarstellung einen kleinen Vorteil gegenüber volumenbasierten Algorithmen haben und außerdem durch den geringeren Bedarf an Rechenzeit und Speicherplatz überlegen sind.
+Kuszyk et al. stellen in \cite{Kuszyk1996} die Nachteile des Surface Renderings gegenüber dem Volume Rendering dar. Als Beispiel für einen Nachteil des Surface Rendering wird dargestellt, dass Läsionen unter Knochen verborgen werden während Volume Rendering-Algorithmen diese korrekt darstellen (Quelle: \cite{Kuszyk1996}, Abstract). Da die Publikation jedoch schon 1996 veröffentlicht wurde, gelten die Resultate unter Umständen für die heutigen Algorithmen und hochauflösenden Tomographen. Eine aktuellere Darstellung liefern Udupa et al. in \cite{Udupa2009}. Die Autoren kommen zu dem Schluss, dass Surface Rendering-Algorithmen im Bereich der Informationsdarstellung einen kleinen Vorteil gegenüber volumenbasierten Algorithmen haben und außerdem durch den geringeren Bedarf an Rechenzeit und Speicherplatz überlegen sind. Auch \cite{Bruckner2008} thematisiert den Vergleich von Oberflächen- und Volumenrendering, kommt aber im Gegensatz zur vorgenannten Publikation zum Schluss, dass der Mehraufwand an Rechenzeit und Speicher die Mehrinformation wert, die im gerenderten Bild angezeigt wird - tatsächlich würde beim Rendern der Oberflächen eine Dimension verloren gehen, da das Innere von Objekten verborgen bleibt (Quelle: \cite[Seite 6f.]{Bruckner2008}).
+
 \section{Augmented Reality - Zukunft von Visualisationssystemen?}\label{sec:augmentedreality}
-In den letzten Jahren wird neben den herkömmlichen Geräten zu Darstellung der Informationen medizinischer Informationssysteme (z.B. Bildschirme) intensiv an der so genannten `Augmented Reality` geforscht. Dieser Begriff, der sich mit 'Erweiterte Realität' (Quelle: \cite{Toe2010}, Seite 1) übersetzen lässt, beschreibt laut \cite{Suthau2002DE} (Seite 1; Englische Publikation: \cite{Suthau2002}) das Konzept, reale Bilder mit zusätzlichen Informationen zu ergänzen.
+In den letzten Jahren wird neben den herkömmlichen Geräten zu Darstellung der Informationen medizinischer Informationssysteme (z.B. Bildschirme) intensiv an der so genannten `Augmented Reality` geforscht. Dieser Begriff, der sich mit 'Erweiterte Realität' (Quelle: \cite[Seite 1]{Toe2010}) übersetzen lässt, beschreibt laut \cite{Suthau2002DE} (Seite 1; Englische Publikation: \cite{Suthau2002}) das Konzept, reale Bilder mit zusätzlichen Informationen zu ergänzen.
 
 \appendix \label{appendixstart}
 \section{Anleitung zur Übersetzung von VERTEBRA}
@@ -91,11 +92,11 @@ Die in dieser Arbeit vorgestellten Geschwindigkeitsmessungen wurden auf der folg
 \end{itemize}
 \section{Quellcode von VERTEBRA}
 \section{Doxygen-Dokumentation von VERTEBRA}
-\section{Selbstständigkeitserklärung}
-Hiermit erkläre ich, dass ich die vorliegende Arbeit in allen Teilen selbstständig verfasst habe und keine anderen als die angegebenen Quellen und Hilfsmittel (einschließlich elektronischer Medien und Onlinequellen) benutzt habe.
 \newpage
 %\nocite{*}
 \renewcommand\refname{Literatur- und Quellenverzeichnis}
-\bibliographystyle{plaindin}
+\bibliographystyle{alphadin}
 \bibliography{visualization}
+\section{Selbstständigkeitserklärung}
+Hiermit erkläre ich, dass ich die vorliegende Arbeit in allen Teilen selbstständig verfasst habe und keine anderen als die angegebenen Quellen und Hilfsmittel (einschließlich Onlinequellen und elektronischer Medien) benutzt habe.
 \end{document}
