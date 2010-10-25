@@ -5,6 +5,7 @@
 \usepackage{hyperref}
 \usepackage{cite}
 \usepackage[german]{varioref}
+\usepackage{natbib}
 
 \title{3D-Tumorvisualisation}
 \subtitle{Seminararbeit}
@@ -42,7 +43,8 @@ Die in dieser Arbeit vorgestellten Verfahren benutzen mathematische Verfahren, u
 \subsubsection{Berechnung auf dem Hauptprozessor}\label{sssec:cpucalculation}
 Die naheliegendste Möglichkeit, Operationen auf großen Mengen volumetrischen Daten durchzuführen, ist, die Berechnungen vom Hauptprozessor des Computers durchführen zu lassen. Die Vorraussetzung hierfür ist, dass 
 \subsubsection{Berechnung auf GPUs}\label{sssec:gpucalculation}
-\subsubsection{}
+\subsubsection{Weitere Möglichkeiten}
+Abgesehen von den bereits diskutierten Möglichkeiten ist mit so genannten FPGAs (Field Programmable Gate Arrays) eine weitere Form der Hardwarebeschleunigung für die Medizinische Visualisationstechnik vorhanden.
 \subsection{Augmented Reality - Zukunft von Visualisationssystemen}\label{sec:augmentedreality}
 In letzter Zeit zeigt sich vor allem durch die große Zahl der Publikationen über dieses Thema, dass sich die Zunkunft von medizinischen Visualisationssystemen in der Augmented Reality befindet. Dieser Begriff, der sich mit 'Virtuelle Realität' übersetzen lässt, \cite{Botden2009}
 \appendix \label{appendixstart}
@@ -77,6 +79,6 @@ Die in dieser Arbeit vorgestellten Geschwindigkeitsmessungen wurden auf der folg
 \section{Selbstständigkeitserklärung}
 \newpage
 \nocite{*}
-\bibliographystyle{alphadin}
+\bibliographystyle{dinat}
 \bibliography{visualization}
 \end{document}
