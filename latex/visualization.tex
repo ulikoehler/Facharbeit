@@ -15,7 +15,6 @@
 %\institute[EMG]{Ernst-Mach-Gymnasium Haar}
 \date{9.~November 2010}
 
-
 \begin{document}
 \maketitle
 \tableofcontents \newpage
@@ -46,7 +45,7 @@ Die naheliegendste Möglichkeit, Operationen auf großen Mengen volumetrischen D
 \subsubsection{Berechnung auf GPUs}\label{sssec:gpucalculation}
 Da die Rechenleistung der Hauptprozessoren moderner Computer für viele der heutigen 3D-Anwendungen nicht mehr ausreicht, enthält ein Grossteil der heutigen Computer Grafikhardware, die in der Lage ist, 3D-Anwendungen zu beschleunigen. Hierbei berechnet der Hauptprozessor die darzustellenden Daten und gibt sie an die Grafikhardware weiter, die diese Daten mithilfe der GPU\footnote{GPU - Graphics Processing Unit - Grafikprozessor} in ein zweidimensionales Bild umwandelt (rendert), das beispielsweise auf einem Monitor angezeigt werden kann.
 
-Um der GPU mitzuteilen, welche Objekte wo im dreidimensionalen Koordinatensystem auf welche Art gerendert werden sollen, müssen Programme ein Grafik-API\footnote{API - Application Programming Interface - Programmierschnittstelle} wie OpenGL (\cite{OpenGLWebsite}) oder DirectX
+Um der GPU mitzuteilen, welche Objekte wo im dreidimensionalen Koordinatensystem auf welche Art gerendert werden sollen, müssen Programme ein Grafik-API\footnote{API - Application Programming Interface - Programmierschnittstelle} wie OpenGL (\cite{OpenGLWebsite}) oder DirectX (\cite{DirectXWebsite})
 
 GPUs neueren Datums können ausserdem so genannte Shader ausführen - kleine Programme, die für bestimmte Untereinheiten der zu visualisierenden Objekte ausgeführt werden. Die Shader-Prozessoren (Untereinheiten der GPU
 \subsubsection{Berechnung auf FPGAs}
@@ -84,7 +83,9 @@ Die in dieser Arbeit vorgestellten Geschwindigkeitsmessungen wurden auf der folg
 \section{Selbstständigkeitserklärung}
 Hiermit erkläre ich, dass ich die vorliegende Arbeit in allen Teilen selbstständig verfasst habe und keine anderen als die angegebenen Quellen und Hilfsmittel (einschließlich elektronischer Medien und Onlinequellen) benutzt habe.
 \newpage
+\section{Literatur- und Quellenverzeichnis}
 %\nocite{*}
-\bibliographystyle{alphadin}
+\renewcommand\refname{Literatur- und Quellenverzeichnis}
+\bibliographystyle{plaindin}
 \bibliography{visualization}
 \end{document}
