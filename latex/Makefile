@@ -8,9 +8,9 @@ pdf:
 	bibtex visualization
 	pdflatex visualization
 	pdflatex visualization
-view:
+view: all
 	okular visualization.dvi
-viewpdf:
+viewpdf: all
 	evince visualization.pdf
 clean:
 	rm *.aux *.bbl *.blg *.log *.backup *.toc

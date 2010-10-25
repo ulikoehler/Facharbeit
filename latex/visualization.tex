@@ -1,13 +1,17 @@
-\documentclass[a4paper]{scrartcl}
+\documentclass[a4paper,12pt]{scrartcl}
 \usepackage[utf8x]{inputenc}
+\usepackage{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
-\usepackage
-[colorlinks=true,linkcolor=red,
- anchorcolor=black,citecolor=green,
- pagecolor=red,urlcolor=cyan,backref,]{hyperref}
+%\usepackage
+%[colorlinks=true,linkcolor=red,
+% anchorcolor=black,citecolor=green,
+% pagecolor=red,urlcolor=cyan,backref,]{hyperref}
 \usepackage{cite}
+\usepackage{url}
 \usepackage[german]{varioref}
+
+\geometry{a4paper,left=3cm,right=3cm,top=2cm,bottom=20mm}
 
 \title{3D-Tumorvisualisation}
 \subtitle{Seminararbeit}
@@ -16,8 +20,8 @@
 \date{9.~November 2010}
 
 \begin{document}
-\maketitle
-\tableofcontents \newpage
+\maketitle\thispagestyle{empty}\newpage
+\tableofcontents\thispagestyle{empty}\newpage
 \section{Einleitung}\label{sec:introduction}
 In dieser Arbeit sollen Methoden und Algorithmen dargestellt werden, die zur dreidimensionalen Visualisation von Tumoren in Echtzeit dienen. Hierzu werden zuerst in Kapitel \vref{ssec:requirements} die allgemeinen Anforderungen und in Kapitel \vref{ssec:applications}
 Anwendungsmöglichkeiten für solche Systeme dargestellt. Darauf aufbauend werden in Kapitel \vref{ssec:concepts} die Konzepte und Algorithmen dargestellt, die im Rahmen dieser Arbeit entwickelt wurden. Zur anschaulichen Darstellung und als Beweis für die Implementierbarkeit dieser Konzepte in Software wurde begleitend zu dieser Arbeit ein Programm (`VERTEBRA`) geschrieben, anhand dessen in Kapitel \vref{ssec:implementations} Möglichkeiten der Implementation der zuvor dargestellten Konzepte und deren Anwendbarkeit in der modernen Medizin diskutiert werden. Da sich diese Arbeit auf dreidimensionale Visualisationssysteme beschränkt, werden in Kapitel \vref{ssec:3dnav} zusätzlich Verfahren zur Navigation im dreidimensionalen Koordinatensystem vorgestellt, wobei besonderen Wert auf die in Kapitel \ref{ssec:requirements} dargestellten Anforderungen gelegt wird.
@@ -47,11 +51,16 @@ Da die Rechenleistung der Hauptprozessoren moderner Computer für viele der heut
 
 Um der GPU mitzuteilen, welche Objekte wo im dreidimensionalen Koordinatensystem auf welche Art gerendert werden sollen, müssen Programme ein Grafik-API\footnote{API - Application Programming Interface - Programmierschnittstelle} wie OpenGL (\cite{OpenGLWebsite}) oder DirectX (\cite{DirectXWebsite}) benutzen. Im konkreten Fall von VERTEBRA fiel die Entscheidung aufgrund der Plattformunabhängigkeit und der Erfahrung der Autors auf OpenGL.
 
-GPUs neueren Datums können ausserdem so genannte Shader ausführen - kleine Programme, die für bestimmte Untereinheiten der zu visualisierenden Objekte ausgeführt werden. Je nachdem, worauf ein Shader angewandt wird,   Die Shader-Prozessoren (Untereinheiten der GPU, die die Shader ausführen), arbeiten massiv parallel.
+GPUs neueren Datums können ausserdem so genannte Shader ausführen - kleine Programme, die für bestimmte Untereinheiten der zu visualisierenden Objekte ausgeführt werden. Je nachdem, worauf ein Shader angewandt wird, TODO Die Shader-Prozessoren (Untereinheiten der GPU, die die Shader ausführen), arbeiten massiv parallel ... TODO
 \subsubsection{Berechnung auf FPGAs}
-Abgesehen von den bereits diskutierten Möglichkeiten ist mit so genannten FPGAs\footnote{FPGA - Field Programmable Gate Array} eine weitere Form der Hardwarebeschleunigung für die Medizinische Visualisationstechnik vorhanden. FPGAs sind ICs\footnote{IC - Integrated Circuit - Integrierter Schaltkreis}, bei denen nach der Herstellung eine anwendungsspezifische Programmierung und Konfiguration möglich ist (\cite{Kibritev2009}, Kapitel 1.7.1, Seite 16). Daher sind die Produktionskosten für ein auf FPGAs basierendes Visualisationssystem wesentlich geringer als bei dedizierter Hardware, die für eine bestimmte Aufgabe gefertigt wurde und nicht nachträglich programmierbar ist. Wie bereits in Kapitel \vref{ssec:swhwcomparison} diskutiert stellt Bruckner in \cite{Bruckner2008} Nachteile von hardwarebasiertem Rendering gegenüber softwarebasierten Darstellungen in Bezug auf große volumetrische Datensätze dar. FPGAs erlauben, wie Leeser et al. in \cite{Leeser2005} mithilfe einer Implementation des Parallel-Beam Backprojection-Algorithmus zeigen, eine performante Implementation dieser Softwarealgorithmen. In \cite{Thomas2009} findet sich ein Vergleich die Performanz von CPU-, GPU- und FPGA-basierten Systemen anhand von Zufallszahlenalgorithmen - wie aus Tabelle 6 ersichlich liefert das im Experiment benutzt FPGA-basierte System bei zwei der drei dargestellen Verteilungen, die jeweils unterschiedliche Algorithmen benötigen bessere Resultate (also eine größere Zahl generierter Zufallszahlen pro Zeiteinheit) als die anderen getesteten Plattformen.
-\subsection{Augmented Reality - Zukunft von Visualisationssystemen}\label{sec:augmentedreality}
-In den letzten Jahren wird neben den herkömmlichen Geräten zu Darstellung der Informationen medizinischer Informationssysteme (z.B. Bildschirme) intensiv an der so genannten `Augmented Reality` geforscht. Dieser Begriff, der sich mit 'Erweiterte Realität' (Quelle: \cite{Toe2010}, Seite 1) übersetzen lässt, beschreibt laut \cite{Suthau2002DE} (Seite 1; Englische Publikation: \cite{Suthau2002}) das Konzept, reale Bilder mit zusätzlichen Informationen zu ergänzen. 
+Abgesehen von den bereits diskutierten Möglichkeiten ist mit so genannten FPGAs\footnote{FPGA - Field Programmable Gate Array} eine weitere Form der Hardwarebeschleunigung für die medizinische Visualisationstechnik vorhanden. FPGAs sind ICs\footnote{IC - Integrated Circuit - Integrierter Schaltkreis}, bei denen nach der Herstellung eine anwendungsspezifische Programmierung und Konfiguration möglich ist (\cite{Kibritev2009}, Kapitel 1.7.1, Seite 16). Daher sind die Produktionskosten für ein auf FPGAs basierendes Visualisationssystem wesentlich geringer als bei dedizierter Hardware, die für eine bestimmte Aufgabe gefertigt wurde und nicht nachträglich programmierbar ist. Wie bereits in Kapitel \vref{ssec:swhwcomparison} diskutiert stellt Bruckner in \cite{Bruckner2008} Nachteile von hardwarebasiertem Rendering gegenüber softwarebasierten Darstellungen in Bezug auf große volumetrische Datensätze dar. FPGAs erlauben, wie Leeser et al. in \cite{Leeser2005} mithilfe einer Implementation des Parallel-Beam Backprojection-Algorithmus zeigen, eine performante Implementation dieser Softwarealgorithmen. In \cite{Thomas2009} findet sich ein Vergleich die Performanz von CPU-, GPU- und FPGA-basierten Systemen anhand von PRNGs\footnote{PRNG - Pseudo-random number generator - Pseudozufallszahlengenerator} - wie aus Tabelle 6 ersichlich liefert das im Experiment benutzt FPGA-basierte System bei zwei der drei dargestellen Verteilungen, die jeweils unterschiedliche Algorithmen benötigen bessere Resultate (also eine größere Zahl generierter Zufallszahlen pro Zeiteinheit) als die anderen getesteten Plattformen.
+\subsubsection{Surface Rendering}
+Die in dieser Arbeit behandelten Methoden beschränken sich auf das Volume Rendering (`Volumenrendern`), d.h. die Daten werden unter Beachtung der räumlichen Information gerendert. Als Alternative bietet sich das so genannte Surface Rendering (`Oberflächenrendern`) an, bei dem durch mathematische Verfahren Oberflächen im Datensatz gesucht werden, die dann als zusammenhängende Fläche gerendert werden.
+
+Kuszyk et al. stellen in \cite{Kuszyk1996} die Nachteile des Surface Renderings gegenüber dem Volume Rendering dar. Als Beispiel für einen Nachteil des Surface Rendering wird dargestellt, dass Läsionen unter Knochen verborgen werden während Volume Rendering-Algorithmen diese korrekt darstellen (Quelle: \cite{Kuszyk1996}, Abstract). Da die Publikation jedoch schon 1996 veröffentlicht wurde, gelten die Resultate unter Umständen für die heutigen Algorithmen und hochauflösenden Tomographen. Eine aktuellere Darstellung liefern Udupa et al. in \cite{Udupa2009}. Die Autoren kommen zu dem Schluss, dass Surface Rendering-Algorithmen im Bereich der Informationsdarstellung einen kleinen Vorteil gegenüber volumenbasierten Algorithmen haben und außerdem durch den geringeren Bedarf an Rechenzeit und Speicherplatz überlegen sind.
+\section{Augmented Reality - Zukunft von Visualisationssystemen?}\label{sec:augmentedreality}
+In den letzten Jahren wird neben den herkömmlichen Geräten zu Darstellung der Informationen medizinischer Informationssysteme (z.B. Bildschirme) intensiv an der so genannten `Augmented Reality` geforscht. Dieser Begriff, der sich mit 'Erweiterte Realität' (Quelle: \cite{Toe2010}, Seite 1) übersetzen lässt, beschreibt laut \cite{Suthau2002DE} (Seite 1; Englische Publikation: \cite{Suthau2002}) das Konzept, reale Bilder mit zusätzlichen Informationen zu ergänzen.
+
 \appendix \label{appendixstart}
 \section{Anleitung zur Übersetzung von VERTEBRA}
 Um den Quellcode von VERTEBRA in Maschinencode zu übersetzen, werden die folgenden Hilfsprogramme bzw. Bibliotheken benötigt:
@@ -61,7 +70,7 @@ Um den Quellcode von VERTEBRA in Maschinencode zu übersetzen, werden die folgen
  \item DCMTK 3.5.4
 \end{itemize}
 
-Das Qt SDK kann von \cite{QtWebsite} bezogen werden; die DCMTK-Bibliothek, die zum einlesen von DICOM-Daten benutzt wird, wird vom OFFIS e.v. (Oldenburger Forschungs- und Entwicklungsinstitut für Informatik, \cite{OFFISWebsite}) auf \cite{DCMTKWebsite} zu Verfügung gestellt.
+Das Qt SDK kann von \url{http://qt.nokia.com} bezogen werden; die DCMTK-Bibliothek, die zum einlesen von DICOM-Daten benutzt wird, wird vom OFFIS e.v. (Oldenburger Forschungs- und Entwicklungsinstitut für Informatik, \url{http://offis.de}) auf \url{http://www.dcmtk.org/dcmtk.php.de} zu Verfügung gestellt.
 
 Das Programm wurde mit der folgenden Konfiguration erfolgreich getestet (siehe auch Kapitel \vref{apdx:testplatform}):
 \begin{itemize}
@@ -83,9 +92,8 @@ Die in dieser Arbeit vorgestellten Geschwindigkeitsmessungen wurden auf der folg
 \section{Selbstständigkeitserklärung}
 Hiermit erkläre ich, dass ich die vorliegende Arbeit in allen Teilen selbstständig verfasst habe und keine anderen als die angegebenen Quellen und Hilfsmittel (einschließlich elektronischer Medien und Onlinequellen) benutzt habe.
 \newpage
-\section{Literatur- und Quellenverzeichnis}
 %\nocite{*}
-\renewcommand\refname{Quellenverzeichnis}
+\renewcommand\refname{Literatur- und Quellenverzeichnis}
 \bibliographystyle{plaindin}
 \bibliography{visualization}
 \end{document}
