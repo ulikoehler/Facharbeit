@@ -2,10 +2,12 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
-\usepackage{hyperref}
+\usepackage
+[colorlinks=true,linkcolor=red,
+ anchorcolor=black,citecolor=green,
+ pagecolor=red,urlcolor=cyan,backref,]{hyperref}
 \usepackage{cite}
 \usepackage[german]{varioref}
-\usepackage{natbib}
 
 \title{3D-Tumorvisualisation}
 \subtitle{Seminararbeit}
@@ -13,7 +15,6 @@
 %\institute[EMG]{Ernst-Mach-Gymnasium Haar}
 \date{9.~November 2010}
 
-%Registered and Trademark symbols:
 
 \begin{document}
 \maketitle
@@ -24,7 +25,7 @@ Anwendungsmöglichkeiten für solche Systeme dargestellt. Darauf aufbauend werde
 
 Abschließend wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augmented Reality` diskutiert, die in Zukunft eine wichtige Rolle in der medizinischen Visualisationstechnik und speziell im Bereich der Chirurgie spielen könnte.
 
-Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten wurden die Folgenden Themen nicht im Einzelnen behandelt:
+Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten wurden die Folgenden Themen nicht im Detail behandelt:
 \section{Echtzeit-Tumorvisualisationssysteme}\label{sec:vissystems}
 \subsection{Anforderungen}\label{ssec:requirements}
 \subsection{Anwendungsmöglichkeiten}\label{ssec:applications}
@@ -44,11 +45,10 @@ Die in dieser Arbeit vorgestellten Verfahren benutzen mathematische Verfahren, u
 Die naheliegendste Möglichkeit, Operationen auf großen Mengen volumetrischen Daten durchzuführen, ist, die Berechnungen vom Hauptprozessor des Computers durchführen zu lassen. Die Vorraussetzung hierfür ist, dass 
 \subsubsection{Berechnung auf GPUs}\label{sssec:gpucalculation}
 \subsubsection{Weitere Möglichkeiten}
-Abgesehen von den bereits diskutierten Möglichkeiten ist mit so genannten FPGAs (Field Programmable Gate Arrays) eine weitere Form der Hardwarebeschleunigung für die Medizinische Visualisationstechnik vorhanden.
+Abgesehen von den bereits diskutierten Möglichkeiten ist mit so genannten FPGAs\footnote{FPGA - Field Programmable Gate Array} eine weitere Form der Hardwarebeschleunigung für die Medizinische Visualisationstechnik vorhanden. FPGAs sind Chips, bei denen nach der Herstellung eine anwendungsspezifische Programmierung und Konfiguration möglich ist (\cite{Kibritev2009}, Kapitel 1.7.1, Seite 16). 
 \subsection{Augmented Reality - Zukunft von Visualisationssystemen}\label{sec:augmentedreality}
-In letzter Zeit zeigt sich vor allem durch die große Zahl der Publikationen über dieses Thema, dass sich die Zunkunft von medizinischen Visualisationssystemen in der Augmented Reality befindet. Dieser Begriff, der sich mit 'Virtuelle Realität' übersetzen lässt, \cite{Botden2009}
+In letzter Zeit zeigt sich vor allem durch die große Zahl der Publikationen über dieses Thema, dass sich die Zunkunft von medizinischen Visualisationssystemen in der Augmented Reality befindet. Dieser Begriff, der sich mit 'Erweiterte Realität' (Quelle: \cite{Toe2010}, Seite 1) übersetzen lässt, beschreibt laut \cite{Suthau2002DE}\footnote (Seite 1; Englische Publikation: \cite{Suthau2002}) das Konzept, reale Bilder mit zusätzlichen Informationen zu ergänzen.
 \appendix \label{appendixstart}
-\subsection{Anforderungen}\label{ssec:requirements}
 \section{Anleitung zur Übersetzung von VERTEBRA}
 Um den Quellcode von VERTEBRA in Maschinencode zu übersetzen, werden die folgenden Hilfsprogramme bzw. Bibliotheken benötigt:
 \begin{itemize}
@@ -77,8 +77,9 @@ Die in dieser Arbeit vorgestellten Geschwindigkeitsmessungen wurden auf der folg
 \section{Quellcode von VERTEBRA}
 \section{Doxygen-Dokumentation von VERTEBRA}
 \section{Selbstständigkeitserklärung}
+Hiermit erkläre ich, dass ich die vorliegende Arbeit in allen Teilen selbstständig verfasst habe und keine anderen als die angegebenen Quellen und Hilfsmittel (einschließlich elektronischer Medien und Onlinequellen) benutzt habe.
 \newpage
 \nocite{*}
-\bibliographystyle{dinat}
+\bibliographystyle{alphadin}
 \bibliography{visualization}
 \end{document}
