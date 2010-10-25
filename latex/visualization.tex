@@ -12,6 +12,7 @@
 %\institute[EMG]{Ernst-Mach-Gymnasium Haar}
 \date{9.~November 2010}
 
+%Registered and Trademark symbols:
 
 \begin{document}
 \maketitle
@@ -20,42 +21,61 @@
 In dieser Arbeit sollen Methoden und Algorithmen dargestellt werden, die zur dreidimensionalen Visualisation von Tumoren in Echtzeit dienen. Hierzu werden zuerst in Kapitel \vref{ssec:requirements} die allgemeinen Anforderungen und in Kapitel \vref{ssec:applications}
 Anwendungsmöglichkeiten für solche Systeme dargestellt. Darauf aufbauend werden in Kapitel \vref{ssec:concepts} die Konzepte und Algorithmen dargestellt, die im Rahmen dieser Arbeit entwickelt wurden. Zur anschaulichen Darstellung und als Beweis für die Implementierbarkeit dieser Konzepte in Software wurde begleitend zu dieser Arbeit ein Programm (`VERTEBRA`) geschrieben, anhand dessen in Kapitel \vref{ssec:implementations} Möglichkeiten der Implementation der zuvor dargestellten Konzepte und deren Anwendbarkeit in der modernen Medizin diskutiert werden. Da sich diese Arbeit auf dreidimensionale Visualisationssysteme beschränkt, werden in Kapitel \vref{ssec:3dnav} zusätzlich Verfahren zur Navigation im dreidimensionalen Koordinatensystem vorgestellt, wobei besonderen Wert auf die in Kapitel \ref{ssec:requirements} dargestellten Anforderungen gelegt wird.
 
-Letztendlich wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augmented Reality` diskutiert, die in Zukunft eine wichtige Rolle in der medizinischen Visualisationstechnik und speziell im Bereich der Chirurgie spielen könnte.
+Abschließend wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augmented Reality` diskutiert, die in Zukunft eine wichtige Rolle in der medizinischen Visualisationstechnik und speziell im Bereich der Chirurgie spielen könnte.
 
-Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten.
+Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten werden die folgenden Themen 
 \section{Echtzeit-Tumorvisualisationssysteme}\label{sec:vissystems}
 \subsection{Anforderungen}\label{ssec:requirements}
 \subsection{Anwendungsmöglichkeiten}\label{ssec:applications}
-Als Begleitprojekt zu dieser Arbeit wurde das Programm VERTEBRA
-(Volumetric Examiner for Radiological and Tomographical Experimental Basic Realtime Analysis) geschrieben, dessen Hauptzweck
-darin besteht, die Machbarkeit in dieser Arbeit vorgestellten Konzepte zu demonstrieren und im Rahmen der erreichbaren Genauigkeit
-vergleichbare Daten über die Echtzeittauglichkeit der Algorithmen und Verfahren zu liefern.\\
-VERTEBRA ist ein Proof-of-Concept-Projekt, zielt also nicht darauf ab, ein im medizinischen Alltag einsetzbares Produkt zu sein oder
-die für eine Zulassung nach dem Medizinproduktegesetz (bezogen auf deutsches Recht) notwendigen Vorraussetzungen zu schaffen.
+Schon heute werden verschiedene medizinische Visualisationssysteme in den verschiedensten Bereichen der Medizin eingesetzt. 
 \section{Konzepte zur Visualisation von Tumoren}\label{ssec:concepts}
 \subsection{Implementationsmöglichkeiten am Beispiel des Projektes VERTEBRA}\label{ssec:implementations}
+Als Begleitprojekt zu dieser Arbeit wurde das Programm VERTEBRA
+(Volumetric Examiner for Radiological and Tomographical Experimental Basic Realtime Analysis) geschrieben, dessen Hauptzweck darin besteht, die Machbarkeit in dieser Arbeit vorgestellten Konzepte zu demonstrieren und im Rahmen der erreichbaren Genauigkeit vergleichbare Daten über die Echtzeittauglichkeit der Algorithmen und Verfahren zu liefern \\
+VERTEBRA ist ein Proof-of-Concept-Projekt, zielt also nicht darauf ab, ein im medizinischen Alltag einsetzbares Produkt zu sein oder die für eine Zulassung nach dem Medizinproduktegesetz (bezogen auf deutsches Recht) notwendigen Vorraussetzungen zu schaffen.
 \subsection{Algorithmen zur Navigation im 3D-Koordinatensystem}\label{ssec:3dnav}
 \subsection{Grenzen der in dieser Arbeit vorgestellten Konzepte}\label{ssec:limits}
 \paragraph{Abhängigkeit von den Eingabedaten}
-Die in dieser Arbeit vorgestellten Verfahren benutzen mathematische Verfahren, um eine Eingabedatenmenge variabler Größe
-in eine Menge an Eingabedaten zu übersetzen, die von spezialisierter Grafikhardware mathematisch in ein zweidimensionales Ausgangsbild
-umgerechnet wird, um auf einem visuellen Ausgabegerät, zum Beispiel einem Monitor angezeigt zu werden. Aufgrund dieser mathematischen
-Umrechnung basieren die Ausgabedatenmengen dieser Algorithmen ausschließlich auf den Eingabedatenmengen, die üblicherweise Datensätze aus
-tomografischen Scannern repräsentieren und den Konfigurationsparametern der Algorithmen.
+Die in dieser Arbeit vorgestellten Verfahren benutzen mathematische Verfahren, um eine Eingabedatenmenge variabler Größe in eine Menge an Eingabedaten zu übersetzen, die von spezialisierter Grafikhardware mathematisch in ein zweidimensionales Ausgangsbild umgerechnet wird, um auf einem visuellen Ausgabegerät, zum Beispiel einem Monitor angezeigt zu werden. Aufgrund dieser mathematischen Umrechnung basieren die Ausgabedatenmengen dieser Algorithmen ausschließlich auf den Eingabedatenmengen, die üblicherweise Datensätze aus tomografischen Scannern repräsentieren und den Konfigurationsparametern der Algorithmen.
 \subsection{Vergleich von Methoden zur Berechnung von Visualisationsdaten über große Datenmengen}
-\subsubsection{Vergleich von Software- und Hardware-Algorithmen zum Rendern der Visualisationsdaten}\label{ssec:swhwcomparison}
-\subsubsection{CPU-Vorabberechnung}\label{sssec:cpucalculation}
+\subsubsection{Vergleich von Algorithmen}\label{ssec:swhwcomparison}
+\subsubsection{Berechnung auf dem Hauptprozessor}\label{sssec:cpucalculation}
+Die naheliegendste Möglichkeit, Operationen  auf großen Mengen volumetrischen Daten durchzuführen
 \subsubsection{Berechnung auf GPUs}\label{sssec:gpucalculation}
 \subsection{Augmented Reality - Zukunft von Visualisationssystemen}\label{sec:augmentedreality}
-In letzter Zeit zeigt sich vor allem durch die große Zahl der Publikationen über dieses Thema, dass sich die Zunkunft von medizinischen
-Visualisationssystemen in der Augmented Reality befindet. Dieser Begriff, der sich mit 'Virtuelle Relatität' übersetzen lässt, \cite{Botden2009}
+In letzter Zeit zeigt sich vor allem durch die große Zahl der Publikationen über dieses Thema, dass sich die Zunkunft von medizinischen Visualisationssystemen in der Augmented Reality befindet. Dieser Begriff, der sich mit 'Virtuelle Realität' übersetzen lässt, \cite{Botden2009}
 \appendix \label{appendixstart}
-\section{Testplattform}\newpage\newpage\newpage
 \subsection{Anforderungen}\label{ssec:requirements}
-\section{Quellcode von VERTEBRA}
 \section{Anleitung zur Übersetzung von VERTEBRA}
+Um den Quellcode von VERTEBRA in Maschinencode zu übersetzen, werden die folgenden Hilfsprogramme bzw. Bibliotheken benötigt:
+\begin{itemize}
+ \item C++-Compiler kompatibel zu ISO/IEC C++ 2003
+ \item Qt Software Development Toolkit (SDK): minimal Version 4.7.0 = Qt SDK 2009.05.1
+ \item DCMTK 3.5.4
+\end{itemize}
+
+Das Qt SDK kann von \cite{QtMainSite} bezogen werden; die DCMTK-Bibliothek, die zum einlesen von DICOM-Daten benutzt wird, wird vom OFFIS e.v. (Oldenburger Forschungs- und Entwicklungsinstitut für Informatik, \cite{OFFISMainSite}) auf \cite{DCMTKMainSite} zu Verfügung gestellt.
+
+Das Programm wurde mit der folgenden Konfiguration erfolgreich getestet (siehe auch Kapitel \vref{apdx:testplatform}):
+\begin{itemize}
+ \item C++-Compiler: GNU Compiler Collection \textit{gcc (Ubuntu/Linaro 4.4.4-14ubuntu5) 4.4.5}
+ \item Qt SDK: 4.7.00 = Qt SDK 2009.05.1
+\end{itemize}
+
+\section{Testplattform}\label{apdx:testplatform}
+Die in dieser Arbeit vorgestellten Geschwindigkeitsmessungen wurden auf der folgenden Plattform durchgeführt:
+\begin{itemize}
+  \item Dell Inspiron 530
+  \item CPU: Intel\textsuperscript{\textregistered} Core\texttrademark 2 Duo E8300; 2.83GHz Taktfrequenz
+  \item Betriebssystem: KUbuntu 10.10 x86\_64; Kernel 2.6.35-22-generic x86\_64
+  \item Grafikhardware: NVidia\textsuperscript{\textregistered} GeForce 9400 GT, PCI Express x16\\
+	Treiber 260.19.06 (Konfiguration: High Performance)
+\end{itemize}
+\section{Quellcode von VERTEBRA}
 \section{Doxygen-Dokumentation von VERTEBRA}
 \section{Selbstständigkeitserklärung}
+\newpage
+\nocite{*}
 \bibliographystyle{alphadin}
 \bibliography{visualization}
 \end{document}
