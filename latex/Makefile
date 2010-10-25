@@ -10,7 +10,7 @@ pdf:
 	pdflatex visualization
 view: all
 	okular visualization.dvi
-viewpdf: all
+viewpdf: pdf
 	evince visualization.pdf
 clean:
 	rm *.aux *.bbl *.blg *.log *.backup *.toc
