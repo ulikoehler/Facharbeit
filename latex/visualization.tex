@@ -25,7 +25,7 @@ Anwendungsmöglichkeiten für solche Systeme dargestellt. Darauf aufbauend werde
 
 Abschließend wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augmented Reality` diskutiert, die in Zukunft eine wichtige Rolle in der medizinischen Visualisationstechnik und speziell im Bereich der Chirurgie spielen könnte.
 
-Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten wurden die Folgenden Themen nicht im Detail behandelt:
+Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten wurden die Folgenden Themen nicht im Detail behandelt.
 \section{Echtzeit-Tumorvisualisationssysteme}\label{sec:vissystems}
 \subsection{Anforderungen}\label{ssec:requirements}
 \subsection{Anwendungsmöglichkeiten}\label{ssec:applications}
@@ -40,14 +40,14 @@ VERTEBRA ist ein Proof-of-Concept-Projekt, zielt also nicht darauf ab, ein im me
 \paragraph{Abhängigkeit von den Eingabedaten}
 Die in dieser Arbeit vorgestellten Verfahren benutzen mathematische Verfahren, um eine Eingabedatenmenge variabler Größe in eine Menge an Eingabedaten zu übersetzen, die von spezialisierter Grafikhardware mathematisch in ein zweidimensionales Ausgangsbild umgerechnet wird, um auf einem visuellen Ausgabegerät, zum Beispiel einem Monitor angezeigt zu werden. Aufgrund dieser mathematischen Umrechnung basieren die Ausgabedatenmengen dieser Algorithmen ausschließlich auf den Eingabedatenmengen, die üblicherweise Datensätze aus tomografischen Scannern repräsentieren und den Konfigurationsparametern der Algorithmen.
 \subsection{Vergleich von Methoden zur Berechnung von Visualisationsdaten über große Datenmengen}
-\subsubsection{Vergleich von Algorithmen}\label{ssec:swhwcomparison}
+\subsubsection{Vergleich von Software- und Hardwarealgorithmen}\label{ssec:swhwcomparison}
 \subsubsection{Berechnung auf dem Hauptprozessor}\label{sssec:cpucalculation}
 Die naheliegendste Möglichkeit, Operationen auf großen Mengen volumetrischen Daten durchzuführen, ist, die Berechnungen vom Hauptprozessor des Computers durchführen zu lassen. Die Vorraussetzung hierfür ist, dass 
 \subsubsection{Berechnung auf GPUs}\label{sssec:gpucalculation}
 \subsubsection{Weitere Möglichkeiten}
-Abgesehen von den bereits diskutierten Möglichkeiten ist mit so genannten FPGAs\footnote{FPGA - Field Programmable Gate Array} eine weitere Form der Hardwarebeschleunigung für die Medizinische Visualisationstechnik vorhanden. FPGAs sind Chips, bei denen nach der Herstellung eine anwendungsspezifische Programmierung und Konfiguration möglich ist (\cite{Kibritev2009}, Kapitel 1.7.1, Seite 16). 
+Abgesehen von den bereits diskutierten Möglichkeiten ist mit so genannten FPGAs\footnote{FPGA - Field Programmable Gate Array} eine weitere Form der Hardwarebeschleunigung für die Medizinische Visualisationstechnik vorhanden. FPGAs sind Chips, bei denen nach der Herstellung eine anwendungsspezifische Programmierung und Konfiguration möglich ist (\cite{Kibritev2009}, Kapitel 1.7.1, Seite 16). Daher sind die Produktionskosten für ein auf FPGAs basierendes Visualisationssystem wesentlich geringer als bei dedizierter Hardware, die für eine bestimmte Aufgabe gefertigt wurde und nicht nachträglich programmierbar ist. Wie bereits in Kapitel \vref{sssec:swhwcomparison} diskutiert stellt Bruckner in \cite{Bruckner08} Nachteile von hardwarebasiertem Rendering gegenüber softwarebasierten Darstellungen in Bezug auf große Volumetrische Datensätze dar. FPGAs erlauben, wie Leeser et al. in \cite{Leeser2005} mithilfe einer Implementation des Parallel-Beam Backprojection-Algorithmus zeigen, eine sehr performante Implementation dieser Softwarealgorithmen. In \cite{Thomas2009} findet sich ein Vergleich die Performanz von CPU-, GPU- und FPGA-basierten Systemen anhand von Zufallszahlenalgorithmen - wie aus Tabelle 6 ersichlich liefert das im Experiment benutzt FPGA-basierte System bei zwei der drei dargestellen Verteilungen, die jeweils unterschiedliche Algorithmen benötigen weit bessere Resultate (also eine größere Zahl generierter Zufallszahlen pro Zeiteinheit) als die anderen getesteten Plattformen.
 \subsection{Augmented Reality - Zukunft von Visualisationssystemen}\label{sec:augmentedreality}
-In letzter Zeit zeigt sich vor allem durch die große Zahl der Publikationen über dieses Thema, dass sich die Zunkunft von medizinischen Visualisationssystemen in der Augmented Reality befindet. Dieser Begriff, der sich mit 'Erweiterte Realität' (Quelle: \cite{Toe2010}, Seite 1) übersetzen lässt, beschreibt laut \cite{Suthau2002DE}\footnote (Seite 1; Englische Publikation: \cite{Suthau2002}) das Konzept, reale Bilder mit zusätzlichen Informationen zu ergänzen.
+In den letzten Jahren wird neben den herkömmlichen Geräten zu Darstellung der Informationen medizinischer Informationssysteme (z.B. Bildschirme) intensiv an der so genannten `Augmented Reality` geforscht. Dieser Begriff, der sich mit 'Erweiterte Realität' (Quelle: \cite{Toe2010}, Seite 1) übersetzen lässt, beschreibt laut \cite{Suthau2002DE} (Seite 1; Englische Publikation: \cite{Suthau2002}) das Konzept, reale Bilder mit zusätzlichen Informationen zu ergänzen. 
 \appendix \label{appendixstart}
 \section{Anleitung zur Übersetzung von VERTEBRA}
 Um den Quellcode von VERTEBRA in Maschinencode zu übersetzen, werden die folgenden Hilfsprogramme bzw. Bibliotheken benötigt:
@@ -57,7 +57,7 @@ Um den Quellcode von VERTEBRA in Maschinencode zu übersetzen, werden die folgen
  \item DCMTK 3.5.4
 \end{itemize}
 
-Das Qt SDK kann von \cite{QtMainSite} bezogen werden; die DCMTK-Bibliothek, die zum einlesen von DICOM-Daten benutzt wird, wird vom OFFIS e.v. (Oldenburger Forschungs- und Entwicklungsinstitut für Informatik, \cite{OFFISMainSite}) auf \cite{DCMTKMainSite} zu Verfügung gestellt.
+Das Qt SDK kann von \cite{QtWebsite} bezogen werden; die DCMTK-Bibliothek, die zum einlesen von DICOM-Daten benutzt wird, wird vom OFFIS e.v. (Oldenburger Forschungs- und Entwicklungsinstitut für Informatik, \cite{OFFISWebsite}) auf \cite{DCMTKWebsite} zu Verfügung gestellt.
 
 Das Programm wurde mit der folgenden Konfiguration erfolgreich getestet (siehe auch Kapitel \vref{apdx:testplatform}):
 \begin{itemize}
@@ -79,7 +79,7 @@ Die in dieser Arbeit vorgestellten Geschwindigkeitsmessungen wurden auf der folg
 \section{Selbstständigkeitserklärung}
 Hiermit erkläre ich, dass ich die vorliegende Arbeit in allen Teilen selbstständig verfasst habe und keine anderen als die angegebenen Quellen und Hilfsmittel (einschließlich elektronischer Medien und Onlinequellen) benutzt habe.
 \newpage
-\nocite{*}
+%\nocite{*}
 \bibliographystyle{alphadin}
 \bibliography{visualization}
 \end{document}
