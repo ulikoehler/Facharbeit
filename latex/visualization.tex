@@ -4,6 +4,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage[ngerman]{babel}
+\usepackage{ngerman}
+%\usepackage{german}
 %\usepackage
 %[colorlinks=true,linkcolor=red,
 % anchorcolor=black,citecolor=green,
@@ -37,6 +39,7 @@ Abschließend wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augme
 Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten wurden die folgenden Themen nicht im Detail behandelt.
 \section{Echtzeit-Tumorvisualisationssysteme}\label{sec:vissystems}
 \subsection{Anforderungen}\label{ssec:requirements}
+Um die Anforderungen für Echtzeit-Tumorvisualisationssysteme zu erläutern, muss zuerst der Begriff definiert werden:
 
 \subsection{Anwendungsmöglichkeiten}\label{ssec:applications}
 Schon heute werden verschiedene medizinische Visualisationssysteme in den verschiedensten Bereichen der Medizin eingesetzt. 
@@ -78,10 +81,12 @@ Abgesehen von den bereits diskutierten Möglichkeiten ist mit so genannten FPGAs
 Neben den dargestellten Visualisationsmethoden gibt es durchaus Ansätze, die für die Visualisation nötigen Berechnungen auf spezialisierter Hardware auszuführen. Aufgrund des geringen Umfangs dieser Arbeit soll an dieser Stelle lediglich ein Überblick über die bereits bestehenden Hardwareplattformen gegeben werden. Diese Zusammenstellung basiert auf \cite[Kapitel 2.5.5, Seite 14]{Bruckner2004}.
 \begin{itemize}
  \item Günter Knittel beschreibt in \cite{Knittel1995} mit VOGUE eine skalierbare Architektur für Volumenrendering
- \item VIRIM ist eine massiv-parallele, echtzeitfähige Volumenrenderingarchitektur, die in \cite{Günther1995} beschrieben wird
- \item In \cite{Meißner2002} beschreiben Meißner et al. VIZARD II, eine interaktive und rekonfigurierbare Volumenrenderingarchitektur
+ \item VIRIM ist eine massiv-parallele, echtzeitfähige Volumenrenderingarchitektur, die in \cite{Guenther1995} beschrieben wird
+ \item In \cite{Meissner2002} beschreiben Meißner et al. VIZARD II, eine interaktive und rekonfigurierbare Volumenrenderingarchitektur
+ \item Eine kostenoptimierte, echtzeitfähige Architektur namens EM-Cube beschreiben Osborne et al. in \cite{Osborne1997}
+ \item EM-Cube dient zudem als Basis für das kommerziell verfügbare VolumePro board, das in \cite{Pfister1999} beschrieben wird (vgl. \cite[Kapitel 2.2.5, Seite 14]{Bruckner2004})
 \end{itemize}
-Insbesondere bei \cite{Knittel1995} sowie \cite{Günther1995} ist zu beachten, dass das Publikationsdatum sehr lange zurückliegt und daher unter Umständen die Kriterien nicht
+Insbesondere bei \cite{Knittel1995}, \cite{Guenther1995} sowie \cite{Osborne1997} ist zu beachten, dass das Publikationsdatum sehr lange zurückliegt und daher unter Umständen nicht ausreichend mit aktueller Hardware zusammenarbeiten - beispielsweise könnte die Auflösung und Geschwindigkeit der heutigen Tomographen für die echtzeitfähigen Systeme ein Problem darstellen. Das kommerziell verfügbare VolumePro-Board aus \cite{Pfister1999} ist jedoch laut \cite[Kapitel 2.2.5, Seite 14]{Bruckner2004} fähig, einen Datensatz mit einer Auflösung von 512 in allen drei Raumdimensionen mit einer Geschwindigkeit von 30 FPS\footnote{FPS - Frames per second - Bilder pro Sekunde} zu rendern.
 \subsubsection{Surface Rendering}
 Die in dieser Arbeit behandelten Methoden beschränken sich auf das Volume Rendering (`Volumenrendern`), d.h. die Daten werden unter Beachtung der räumlichen Information gerendert. Als Alternative bietet sich das so genannte Surface Rendering (`Oberflächenrendern`) an, bei dem durch mathematische Verfahren Oberflächen im Datensatz gesucht werden, die dann als zusammenhängende Fläche gerendert werden. 
 
@@ -104,7 +109,7 @@ Das Qt SDK kann von \url{http://qt.nokia.com} bezogen werden; die DCMTK-Biblioth
 Das Programm wurde mit der folgenden Konfiguration erfolgreich getestet (siehe auch Kapitel \vref{apdx:testplatform}):
 \begin{itemize}
  \item C++-Compiler: GNU Compiler Collection \textit{gcc (Ubuntu/Linaro 4.4.4-14ubuntu5) 4.4.5}
- \item Qt SDK: 4.7.00 = Qt SDK 2009.05.1
+ \item Qt SDK: 4.7.0 = Qt SDK 2009.05.1
 \end{itemize}
 
 \section{Testplattform}\label{apdx:testplatform}
