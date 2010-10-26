@@ -37,24 +37,25 @@
 \maketitle\thispagestyle{empty}\newpage
 \tableofcontents\thispagestyle{empty}\newpage
 \section{Einleitung}\label{sec:introduction}
-In dieser Arbeit sollen Methoden und Algorithmen dargestellt werden, die zur dreidimensionalen Visualisation von Tumoren in Echtzeit dienen. Hierzu werden zuerst in Kapitel \vref{ssec:requirements} die allgemeinen Anforderungen und in Kapitel \vref{ssec:applications}
-Anwendungsmöglichkeiten für solche Systeme dargestellt. Darauf aufbauend werden in Kapitel \vref{ssec:concepts} die Konzepte und Algorithmen dargestellt, die im Rahmen dieser Arbeit entwickelt wurden. Zur anschaulichen Darstellung und als Beweis für die Implementierbarkeit dieser Konzepte in Software wurde begleitend zu dieser Arbeit ein Programm (`VERTEBRA`) geschrieben, anhand dessen in Kapitel \vref{ssec:implementations} Möglichkeiten der Implementation der zuvor dargestellten Konzepte und deren Anwendbarkeit in der modernen Medizin diskutiert werden. Da sich diese Arbeit auf dreidimensionale Visualisationssysteme beschränkt, werden in Kapitel \vref{ssec:3dnav} zusätzlich Verfahren zur Navigation im dreidimensionalen Koordinatensystem vorgestellt, wobei besonderen Wert auf die in Kapitel \ref{ssec:requirements} dargestellten Anforderungen gelegt wird.
+In dieser Arbeit sollen Methoden und Algorithmen diskutiert und verglichen werden, die zur dreidimensionalen Visualisation von Tumoren in Echtzeit dienen. Hierzu werden zuerst in Kapitel \vref{ssec:requirements} nach einer allgemeinen Definition dieses Begriffs die allgemeinen Anforderungen sowie in Kapitel \vref{ssec:applications} Anwendungsmöglichkeiten für solche Systeme dargestellt. Darauf aufbauend werden in Kapitel \vref{ssec:concepts} die Konzepte und Algorithmen dargestellt, die im Rahmen dieser Arbeit entwickelt wurden. Zur anschaulichen Darstellung und als Beweis für die performante Implementierbarkeit dieser Konzepte wurde begleitend zu dieser Arbeit ein Programm (`VERTEBRA`) geschrieben, anhand dessen in Kapitel \vref{ssec:implementations} verschiedene Implementationsmöglichkeiten der zuvor dargestellten Konzepte und deren Anwendbarkeit in der modernen Medizin diskutiert werden. 
 
-Abschließend wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augmented Reality` diskutiert, die in Zukunft eine wichtige Rolle in der medizinischen Visualisationstechnik und speziell im Bereich der Chirurgie spielen könnte. Zudem wird in diesem Kapitel die Anwendbarkeit der in dieser Arbeit vorgestellten Konzepte auf die Augmented Reality analysiert.
+Anschließend wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augmented Reality` diskutiert, die in Zukunft eine wichtige Rolle in der medizinischen Visualisationstechnik, speziell im Bereich der Chirurgie spielen könnte. Zudem wird in diesem Kapitel die Anwendbarkeit der in dieser Arbeit vorgestellten Konzepte auf Augmented Reality-basierte Systeme betrachtet.
+In Kapitel \vref{ssec:existingtvss} wird eine Auswahl aus bereits existierenden Systemen (einschließlich fortgeschrittenen Forschungsprojekten) zur medizinischen Visualisation betrachtet, die den Großteil der in Kapitel \ref{ssec:requirements} geforderten Bedingungen erfüllen. Hierbei liegt der Fokus vor allem auf Sytemen, die Methoden oder Konzepte der Augmented Reality nutzen.
 
-Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten wurden die folgenden Themen nicht im Detail behandelt.
+Mit dem abschließenden Schlussteil, der in Kurzform die wichtigsten Thesen, Konzepte und Resultate rekapituliert endet der Hauptteil dieser Arbeit - das Inhaltsverzeichnis der Begleit-CD sowie das Literatur- und Quellenverzeichnis,s das Abbildungsverzeichnis, eine technische Beschreibung der Plattform, auf der VERTEBRA getestet wurde sowie die obligatorische Selbstständigkeitserklärung bilden den Anhang dieses Dokuments.
 \section{Echtzeit-Tumorvisualisationssysteme}\label{sec:vissystems}
 \subsection{Anforderungen}\label{ssec:requirements}
+Uli Köhler
 Um die Anforderungen für Echtzeit-Tumorvisualisationssysteme zu erläutern, muss der Begriff zuerst mit allen zu erfüllenden Anforderungen definiert werden:
 \begin{boxedDefinition}[Echtzeit-Tumorvisualisationssystem]\label{def:rttumorvissystem}
- Als Echtzeit-Tumorvisualisationssystem sei ein System definiert, das in Echtzeit unter berücksichtigung von Interaktionen in der Lage ist, aus nicht notwendigermassen konstanten dreidimensionalen Eingabedaten, die bestimmte Eigenschaften eines realen Raumvolumens repräsentieren, hochqualitative Ausgabedaten zu generieren, die auf visuellen Ausgabegeräten in ein Weise dargestellt werden können, aus der menschliche Benutzer einfacher, schneller oder genauer Informationen über Tumoren, die möglicherweise im Raumvolumen, das die Eingabedaten repräsentieren, vorhanden sind. Ein Tumor in diesem Kontext sei eine Raumforderung, die sich beim verwendeten Verfahren, die medizinischen Eingabedaten zu gewinnen, vom umgebenden Gewebe oder Raum abzeichnet.
+ Als Echtzeit-Tumorvisualisationssystem sei ein System definiert, das in Echtzeit unter Berücksichtigung von Interaktionen in der Lage ist, aus nicht notwendigermassen konstanten dreidimensionalen Eingabedaten, die bestimmte Eigenschaften eines realen Raumvolumens repräsentieren, hochqualitative Ausgabedaten zu generieren, die auf visuellen Ausgabegeräten in ein Weise dargestellt werden können, aus der menschliche Benutzer einfacher, schneller oder genauer Informationen über Tumoren, die möglicherweise im Raumvolumen, das die Eingabedaten repräsentieren, vorhanden sind. Ein Tumor im Sinne dieser Definition sei eine Raumforderung oder Gewebeanomalie, die sich beim verwendeten Verfahren, die medizinischen Eingabedaten zu gewinnen, vom umgebenden Gewebe oder Raum abzeichnet.
 \end{boxedDefinition}
 \paragraph{Vergleich zu \cite[Kapitel 3.1.1, Seite 14f.]{Bruckner2004}}\paranl
 Anmerkung: Diese Definition unterscheidet sich von den in \cite[Kapitel 3.1.1, Seite 14]{Bruckner2004} beschriebenen Anforderungen durch die Spezialisierung auf Tumoren, die geforderte Echtzeitfähigkeit sowie die nicht vorhandene Anforderung, das System in reiner Software zu implementieren (siehe dazu auch Kapitel \vref{ssec:swhwcomparison}). 
 
 
 Im Einzelnen sind die Anforderungen wie folgt zu beschreiben:
-\paragraph{Echtzeitfähigkeit} \label{p:rtcapability} Das System muss in der Lage sein, Eingabedaten in Echtzeit zu verarbeiten, sodass der menschliche Benutzer eine Änderung der Ausgabedaten nicht als Einzelbildsequenz sondern als dynamischen Prozess wahrnimmt (vgl \cite[Kapitel 1, Seite 1]{Moeller2008}). Eine Vergleichsgrösse ist die Einheit FPS, die die Anzahl der Bilder pro Sekunde angibt. Möller et al. definieren in \cite{Moeller2008}, dass ab 6 FPS für das menschliche Auge der Übergang von Einzelbildern zu einer Bewegung zunimmt und ab 15 FPS ein Programm als sicher echtzeitfähig gelten kann - ab 72 FPS kann das menschliche Auge keinen Unterschied mehr entdecken (vgl. \cite[Kapitel 1, Seite 1]{Moeller2008}). Als weiteres Kriterium führen Möller et al. an, dass ein derartiges System fähig sein muss, auf Benutzerinteraktionen mit geringer Latenzzeit zu reagieren (vgl. \cite[Kapitel 1, Seite 1]{Moeller2008}).
+\paragraph{Echtzeitfähigkeit und Interaktionsfähigkeit} \label{p:rtcapability} Das System muss in der Lage sein, Eingabedaten in Echtzeit zu verarbeiten, sodass der menschliche Benutzer eine Änderung der Ausgabedaten nicht als Einzelbildsequenz sondern als dynamischen Prozess wahrnimmt (vgl \cite[Kapitel 1, Seite 1]{Moeller2008}). Eine Vergleichsgrösse ist die Einheit FPS, die die Anzahl der Bilder pro Sekunde angibt. Möller et al. definieren in \cite{Moeller2008}, dass ab 6 FPS für das menschliche Auge der Übergang von Einzelbildern zu einer Bewegung zunimmt und ab 15 FPS ein Programm als sicher echtzeitfähig gelten kann - ab 72 FPS kann das menschliche Auge keinen Unterschied mehr entdecken (vgl. \cite[Kapitel 1, Seite 1]{Moeller2008}). Als weiteres Kriterium führen Möller et al. an, dass ein derartiges System fähig sein muss, auf Benutzerinteraktionen mit geringer Latenzzeit zu reagieren (vgl. \cite[Kapitel 1, Seite 1]{Moeller2008}).
 
 
 \subsection{Anwendungsmöglichkeiten}\label{ssec:applications}
@@ -110,7 +111,8 @@ Kuszyk et al. stellen in \cite{Kuszyk1996} die Nachteile des Surface Renderings 
 
 \section{Augmented Reality - Zukunft von Visualisationssystemen?}\label{sec:augmentedreality}
 In den letzten Jahren wird neben den herkömmlichen Geräten zu Darstellung der Informationen medizinischer Informationssysteme (z.B. Bildschirme) intensiv an der so genannten `Augmented Reality` geforscht. Dieser Begriff, der sich mit 'Erweiterte Realität' (Quelle: \cite[Seite 1]{Toe2010}) übersetzen lässt, beschreibt laut \cite{Suthau2002DE} (Seite 1; Englische Publikation: \cite{Suthau2002}) das Konzept, reale Bilder mit zusätzlichen Informationen zu ergänzen.
-\subsection{Visuelle Ausgabesysteme}
+
+\section{Existierende Visualisationssysteme} \label{ssec:existingtvss}
 
 \appendix \label{appendixstart}
 \section{Anleitung zur Übersetzung von VERTEBRA}
@@ -138,13 +140,21 @@ Die in dieser Arbeit vorgestellten Geschwindigkeitsmessungen wurden auf der folg
   \item Grafikhardware: NVidia\textsuperscript{\textregistered} GeForce 9400 GT, PCI Express x16\\
 	Treiber 260.19.06 (Konfiguration: High Performance)
 \end{itemize}
-\section{Quellcode von VERTEBRA}
-\section{Doxygen-Dokumentation von VERTEBRA}
 \newpage
 %\nocite{*}
 \renewcommand\refname{Literatur- und Quellenverzeichnis}
 \bibliographystyle{alphadin}
 \bibliography{visualization}
+\clearpage
 \section{Selbstständigkeitserklärung}
 Hiermit erkläre ich, dass ich die vorliegende Arbeit in allen Teilen selbstständig verfasst habe und keine anderen als die angegebenen Quellen und Hilfsmittel (einschließlich Onlinequellen und elektronischer Medien) benutzt habe.
+\vfill
+\begin{center}
+\underline{\hspace{10cm}}\vspace{1cm}
+\end{center}
+\begin{center}
+Uli Köhler
+\end{center}
+\vfill
 \end{document}
+\label{ssec:existingtvss}
