@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage[ngerman]{babel}
 \usepackage{ngerman}
+\usepackage{thmbox}
 %\usepackage{german}
 %\usepackage
 %[colorlinks=true,linkcolor=red,
@@ -17,6 +18,8 @@
 \usepackage{float}
 \floatstyle{boxed} 
 \restylefloat{figure}
+
+\newtheorem[L]{boxedDefinition}{Definition}
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
@@ -39,10 +42,19 @@ Abschließend wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augme
 Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten wurden die folgenden Themen nicht im Detail behandelt.
 \section{Echtzeit-Tumorvisualisationssysteme}\label{sec:vissystems}
 \subsection{Anforderungen}\label{ssec:requirements}
-Um die Anforderungen für Echtzeit-Tumorvisualisationssysteme zu erläutern, muss zuerst der Begriff definiert werden:
+Um die Anforderungen für Echtzeit-Tumorvisualisationssysteme zu erläutern, muss der Begriff zuerst mit allen zu erfüllenden Anforderungen definiert werden:
+\begin{boxedDefinition}[Echtzeit-Tumorvisualisationssystem]\label{def:rttumorvissystem}
+ Als Echtzeit-Tumorvisualisationssystem sei ein System definiert, das in Echtzeit in der Lage ist, aus nicht notwendigermassen konstanten dreidimensionalen Eingabedaten, die bestimmte Eigenschaften eines realen Raumvolumens repräsentieren, hochqualitative Ausgabedaten zu generieren, die auf visuellen Displays in ein Weise dargestellt werden können, aus der menschliche Benutzer einfacher, schneller oder genauer Informationen über Tumoren, die möglicherweise im Raumvolumen, das die Eingabedaten repräsentieren, vorhanden sind. Ein Tumor in diesem Kontext sei eine Raumforderung, die sich beim verwendeten Verfahren, die medizinischen Eingabedaten zu gewinnen, vom umgebenden Gewebe oder Raum abzeichnet.
+\end{boxedDefinition}
+Anmerkung: Diese Definition unterscheidet sich von den in \cite[Kapitel 3.1.1, Seite 14]{Bruckner2004} beschriebenen Anforderungen durch die Spezialisierung auf Tumoren, die geforderte Echtzeitfähigkeit sowie die nicht vorhandene Anforderung, das System in reiner Software zu implementieren (siehe dazu auch Kapitel \vref{ssec:swhwcomparison}).
+
+
+Im Einzelnen sind die Anforderungen wie folgt zu beschreiben:
+\paragraph{Echtzeitfähigkeit} Das System muss in der Lage sein,
+
 
 \subsection{Anwendungsmöglichkeiten}\label{ssec:applications}
-Schon heute werden verschiedene medizinische Visualisationssysteme in den verschiedensten Bereichen der Medizin eingesetzt. 
+Schon heute werden verschiedene medizinische Visualisationssysteme in den verschiedensten Bereichen der Medizin eingesetzt.
 \section{Konzepte zur Visualisation von Tumoren}\label{ssec:concepts}
 \begin{figure}[p]
 \begin{center}
