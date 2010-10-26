@@ -11,6 +11,10 @@
 \usepackage{cite}
 \usepackage{url}
 \usepackage[german]{varioref}
+%Add a box around floats
+\usepackage{float}
+\floatstyle{boxed} 
+\restylefloat{figure}
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
@@ -28,17 +32,24 @@
 In dieser Arbeit sollen Methoden und Algorithmen dargestellt werden, die zur dreidimensionalen Visualisation von Tumoren in Echtzeit dienen. Hierzu werden zuerst in Kapitel \vref{ssec:requirements} die allgemeinen Anforderungen und in Kapitel \vref{ssec:applications}
 Anwendungsmöglichkeiten für solche Systeme dargestellt. Darauf aufbauend werden in Kapitel \vref{ssec:concepts} die Konzepte und Algorithmen dargestellt, die im Rahmen dieser Arbeit entwickelt wurden. Zur anschaulichen Darstellung und als Beweis für die Implementierbarkeit dieser Konzepte in Software wurde begleitend zu dieser Arbeit ein Programm (`VERTEBRA`) geschrieben, anhand dessen in Kapitel \vref{ssec:implementations} Möglichkeiten der Implementation der zuvor dargestellten Konzepte und deren Anwendbarkeit in der modernen Medizin diskutiert werden. Da sich diese Arbeit auf dreidimensionale Visualisationssysteme beschränkt, werden in Kapitel \vref{ssec:3dnav} zusätzlich Verfahren zur Navigation im dreidimensionalen Koordinatensystem vorgestellt, wobei besonderen Wert auf die in Kapitel \ref{ssec:requirements} dargestellten Anforderungen gelegt wird.
 
-Abschließend wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augmented Reality` diskutiert, die in Zukunft eine wichtige Rolle in der medizinischen Visualisationstechnik und speziell im Bereich der Chirurgie spielen könnte.
+Abschließend wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augmented Reality` diskutiert, die in Zukunft eine wichtige Rolle in der medizinischen Visualisationstechnik und speziell im Bereich der Chirurgie spielen könnte. Zudem wird in diesem Kapitel die Anwendbarkeit der in dieser Arbeit vorgestellten Konzepte auf die Augmented Reality analysiert.
 
-Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten wurden die Folgenden Themen nicht im Detail behandelt.
+Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten wurden die folgenden Themen nicht im Detail behandelt.
 \section{Echtzeit-Tumorvisualisationssysteme}\label{sec:vissystems}
 \subsection{Anforderungen}\label{ssec:requirements}
 \subsection{Anwendungsmöglichkeiten}\label{ssec:applications}
 Schon heute werden verschiedene medizinische Visualisationssysteme in den verschiedensten Bereichen der Medizin eingesetzt. 
 \section{Konzepte zur Visualisation von Tumoren}\label{ssec:concepts}
+\begin{figure}[p]
+\begin{center}
+\includegraphics[width=\textwidth]{graphics/Tonemapping.pdf}
+\caption{Verarbeitung von CT-Eingabedaten in VERTEBRA}
+\label{gradientmapping-graphic}
+\end{center}
+\end{figure}
 \subsection{Implementationsmöglichkeiten am Beispiel des Projektes VERTEBRA}\label{ssec:implementations}
-Als Begleitprojekt zu dieser Arbeit wurde das Programm VERTEBRA
-(Volumetric Examiner for Radiological and Tomographical Experimental Basic Realtime Analysis) geschrieben, dessen Hauptzweck darin besteht, die Machbarkeit in dieser Arbeit vorgestellten Konzepte zu demonstrieren und im Rahmen der erreichbaren Genauigkeit vergleichbare Daten über die Echtzeittauglichkeit der Algorithmen und Verfahren zu liefern \\
+Als Begleitprojekt zu dieser Arbeit wurde das Programm VERTEBRA (Volumetric Examiner for Radiological and Tomographical Experimental Basic Realtime Analysis) geschrieben, dessen Hauptzweck darin besteht, die Machbarkeit in dieser Arbeit vorgestellten Konzepte zu demonstrieren und im Rahmen der erreichbaren Genauigkeit vergleichbare Daten über die Echtzeittauglichkeit der Algorithmen und Verfahren zu liefern
+
 VERTEBRA ist ein Proof-of-Concept-Projekt, zielt also nicht darauf ab, ein im medizinischen Alltag einsetzbares Produkt zu sein oder die für eine Zulassung nach dem Medizinproduktegesetz (bezogen auf deutsches Recht) notwendigen Vorraussetzungen zu schaffen.
 \subsection{Algorithmen zur Navigation im 3D-Koordinatensystem}\label{ssec:3dnav}
 \subsection{Grenzen der vorgestellten Konzepte}\label{ssec:limits}
@@ -53,7 +64,14 @@ Da die Rechenleistung der Hauptprozessoren moderner Computer für viele der heut
 
 Um der GPU mitzuteilen, welche Objekte wo im dreidimensionalen Koordinatensystem auf welche Art gerendert werden sollen, müssen Programme ein Grafik-API\footnote{API - Application Programming Interface - Programmierschnittstelle} wie OpenGL oder DirectX benutzen. Im konkreten Fall von VERTEBRA fiel die Entscheidung aufgrund der Plattformunabhängigkeit und der Erfahrung der Autors in diesem Bereich.
 
-GPUs neueren Datums können ausserdem so genannte Shader ausführen - kleine Programme, die für bestimmte Untereinheiten der zu visualisierenden Objekte ausgeführt werden. Je nachdem, worauf ein Shader angewandt wird, TODO Die Shader-Prozessoren (Untereinheiten der GPU, die die Shader ausführen), arbeiten massiv parallel ... TODO
+\cite{Rost2006}
+
+Neuere GPUs können ausserdem so genannte Shader ausführen - kleine Programme, die für bestimmte Untereinheiten der zu visualisierenden Objekte ausgeführt werden. Shader müssen je nach Objekt, auf das der Code angewandt wird, wie folgt unterschieden werden:
+\begin{itemize}
+ \item 
+\end{itemize}
+
+ Die Shader-Prozessoren (Untereinheiten der GPU, die die Shader ausführen), arbeiten massiv parallel ... TODO
 \subsubsection{Berechnung auf FPGAs}
 Abgesehen von den bereits diskutierten Möglichkeiten ist mit so genannten FPGAs\footnote{FPGA - Field Programmable Gate Array} eine weitere Form der Hardwarebeschleunigung für die medizinische Visualisationstechnik vorhanden. FPGAs sind ICs\footnote{IC - Integrated Circuit - Integrierter Schaltkreis}, bei denen nach der Herstellung eine anwendungsspezifische Programmierung und Konfiguration möglich ist (\cite{Kibritev2009}, Kapitel 1.7.1, Seite 16). Daher sind die Produktionskosten für ein auf FPGAs basierendes Visualisationssystem wesentlich geringer als bei dedizierter Hardware, die für eine bestimmte Aufgabe gefertigt wurde und nicht nachträglich programmierbar ist. Wie bereits in Kapitel \vref{ssec:swhwcomparison} diskutiert stellt Bruckner in \cite{Bruckner2008} Nachteile von hardwarebasiertem Rendering gegenüber softwarebasierten Darstellungen in Bezug auf große volumetrische Datensätze dar. FPGAs erlauben, wie Leeser et al. in \cite{Leeser2005} mithilfe einer Implementation des Parallel-Beam Backprojection-Algorithmus zeigen, eine performante Implementation dieser Softwarealgorithmen. In \cite{Thomas2009} findet sich ein Vergleich die Performanz von CPU-, GPU- und FPGA-basierten Systemen anhand von PRNGs\footnote{PRNG - Pseudo-random number generator - Pseudozufallszahlengenerator} - wie aus Tabelle 6 ersichlich liefert das im Experiment benutzt FPGA-basierte System bei zwei der drei dargestellen Verteilungen, die jeweils unterschiedliche Algorithmen benötigen bessere Resultate (also eine größere Zahl generierter Zufallszahlen pro Zeiteinheit) als die anderen getesteten Plattformen.
 \subsubsection{Surface Rendering}
