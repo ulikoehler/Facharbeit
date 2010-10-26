@@ -30,6 +30,9 @@
 %\institute[EMG]{Ernst-Mach-Gymnasium Haar}
 \date{9.~November 2010}
 
+%Utility to insert a newline after a paragraph declaration
+\newcommand{\paranl}{$~~$\\}
+
 \begin{document}
 \maketitle\thispagestyle{empty}\newpage
 \tableofcontents\thispagestyle{empty}\newpage
@@ -44,13 +47,14 @@ Aufgrund des geringen Umfangs dieser Arbeit von \pageref{appendixstart} Seiten w
 \subsection{Anforderungen}\label{ssec:requirements}
 Um die Anforderungen für Echtzeit-Tumorvisualisationssysteme zu erläutern, muss der Begriff zuerst mit allen zu erfüllenden Anforderungen definiert werden:
 \begin{boxedDefinition}[Echtzeit-Tumorvisualisationssystem]\label{def:rttumorvissystem}
- Als Echtzeit-Tumorvisualisationssystem sei ein System definiert, das in Echtzeit in der Lage ist, aus nicht notwendigermassen konstanten dreidimensionalen Eingabedaten, die bestimmte Eigenschaften eines realen Raumvolumens repräsentieren, hochqualitative Ausgabedaten zu generieren, die auf visuellen Displays in ein Weise dargestellt werden können, aus der menschliche Benutzer einfacher, schneller oder genauer Informationen über Tumoren, die möglicherweise im Raumvolumen, das die Eingabedaten repräsentieren, vorhanden sind. Ein Tumor in diesem Kontext sei eine Raumforderung, die sich beim verwendeten Verfahren, die medizinischen Eingabedaten zu gewinnen, vom umgebenden Gewebe oder Raum abzeichnet.
+ Als Echtzeit-Tumorvisualisationssystem sei ein System definiert, das in Echtzeit unter berücksichtigung von Interaktionen in der Lage ist, aus nicht notwendigermassen konstanten dreidimensionalen Eingabedaten, die bestimmte Eigenschaften eines realen Raumvolumens repräsentieren, hochqualitative Ausgabedaten zu generieren, die auf visuellen Ausgabegeräten in ein Weise dargestellt werden können, aus der menschliche Benutzer einfacher, schneller oder genauer Informationen über Tumoren, die möglicherweise im Raumvolumen, das die Eingabedaten repräsentieren, vorhanden sind. Ein Tumor in diesem Kontext sei eine Raumforderung, die sich beim verwendeten Verfahren, die medizinischen Eingabedaten zu gewinnen, vom umgebenden Gewebe oder Raum abzeichnet.
 \end{boxedDefinition}
-Anmerkung: Diese Definition unterscheidet sich von den in \cite[Kapitel 3.1.1, Seite 14]{Bruckner2004} beschriebenen Anforderungen durch die Spezialisierung auf Tumoren, die geforderte Echtzeitfähigkeit sowie die nicht vorhandene Anforderung, das System in reiner Software zu implementieren (siehe dazu auch Kapitel \vref{ssec:swhwcomparison}).
+\paragraph{Vergleich zu \cite[Kapitel 3.1.1, Seite 14f.]{Bruckner2004}}\paranl
+Anmerkung: Diese Definition unterscheidet sich von den in \cite[Kapitel 3.1.1, Seite 14]{Bruckner2004} beschriebenen Anforderungen durch die Spezialisierung auf Tumoren, die geforderte Echtzeitfähigkeit sowie die nicht vorhandene Anforderung, das System in reiner Software zu implementieren (siehe dazu auch Kapitel \vref{ssec:swhwcomparison}). 
 
 
 Im Einzelnen sind die Anforderungen wie folgt zu beschreiben:
-\paragraph{Echtzeitfähigkeit} Das System muss in der Lage sein,
+\paragraph{Echtzeitfähigkeit} \label{p:rtcapability} Das System muss in der Lage sein, Eingabedaten in Echtzeit zu verarbeiten, sodass der menschliche Benutzer eine Änderung der Ausgabedaten nicht als Einzelbildsequenz sondern als dynamischen Prozess wahrnimmt (vgl \cite[Kapitel 1, Seite 1]{Moeller2008}). Eine Vergleichsgrösse ist die Einheit FPS, die die Anzahl der Bilder pro Sekunde angibt. Möller et al. definieren in \cite{Moeller2008}, dass ab 6 FPS für das menschliche Auge der Übergang von Einzelbildern zu einer Bewegung zunimmt und ab 15 FPS ein Programm als sicher echtzeitfähig gelten kann - ab 72 FPS kann das menschliche Auge keinen Unterschied mehr entdecken (vgl. \cite[Kapitel 1, Seite 1]{Moeller2008}). Als weiteres Kriterium führen Möller et al. an, dass ein derartiges System fähig sein muss, auf Benutzerinteraktionen mit geringer Latenzzeit zu reagieren (vgl. \cite[Kapitel 1, Seite 1]{Moeller2008}).
 
 
 \subsection{Anwendungsmöglichkeiten}\label{ssec:applications}
@@ -106,6 +110,7 @@ Kuszyk et al. stellen in \cite{Kuszyk1996} die Nachteile des Surface Renderings 
 
 \section{Augmented Reality - Zukunft von Visualisationssystemen?}\label{sec:augmentedreality}
 In den letzten Jahren wird neben den herkömmlichen Geräten zu Darstellung der Informationen medizinischer Informationssysteme (z.B. Bildschirme) intensiv an der so genannten `Augmented Reality` geforscht. Dieser Begriff, der sich mit 'Erweiterte Realität' (Quelle: \cite[Seite 1]{Toe2010}) übersetzen lässt, beschreibt laut \cite{Suthau2002DE} (Seite 1; Englische Publikation: \cite{Suthau2002}) das Konzept, reale Bilder mit zusätzlichen Informationen zu ergänzen.
+\subsection{Visuelle Ausgabesysteme}
 
 \appendix \label{appendixstart}
 \section{Anleitung zur Übersetzung von VERTEBRA}
