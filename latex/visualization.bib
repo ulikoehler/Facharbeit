@@ -37,15 +37,28 @@
   publisher = {IEEE Press}
 }
 
-@BOOK{Bruckner2008,
-  title = {Efficient Volume Visualization of Large Medical Datasets: Concepts
-	and Algorithms},
-  publisher = {Vdm Verlag (Saarbrücken)},
-  year = {2008},
+@MASTERSTHESIS{Bruckner2004,
   author = {Stefan Bruckner},
-  address = {Saarbrücken},
-  owner = {uli},
-  timestamp = {2010.07.06}
+  title = {Efficient Volume Visualization of Large Medical Datasets},
+  school = {Institute of Computer Graphics and Algorithms, Vienna University
+	of Technology},
+  year = {2004},
+  address = {Favoritenstrasse 9-11/186, A-1040 Vienna, Austria},
+  month = may,
+  abstract = {The size of volumetric datasets used in medical environments is increasing
+	at a rapid pace. Due to excessive pre-computation and memory demanding
+	data structures, most current approaches for volume visualization
+	do not meet the requirements of daily clinical routine. In this diploma
+	thesis, an approach for interactive high-quality rendering of large
+	medical data is presented. It is based on image-order raycasting
+	with object-order data traversal, using an optimized cache coherent
+	memory layout. New techniques and parallelization strategies for
+	direct volume rendering of large data on commodity hardware are presented.
+	By using new memory efficient acceleration data structures, high-quality
+	direct volume rendering of several hundred megabyte sized datasets
+	at sub-second frame rates on a commodity notebook is achieved.},
+  keywords = {volume rendering, large data},
+  url = {http://www.cg.tuwien.ac.at/research/publications/2004/bruckner-2004-EVV/}
 }
 
 @BOOKLET{FSFWhatIsFreeSoftware,
@@ -63,6 +76,34 @@
   author = {Grozea, C. and Bankovic, Z. and Laskov, P.},
   title = {FPGA vs. Multi-Core CPUs vs. GPUs: Hands-on Experience with a Sorting
 	Application}
+}
+
+@ARTICLE{Günther1995,
+  author = {T. Günther and C. Poliwoda and C. Reinhart and J. Hesser and R. Männer
+	and H. -P. Meinzer and H. -J. Baur},
+  title = {Virim: A massively parallel processor for real-time volume visualization
+	in medicine},
+  journal = {Computers \& Graphics},
+  year = {1995},
+  volume = {19},
+  pages = {705 - 710},
+  number = {5},
+  abstract = {Architecture and applications of a massively parallel system currently
+	developed are described, which allows real-time visualization using
+	volume oriented visualization algorithms. Volumes of 256 × 256 ×
+	128 voxels can be visualized with a frame rate of 10 Hz. The system
+	is scalable and modular, and will allow a multi-user access over
+	high-speed networks. 3D-rotation around arbitrary rotation axis,
+	perspective, zooming and arbitrary grey value mapping are provided
+	in real-time. A volume oriented algorithm is used that is tailored
+	to the requirements in medicine [H.-P. Meinzer et al., IEEE Comp.
+	Graph. Appl., 34 (Nov. 1991)]. With this algorithm, small structures
+	without defined surfaces, e.g., tumours, can be visualized as well
+	as semi-transparent objects. One planned application of the system
+	is heart surgery.},
+  doi = {DOI: 10.1016/0097-8493(95)00049-6},
+  issn = {0097-8493},
+  url = {http://www.sciencedirect.com/science/article/B6TYG-3YB510T-6/2/ae74fa9e358e1b694afdf736f8acf9db}
 }
 
 @INPROCEEDINGS{Jensch2004,
@@ -89,6 +130,30 @@
   month = {May},
   owner = {uli},
   timestamp = {2010.10.25}
+}
+
+@ARTICLE{Knittel1995,
+  author = {Günter Knittel},
+  title = {A scalable architecture for volume rendering},
+  journal = {Computers \& Graphics},
+  year = {1995},
+  volume = {19},
+  pages = {653 - 665},
+  number = {5},
+  abstract = {We describe the operational principles of a scalable hardware accelerator
+	for volume rendering. The basic philosophy is to provide an atomic
+	unit which already provides sophisticated volume graphics at interactive
+	rendering speed. Realtime speed can then be achieved by operating
+	multiple units in parallel. The basic unit consists of just four
+	VLSI chips and the volume memory and thus meets the requirements
+	of a small size and low costs. Nevertheless, it provides arbitrary
+	perspective projections (e.g. for walk-throughs), Phong shading,
+	a freely moveable light source, depth-cueing and interactive, non-binary
+	classification (semi-transparent display) at a frame rate of about
+	2.5 Hz for 2563 data sets.},
+  doi = {DOI: 10.1016/0097-8493(95)00044-5},
+  issn = {0097-8493},
+  url = {http://www.sciencedirect.com/science/article/B6TYG-3YB510T-1/2/a8cdcf161bc7deaec2e8e7e1c8178294}
 }
 
 @ARTICLE{Kuszyk1996,
@@ -166,6 +231,21 @@
   key = {Lee05},
   owner = {uli},
   publisher = {Springer}
+}
+
+@INPROCEEDINGS{Meißner2002,
+  author = {Meißner, M. and Kanus, U. and Wetekam, G. and Hirche, J. and Ehlert,
+	A. and Straßer, W. and Doggett, M. and Forthmann, P. and Proksa,
+	R.},
+  title = {VIZARD II: a reconfigurable interactive volume rendering system},
+  booktitle = {HWWS '02: Proceedings of the ACM SIGGRAPH/EUROGRAPHICS conference
+	on Graphics hardware},
+  year = {2002},
+  pages = {137--146},
+  address = {Aire-la-Ville, Switzerland, Switzerland},
+  publisher = {Eurographics Association},
+  isbn = {1-58113-580-7},
+  location = {Saarbrucken, Germany}
 }
 
 @BOOK{Rost2006,
