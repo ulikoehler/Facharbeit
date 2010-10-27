@@ -19,6 +19,8 @@
 \floatstyle{boxed} 
 \restylefloat{figure}
 
+\pagestyle{headings}
+
 \newtheorem[L]{boxedDefinition}{Definition}
 
 \setcounter{secnumdepth}{3}
@@ -42,21 +44,22 @@ In dieser Arbeit sollen Methoden und Algorithmen diskutiert und verglichen werde
 Anschließend wird in Kapitel \vref{sec:augmentedreality} die Technik der `Augmented Reality` diskutiert, die in Zukunft eine wichtige Rolle in der medizinischen Visualisationstechnik, speziell im Bereich der Chirurgie spielen könnte. Zudem wird in diesem Kapitel die Anwendbarkeit der in dieser Arbeit vorgestellten Konzepte auf Augmented Reality-basierte Systeme betrachtet.
 In Kapitel \vref{ssec:existingtvss} wird eine Auswahl aus bereits existierenden Systemen (einschließlich fortgeschrittenen Forschungsprojekten) zur medizinischen Visualisation betrachtet, die den Großteil der in Kapitel \ref{ssec:requirements} geforderten Bedingungen erfüllen. Hierbei liegt der Fokus vor allem auf Sytemen, die Methoden oder Konzepte der Augmented Reality nutzen.
 
-Mit dem abschließenden Schlussteil, der in Kurzform die wichtigsten Thesen, Konzepte und Resultate rekapituliert endet der Hauptteil dieser Arbeit - das Inhaltsverzeichnis der Begleit-CD sowie das Literatur- und Quellenverzeichnis,s das Abbildungsverzeichnis, eine technische Beschreibung der Plattform, auf der VERTEBRA getestet wurde sowie die obligatorische Selbstständigkeitserklärung bilden den Anhang dieses Dokuments.
+Mit dem abschließenden Schlussteil, der in Kurzform die wichtigsten Thesen, Konzepte und Resultate rekapituliert, endet der Hauptteil dieser Arbeit - das Inhaltsverzeichnis der Begleit-CD sowie das Literatur- und Quellenverzeichnis,s das Abbildungsverzeichnis, eine technische Beschreibung der Plattform, auf der VERTEBRA getestet wurde sowie die obligatorische Selbstständigkeitserklärung bilden den Anhang dieses Dokuments.
 \section{Echtzeit-Tumorvisualisationssysteme}\label{sec:vissystems}
 \subsection{Anforderungen}\label{ssec:requirements}
-Uli Köhler
 Um die Anforderungen für Echtzeit-Tumorvisualisationssysteme zu erläutern, muss der Begriff zuerst mit allen zu erfüllenden Anforderungen definiert werden:
 \begin{boxedDefinition}[Echtzeit-Tumorvisualisationssystem]\label{def:rttumorvissystem}
- Als Echtzeit-Tumorvisualisationssystem sei ein System definiert, das in Echtzeit unter Berücksichtigung von Interaktionen in der Lage ist, aus nicht notwendigermassen konstanten dreidimensionalen Eingabedaten, die bestimmte Eigenschaften eines realen Raumvolumens repräsentieren, hochqualitative Ausgabedaten zu generieren, die auf visuellen Ausgabegeräten in ein Weise dargestellt werden können, aus der menschliche Benutzer einfacher, schneller oder genauer Informationen über Tumoren, die möglicherweise im Raumvolumen, das die Eingabedaten repräsentieren, vorhanden sind. Ein Tumor im Sinne dieser Definition sei eine Raumforderung oder Gewebeanomalie, die sich beim verwendeten Verfahren, die medizinischen Eingabedaten zu gewinnen, vom umgebenden Gewebe oder Raum abzeichnet.
+ Als Echtzeit-Tumorvisualisationssystem sei ein System definiert, das in Echtzeit unter Berücksichtigung von Interaktionen in der Lage ist, aus nicht notwendigermassen konstanten dreidimensionalen medizinischen Eingabedaten, die bestimmte Eigenschaften eines realen Raumvolumens repräsentieren, hochqualitative Ausgabedaten zu generieren, die auf visuellen Ausgabegeräten in ein Weise dargestellt werden können, aus der menschliche Benutzer einfacher, schneller oder genauer Informationen über Tumoren, die möglicherweise im Raumvolumen, das die Eingabedaten repräsentieren, vorhanden sind. Ein Tumor im Sinne dieser Definition sei eine Raumforderung oder Gewebeanomalie, die sich beim verwendeten Verfahren, die medizinischen Eingabedaten zu gewinnen, vom umgebenden Gewebe oder Raum abzeichnet.
 \end{boxedDefinition}
 \paragraph{Vergleich zu \cite[Kapitel 3.1.1, Seite 14f.]{Bruckner2004}}\paranl
-Anmerkung: Diese Definition unterscheidet sich von den in \cite[Kapitel 3.1.1, Seite 14]{Bruckner2004} beschriebenen Anforderungen durch die Spezialisierung auf Tumoren, die geforderte Echtzeitfähigkeit sowie die nicht vorhandene Anforderung, das System in reiner Software zu implementieren (siehe dazu auch Kapitel \vref{ssec:swhwcomparison}). 
-
+Anmerkung: Diese Definition unterscheidet sich von den in \cite[Kapitel 3.1.1, Seite 14]{Bruckner2004} beschriebenen Anforderungen durch die Spezialisierung auf Tumoren, die geforderte Echtzeitfähigkeit sowie die nicht vorhandene Anforderung, das System in reiner Software zu implementieren (siehe dazu auch Kapitel \vref{ssec:swhwcomparison}). Die obige Definition ist zudem im Bezug auf das eingesetzte Verfahren zur Gewinnung der Eingabedaten allgemein gehalten, während Bruckner sich primär auf CTs und MRTs konzentriert.
 
 Im Einzelnen sind die Anforderungen wie folgt zu beschreiben:
 \paragraph{Echtzeitfähigkeit und Interaktionsfähigkeit} \label{p:rtcapability} Das System muss in der Lage sein, Eingabedaten in Echtzeit zu verarbeiten, sodass der menschliche Benutzer eine Änderung der Ausgabedaten nicht als Einzelbildsequenz sondern als dynamischen Prozess wahrnimmt (vgl \cite[Kapitel 1, Seite 1]{Moeller2008}). Eine Vergleichsgrösse ist die Einheit FPS, die die Anzahl der Bilder pro Sekunde angibt. Möller et al. definieren in \cite{Moeller2008}, dass ab 6 FPS für das menschliche Auge der Übergang von Einzelbildern zu einer Bewegung zunimmt und ab 15 FPS ein Programm als sicher echtzeitfähig gelten kann - ab 72 FPS kann das menschliche Auge keinen Unterschied mehr entdecken (vgl. \cite[Kapitel 1, Seite 1]{Moeller2008}). Als weiteres Kriterium führen Möller et al. an, dass ein derartiges System fähig sein muss, auf Benutzerinteraktionen mit geringer Latenzzeit zu reagieren (vgl. \cite[Kapitel 1, Seite 1]{Moeller2008}).
 
+\paragraph{Medizinische 3D-Eingabedaten} Ein Echtzeit-Tumorvisualisationssystem dient in Sinne der obigen Definition zur Verarbeitung medizinischer Eingabedaten. Die Eingabedaten müssen sich über drei Dimensionen erstrecken. CT- und MRT-Scanner liefern mehrere zweidimensionale Datensätze, die zusammengenommen einen dreidimensionalen Eingabedatensatz bilden. Obwohl in der Praxis nicht üblich kann auch ein einzelner zweidimensionaler Datensatz als dreidimensionaler Eingabedatensatz mit der Tiefe 1 gelten. Systeme. Von den Eingabedaten wird nicht gefordert, dass sie konstant bleiben - dadurch wird der Einsatz des Systems in intraoperativen Verfahren mit wiederholten tomografischen Scans wie dem in \cite{Okudera1994}, das den Einsatz eines solchen Verfahrens bei der chirurgischen Entfernung von Gliazellemtumoren examplarisch beschreibt, ermöglicht. Um die Eingabedaten für die Software lesbar zu machen, müssen die Datensätze entweder in einem speziellen Format wie dem DICOM-Standard gespeichert werden, zu dem \cite{Mildenberger2002} eine Einführung bietet, oder aber es findet eine direkte Anbindung an die Scannerhardware statt.
+
+\paragraph{}
 
 \subsection{Anwendungsmöglichkeiten}\label{ssec:applications}
 Schon heute werden verschiedene medizinische Visualisationssysteme in den verschiedensten Bereichen der Medizin eingesetzt.
