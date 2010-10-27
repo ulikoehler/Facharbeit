@@ -23,16 +23,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="387.57189"
-     inkscape:cy="838.81186"
+     inkscape:zoom="0.50000001"
+     inkscape:cx="281.88912"
+     inkscape:cy="1083.0719"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1280"
-     inkscape:window-height="969"
+     inkscape:window-width="1366"
+     inkscape:window-height="691"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="24"
      inkscape:window-maximized="1"
      showguides="false">
     <inkscape:grid
@@ -532,20 +532,30 @@
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="400"
-       y="352.36218"
+       x="390"
+       y="312.36218"
        id="text3829-5-0"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="400"
-         y="352.36218"
+         x="390"
+         y="312.36218"
          style="font-size:18px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L Medium"
-         id="tspan5262-7">Abbildung des Datensatzes auf einen</tspan><tspan
+         id="tspan5262-7"></tspan><tspan
          sodipodi:role="line"
-         x="400"
-         y="374.86218"
+         x="390"
+         y="334.86218"
          style="font-size:18px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L Medium"
-         id="tspan5368">Farbverlauf</tspan></text>
+         id="tspan3219">Klassifizierung:</tspan><tspan
+         sodipodi:role="line"
+         x="390"
+         y="357.36218"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L Medium"
+         id="tspan3221">Abbildung des Datensatzes auf einen</tspan><tspan
+         sodipodi:role="line"
+         x="390"
+         y="379.86218"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L Medium"
+         id="tspan5368">Farb- und Transparenzverlauf</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:none;marker-end:url(#Arrow2Lend)"
        d="m 40,302.36218 0,100"
@@ -559,14 +569,14 @@
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="230"
+       x="150"
        y="42.362183"
        id="text3829-9"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3831-36"
-         x="230"
+         x="150"
          y="42.362183"
-         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L Medium">Eingabedatensatz im DICOM-Format</tspan></text>
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L Medium">Eingabedatensatz, z.B. importiert aus dem DICOM-Format</tspan></text>
   </g>
 </svg>
