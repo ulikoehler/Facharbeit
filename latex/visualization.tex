@@ -76,10 +76,10 @@ Anmerkung: Diese Definition unterscheidet sich von den in \cite[Kapitel 3.1.1, S
 \subsection{Anwendungsmöglichkeiten}\label{ssec:applications}
 Schon heute werden medizinische Visualisationssysteme in den verschiedensten Bereichen der Medizin eingesetzt werden - daher kann an dieser Stelle lediglich eine exemplarische Auswahl präsentiert werden:
 \begin{itemize}
- \item \textbf{Intraoperative Verfahren}: Die Visualisationssysteme werden während chirurgischen Verfahren eingesetzt. Wie bereits in Kapitel \ref{ssec:requirements} erwähnt setzten Okudera et al. in \cite{Okudera1994} ein medizinisches Visualisationssystem zur chirurgischen Entfernung von Gliazellentumoren ein;  Abgesehen von den bereits erwähnten Verfahren, die sich auf onkologische Verfahren beschränken, existieren auch Anwendungsmöglichkeiten in anderen Gebieten der Chirurgie: Beispielsweise nutzen Maupu et al. in \cite{Maupu2005} ein stereoskopisches Visualisationsverfahren, um den Chirurgen während endovaskulärer Eingriffe zu leiten und erhöhen dadurch die Sicherheit dieser Verfahren.
+ \item \textbf{Intraoperative Verfahren}: Die Visualisationssysteme werden während chirurgischen Verfahren eingesetzt. Wie bereits in Kapitel \ref{ssec:requirements} erwähnt setzten Okudera et al. in \cite{Okudera1994} ein medizinisches Visualisationssystem zur chirurgischen Entfernung von Gliazellentumoren ein;  Abgesehen von den bereits erwähnten Verfahren, die sich auf onkologische Verfahren beschränken, existieren auch Anwendungsmöglichkeiten in anderen Gebieten der Chirurgie: Beispielsweise nutzen Maupu et al. in \cite{Maupu2005} ein stereoskopisches Visualisationsverfahren, um den Chirurgen während endovaskulärer Eingriffe zu leiten und erhöhen dadurch die Sicherheit dieser Verfahren. Auf intraoperative Verfahren zielen besonders Forchungsarbeiten ab, die die in Kapitel \vref{sec:augmentedreality} Konzepte der Augmented Reality benutzen. Beispielsweise beschreiben Suthau et al. in \cite{Suthau2002DE} bzw. \cite{Suthau2002} (letztere Arbeit ist in Englisch verfasst) Konzepte und Einsatzmöglichkeiten eines Augmented Reality-basierten Visualisationssytems in der Leberchirurgie - in diesem Kontext wird vor allem die Resektion eines Lebertumors behandelt. Das eingesetzte System wird kurz in Kapitel \vref{sec:existingtvss} thematisiert.
  \item \textbf{Radiotherapeutische Verfahren}: Auch in der Radiotherapie werden bereits jetzt medizinische Visualisationsverfahren eingesetzt. Einen der Anwendungsbereich stellt hier die Vorraussage von so genannten Portalen dar: Um die Strahlendosis, die auf gesundes Gewebe einwirkt, möglichst gering zu halten, muss aufgrund der Bewegung des menschlichen Körpers (z.B. Atmung) vorhergesagt werden können, wann sich ein Tumor wo befindet, um den Therapiestrahl nur dann einzuschalten, wenn möglichst viele Schäden am Tumor und gleichzeitig möglichst wenige Schäden am gesunden, umgebenden Gewebe zu erwarten sind. Eine Methode zur kontinuerlichen Visualisation dieser Portale wurde bereits 1987 in \cite{Leong1987}. Auch in der Verifikation des Erfolges von radiotherapeutischen Verfahren werden Visualisationssysteme eingesetzt:
  Einen weiteren Anwendungsbereich innerhalb der Radiotherapie, für den sich speziell Tumorvisualisationssysteme eignen, bietet die Brachytherapie\footnote{Brachytherapie - Radiotherapeutisches Verfahren, bei dem Strahlungsquellen in der Nähe des zu bestrahlenden Tumors platziert werden} - hier ist vor allem die genaue Planung von Bedeutung, um Schäden an gesundem Gewebe zu vermeiden.
- Pötter et al. beschreiben in ihrem zweiteiligen Artikel \cite{Poetter2005} sowie \cite{Poetter2006} Empfehlungen der ESTRO\footnote{ESTRO - [The] European Society for Therapeutic Radiology and Oncology} Konzepte, Terminologien und Volumen-Dosis-Beziehungen für die brachytherapeutische Behandlung von cervicalen\footnote{Cervical - Auf den Gebärmutterhals (Cervix) bezogen} Tumoren. Robert Krempien beschreibt schliesslich in \cite{Krempien2003} einen Ansatz, durch die Kombination von MRT- und CT-Datensätzen das Zielvolumen bei der Planung einer brachytherapeutischen Behandlung besser zu definieren.
+ Pötter et al. beschreiben in ihrem zweiteiligen Artikel \cite{Poetter2005} sowie \cite{Poetter2006} Empfehlungen der ESTRO\footnote{ESTRO - [The] European Society for Therapeutic Radiology and Oncology} Konzepte, Terminologien und Volumen-Dosis-Beziehungen für die brachytherapeutische Behandlung von cervicalen\footnote{Cervical - Auf den Gebärmutterhals (Cervix) bezogen} Tumoren. Robert Krempien beschreibt schliesslich in \cite{Krempien2003} einen Ansatz, durch die Kombination von MRT- und CT-Datensätzen das zu bestrahlende Volumen bei der Planung einer brachytherapeutischen Behandlung besser zu definieren.
 \end{itemize}
 
 \section{Konzepte zur Tumorvisualisation}\label{ssec:concepts}
@@ -98,7 +98,7 @@ VERTEBRA ist ein Proof-of-Concept-Projekt, zielt also nicht darauf ab, ein im me
 \subsection{Grenzen der vorgestellten Konzepte}\label{ssec:limits}
 \paragraph{Abhängigkeit von den Eingabedaten}
 Die in dieser Arbeit vorgestellten Verfahren benutzen algorithmische Verfahren, um den medizinischen Eingabedatensatz in einen visualisierbaren Ausgabedatensatz umzurechnen (siehe Kapitel \ref{ssec:requirements}). Daher hängt die Qualität der Ausgabedaten direkt von der Qualität der Eingabedaten ab. Da die Daten üblicher
-\subsection{Methoden zur performanten Berechnung von Visualisationsdaten}
+\subsection{Methoden zur performanten Berechnung von Visualisationsdaten}\label{ssec:hpmethods}
 \subsubsection{Vergleich von Hardware- und Softwarealgorithmen}\label{ssec:swhwcomparison}
 Grundsätzlich lassen sich zwei Methoden zur Umwandlung der Eingabedaten in Ausgabedaten unterscheiden\footnote{Anmerkung: Hierzu zählen nicht die visuellen Ausgabegeräte, die mitunter von System zu System variieren}:
 \begin{itemize}
@@ -187,6 +187,11 @@ Schlussendlich sei noch darauf hingewiesen, dass aufgrund der obigen Definition 
 
 
 \section{Existierende Visualisationssysteme} \label{ssec:existingtvss}
+Wie bereits in Kapitel \vref{ssec:applications} beschrieben existieren für verschiedene Anwendungsbereiche innerhalb der Medizin verschiedene Visualisationssysteme. Diese sollen im Folgenden soweit aufgrund der zur Verfügung stehenden Informationen möglich
+
+\section{Fazit}
+In dieser Arbeit wurden Konzepte und Methoden zur dreidimensionalen Visualisierung von Tumoren vorgestellt.
+Der Vergleich von Plattformen und Methoden in Kapitel \ref{ssec:hpmethods} zeigte, dass sowohl Software- als auch Hardwarealgorithmen jeweils Vor- und Nachteile habe, und bei der Auswahl der Plattform letztlich immer ein Kompromiss zwischen Kompatibilität und Geschwindigkeit gefunden werden muss, jedoch in der Forschung verschiedenste Ansätze verfolgt werden. Das vorgestelle exemplarische Konzept zur Tumorklassifizierung sowie die Proof-of-Concept-Implementierung VERTEBRA zeigen, dass die Implementierung von einfachen Klassifizierungsverfahren ohne großen Aufwand möglich ist. 
 
 \appendix \label{appendixstart}
 \section{Anleitung zur Übersetzung von VERTEBRA}
@@ -223,7 +228,7 @@ Die in dieser Arbeit vorgestellten Geschwindigkeitsmessungen wurden auf der folg
 \bibliography{visualization}
 \clearpage
 \section{Selbstständigkeitserklärung}
-Hiermit erkläre ich, dass ich die vorliegende Arbeit in allen Teilen selbstständig verfasst habe und keine anderen als die angegebenen Quellen und Hilfsmittel (einschließlich Onlinequellen und elektronischer Medien) benutzt habe.
+Hiermit erkläre ich, dass ich die vorliegende Arbeit in allen Teilen selbstständig verfasst habe und keine anderen als die angegebenen Quellen und Hilfsmittel (einschließlich Onlinequellen und elektronischer Medien) benutzt habe. 
 \vfill
 \begin{center}
 \underline{\hspace{10cm}}\vspace{1cm}
