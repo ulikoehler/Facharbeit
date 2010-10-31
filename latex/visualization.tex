@@ -151,9 +151,29 @@ In den letzten Jahren wird neben den herkömmlichen Geräten zu Darstellung der 
 \subsection{Displays für AR-Applikationen}
 In \cite[Kapitel 2.2, Seite 21]{Toe2010} werden zwei grundsätzliche Methoden unterschieden, die Kombination von realen und virtuellen Daten in visuellen Ausgabegeräten (Displays) umzusetzen:
 \begin{itemize}
- \item \textbf{Optical See-Through Displays}: Diese Art von Displays, ermöglicht den \glqq direkten Blick auf die umgebende Welt\grqq\footnoteremember{f:Toe2010-S21}{Zitiert aus \cite[Kapitel 2.2, Seite 21]{Toe2010}}. Technisch kann dieses Konzept beispielsweise durch einen halbdurchlässigen Spiegel, der Combiner genannt wird, realisiert werden. Dadurch bleibt die \glqq direkte Sicht auf die Umgebung\grqq\footnoterecall{f:Toe2010-S21} erhalten und die Darstellungsqualität der realen Informationen wird nicht merklich verringert\footnote{Anmerkung: Der Anteil des Lichtes von aussen, der durch den halbdurchlässigen Spiegel das Auge nicht erreicht, ist üblicherweise vernachlässigbar klein}. Problematisch ist hierbei die je nach Geschwindigkeit des Systems verschieden große Verzögerung der virtuellen Komponente gegenüber dem realen Bild, die je nach Verarbeitung der Daten durch die Applikation unterschiedlich viel Zeit in Anspruch nehmen kann. Im Englischen wird diese Verzögerung mit \textit{lag} bezeichnet. Zur reinen Datenverarbeitung kommt hier noch hinzu, dass Position und Ausrichtung derjenigen Person, aus deren Sicht die Daten dargestellt werden sollen, von Sensoren erfasst und in Koordinaten und Winkel umgerechnet werden müssen, um dem Teil der Applikation, die die Visualisationsdaten berechnet, den zu rendern Blickwinkel sowie die Position des Betrachters mitteilen zu können (vgl. \cite[Kapitel 2.2, Seite 21f.]{Toe2010}). Eine zentrale Anforderung dieser Arbeit an die vorgestellten Konzepte ist, diesen \textit{lag} gering zu halten - optimalerweise unter der Wahrnehmbarkeitsschwelle. Technisch bedingt ist diese Verzögerung jedoch immer vorhanden.
- 
- \item es
+ \item \textbf{Optical See-Through Displays}: Diese Art von Displays, ermöglicht den \glqq direkten Blick auf die umgebende Welt\grqq\footnoteremember{f:Toe2010-S21}{Zitiert aus \cite[Kapitel 2.2, Seite 21f.]{Toe2010}}. Technisch kann dieses Konzept beispielsweise durch einen halbdurchlässigen Spiegel, der Combiner genannt wird, realisiert werden. Dadurch bleibt die \glqq direkte Sicht auf die Umgebung\grqq\footnoterecall{f:Toe2010-S21} erhalten und die Darstellungsqualität der realen Informationen wird nicht merklich verringert\footnote{Anmerkung: Der Anteil des Lichtes von aussen, der durch den halbdurchlässigen Spiegel das Auge nicht erreicht, ist üblicherweise vernachlässigbar klein}. Problematisch ist hierbei die je nach Geschwindigkeit des Systems verschieden große Verzögerung der virtuellen Komponented gegenüber dem realen Bild, die je nach Verarbeitung der Daten durch die Applikation unterschiedlich viel Zeit in Anspruch nehmen kann. Im Englischen wird diese Verzögerung mit \textit{lag} bezeichnet. Zur reinen Datenverarbeitung kommt hier noch hinzu, dass Position und Ausrichtung derjenigen Person, aus deren Sicht die Daten dargestellt werden sollen, von Sensoren erfasst und in Koordinaten und Winkel umgerechnet werden müssen, um dem Teil der Applikation, die die Visualisationsdaten berechnet, den zu rendern Blickwinkel sowie die Position des Betrachters mitteilen zu können. (vgl. \cite[Kapitel 2.2, Seite 21f.]{Toe2010}). Eine zentrale Anforderung dieser Arbeit an die vorgestellten Konzepte ist, diesen \textit{lag} durch den Einsatz von echtzeitfähigen Algorithmen und Techniken gering zu halten - optimalerweise unter der Wahrnehmbarkeitsschwelle. Technisch bedingt ist diese Verzögerung jedoch immer vorhanden.
+ Ein weiteres Problem von \textit{Optical See-Through Displays} stellt die Tatsache dar, dass durch die Projektion des virtuellen Bildes über den halbdurchlässigen Spiegel in jedem Fall das reale Umfeld des Betrachters durchscheint.
+ \item \textbf{Video See-Through Displays}: Entgegen dem Ansatz von \textit{Optical See-Through Displays} wird bei diesen Displays das Bild komplett über einen bzw. (häufiger, siehe auch \glqq Head-Mounted Displays\grqq) zwei Monitore angezeigt. Der reale Anteil des Bildes wird hier über eine bzw. zwei Videokameras (je eine für jedes Auge) aufgenommen und um die gleiche Zeitspanne verzögert, die benötigt wird, um den virtuellen Anteil des Bildes soweit zu verarbeiten, dass er auf dem Monitor angezeigt werden kann. Durch das fehlen eines halbdurchlässigen Spiegels kann konstruktionsbedingt für Teile des Bildes nur der virtuelle Anteil angezeigt werden.
+ Obwohl bei dieser Art von Displays kein Unterschied zwischen dem \textit{lag} des realen und des virtuellen Bildes besteht, ist die Anzeige des Gesamtbildes verzögert. Zudem wird je nach Auflösung und Qualität der Kamera(s) beziehungsweise der Monitore der reale Anteil des Bildes in schlechterer Qualität als bei \textit{Optical See-Through Displays} dargestellt (vgl. \cite[Kapitel 2.2, Seite 22]{Toe2010}). 
+\end{itemize}
+
+Basierend auf den dargestellten Grundkonzepten lassen sich laut \cite[Kapitel 2.2, Seite 22-30]{Toe2010} die folgenden Grundtypen von Displays unterscheiden, die in \cite{Toe2010} sowie in der einschlägigen Fachliteratur genauer erörtert werden:
+ \begin{itemize}
+ \item Head-Mounted Displays; siehe \cite[Kapitel 2.2.1, Seite 23-25]{Toe2010}
+ \item Raum- und umgebungsfixierte Displays; siehe \cite[Kapitel 2.2.2, Seite 25-28]{Toe2010}, darunter:
+ \begin{itemize}
+    \item Feststehende Displays
+    \item Relativ feststehende Displays
+ \end{itemize}
+ \item Bewegliche Displays; siehe \cite[Kapitel 2.2.3, Seite 28]{Toe2010}
+ \item Handheld-Displays; siehe \cite[Kapitel 2.2.4, Seite 28f.]{Toe2010}
+\end{itemize}
+
+Schlussendlich sei noch darauf hingewiesen, dass aufgrund der obigen Definition von Augmented Reality abgeshen von den bereits genannten Darstellung durch visuelle Mittel auch die folgenden nicht visuellen Erweiterungen der Realität sowie Kombinationen möglich sind, die in \cite[Kapitel 2.4, Seite 36-41]{Toe2010} erörtert werden. 
+\begin{itemize}
+ \item Akustische Darstellung; siehe \cite[Seite 37]{Toe2010}
+ \item Taktile bzw. haptische Darstellung; siehe \cite[Seite 38f.]{Toe2010}
+ \item Gustatorische\footnote{Gustatorisch - Den Geschmackssinn betreffend} bzw. olfaktorische\footnote{Olfaktorisch - den Geruchssinn betreffend} Darstellung; siehe \cite[Seite 39-41]{Toe2010}
 \end{itemize}
 
 
