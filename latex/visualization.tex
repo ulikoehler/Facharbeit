@@ -31,6 +31,15 @@
 %\institute[EMG]{Ernst-Mach-Gymnasium Haar}
 \date{9.~November 2010}
 
+\newcommand{\footnoteremember}[2]{
+  \footnote{#2}
+  \newcounter{#1}
+  \setcounter{#1}{\value{footnote}}
+}
+\newcommand{\footnoterecall}[1]{
+  \footnotemark[\value{#1}]
+}
+
 %Utility to insert a newline after a paragraph declaration
 \newcommand{\paranl}{$~~$\\}
 
@@ -104,7 +113,7 @@ Die naheliegendste Möglichkeit, Operationen auf großen Mengen volumetrischen D
 
 Obwohl moderne Prozessoren mehrere Rechenkerne besitzen und dadurch eine Parallelisierung möglich ist, bietet denoch spezialisierte Hardware eine höhere Parallelisierbarkeit. Zudem muss zur Optimierung der Geschwindigkeit einer Applikation oft der Code auf bestimmte CPUs bzw. CPUs eines bestimmten Herstellers optimiert werden. Beispielsweise unterstützen moderne Prozessoren so genannte SIMD\footnote{SIMD - Single Instruction Multiple Data}-Operationen, die dem Programm erlauben, eine Operation (vor allem arithmetische) auf mehrere Variablen gleicher Länge und gleichen Typs auf einmal anzuwenden (vgl. \cite[Kapitel 12, Seite 103]{Fog2010}. Sofern eine Applikation solche Befehle benutzt\footnote{Anmerkung: Für C/C++ bieten die so genannten Intrinsics ein API zur Benutzung dieser Operationen, siehe auch [Kapitel 12.3, Seite 107]{Fog2010}}, entsteht dadurch eine Abhängigkeit von Plattformen, die Prozessoren verbaut haben, die die jeweiligen SIMD-Instruction sets\footnote{Instruction Set - Befehlssatz (eines Prozessors) - (Unter)menge der vom Prozessor unterstützten Maschinencode-Befehle} unterstützen.
 
-Es gibt zwar Ansätze, erst zur Laufzeit einen speziell auf die vorhandene Plattform abgestimmten Code zu benutzen, allerdings sind diese Ansätze je nach Zahl und Diversität der zu unterstützenden Plattformen nur mit stark erhöhtem Zeit- und damit finanziellem Aufwand umzusetzen, sofern der Code manuell der jeweiligen Plattform angepasst wird. Diese Möglichkeit beschreibt unter anderem Fog in \cite{Fog2010}\footnote{Anmerkung: Fog behandelt nicht die Optimierung für spezielle Echtzeitbetriebsssyteme, die im medizinischen Bereich zum Einsatz kommen}. Dagegen besteht auch die Möglichkeit, die Optimierung des Quellcode von einem Compiler\footnote{Compiler - Programm, das menschenlesbaren Quellcode in maschinenlesbare Befehle umsetzt} vornehmen zu lassen. Zum Zeitpunkt des Verfassens dieser Arbeit ist die Compilertechnologie jedoch noch nicht so weit fortgeschritten, dass die automatische Optimierung einen menschlichen Entwickler mit Erfahrung in diesem Bereich ersetzen könnte (siehe auch \cite{Fog2010}). Ausserdem bestehen hier starke Unterschiede zwichen den einzelnen Compilern - beispielsweise läuft vom Intel C++ Compiler generierter Maschinencode, der auf CPUs desselben Herstellers hochperformant läuft, oft nur langsam oder gar nicht auf Prozessoren des Konkurrenten AMD (vgl. \cite[Kapitel 2.5, Seite 10]{Fog2010}
+Es gibt zwar Ansätze, erst zur Laufzeit einen speziell auf die vorhandene Plattform abgestimmten Code zu benutzen, allerdings sind diese Ansätze je nach Zahl und Diversität der zu unterstützenden Plattformen nur mit stark erhöhtem Zeit- und damit finanziellem Aufwand umzusetzen, sofern der Code manuell der jeweiligen Plattform angepasst wird. Diese Möglichkeit beschreibt unter anderem Fog in \cite{Fog2010}\footnote{Anmerkung: Fog behandelt nicht die Optimierung für spezielle Echtzeitbetriebsssyteme, die im medizinischen Bereich zum Einsatz kommen}. Dagegen besteht auch die Möglichkeit, die Optimierung des Quellcode von einem Compiler\footnote{Compiler - Programm, das menschenlesbaren Quellcode in maschinenlesbare Befehle umsetzt} vornehmen zu lassen. Zum Zeitpunkt des Verfassens dieser Arbeit ist die Compilertechnologie jedoch noch nicht so weit fortgeschritten, dass die automatische Optimierung einen menschlichen Entwickler mit Erfahrung in diesem Bereich ersetzen könnte (siehe auch \cite{Fog2010}). Ausserdem bestehen hier starke Unterschiede zwichen den einzelnen Compilern - beispielsweise läuft vom Intel C++ Compiler generierter Maschinencode, der auf CPUs desselben Herstellers hochperformant läuft, oft nur langsam oder gar nicht auf Prozessoren des Konkurrenten AMD (vgl. \cite[Kapitel 2.5, Seite 10]{Fog2010}).
 \subsubsection{Berechnung auf GPUs}\label{sssec:gpucalculation}
 Da die Rechenleistung der Hauptprozessoren moderner Computer für viele der heutigen 3D-Anwendungen nicht mehr ausreicht, enthält ein Großteil der heutigen Computer Grafikhardware, die in der Lage ist, 3D-Anwendungen zu beschleunigen. Hierbei berechnet der Hauptprozessor die darzustellenden Daten und gibt sie an die Grafikhardware weiter, die diese Daten mithilfe der GPU\footnote{GPU - Graphics Processing Unit - Grafikprozessor} in ein zweidimensionales Bild umwandelt (rendert), das beispielsweise auf einem Monitor angezeigt werden kann.
 
@@ -138,6 +147,15 @@ Kuszyk et al. stellen in \cite{Kuszyk1996} die Nachteile des Surface Renderings 
 
 \section{Augmented Reality - Zukunft von Visualisationssystemen?}\label{sec:augmentedreality}
 In den letzten Jahren wird neben den herkömmlichen Geräten zu Darstellung der Informationen medizinischer Informationssysteme (z.B. Bildschirme) intensiv an der so genannten `Augmented Reality` geforscht. Dieser Begriff, der sich mit 'Erweiterte Realität' (Quelle: \cite[Seite 1]{Toe2010}) übersetzen lässt, beschreibt laut \cite{Suthau2002DE} (Seite 1; Englische Publikation: \cite{Suthau2002}) das Konzept, reale Bilder mit zusätzlichen Informationen zu ergänzen.
+
+\subsection{Displays für AR-Applikationen}
+In \cite[Kapitel 2.2, Seite 21]{Toe2010} werden zwei grundsätzliche Methoden unterschieden, die Kombination von realen und virtuellen Daten in visuellen Ausgabegeräten (Displays) umzusetzen:
+\begin{itemize}
+ \item \textbf{Optical See-Through Displays}: Diese Art von Displays, ermöglicht den \glqq direkten Blick auf die umgebende Welt\grqq\footnoteremember{f:Toe2010-S21}{Zitiert aus \cite[Kapitel 2.2, Seite 21]{Toe2010}}. Technisch kann dieses Konzept beispielsweise durch einen halbdurchlässigen Spiegel, der Combiner genannt wird, realisiert werden. Dadurch bleibt die \glqq direkte Sicht auf die Umgebung\grqq\footnoterecall{f:Toe2010-S21} erhalten und die Darstellungsqualität der realen Informationen wird nicht merklich verringert\footnote{Anmerkung: Der Anteil des Lichtes von aussen, der durch den halbdurchlässigen Spiegel das Auge nicht erreicht, ist üblicherweise vernachlässigbar klein}. Problematisch ist hierbei die je nach Geschwindigkeit des Systems verschieden große Verzögerung der virtuellen Komponente gegenüber dem realen Bild, die je nach Verarbeitung der Daten durch die Applikation unterschiedlich viel Zeit in Anspruch nehmen kann. Im Englischen wird diese Verzögerung mit \textit{lag} bezeichnet. Zur reinen Datenverarbeitung kommt hier noch hinzu, dass Position und Ausrichtung derjenigen Person, aus deren Sicht die Daten dargestellt werden sollen, von Sensoren erfasst und in Koordinaten und Winkel umgerechnet werden müssen, um dem Teil der Applikation, die die Visualisationsdaten berechnet, den zu rendern Blickwinkel sowie die Position des Betrachters mitteilen zu können (vgl. \cite[Kapitel 2.2, Seite 21f.]{Toe2010}). Eine zentrale Anforderung dieser Arbeit an die vorgestellten Konzepte ist, diesen \textit{lag} gering zu halten - optimalerweise unter der Wahrnehmbarkeitsschwelle. Technisch bedingt ist diese Verzögerung jedoch immer vorhanden.
+ 
+ \item es
+\end{itemize}
+
 
 \section{Existierende Visualisationssysteme} \label{ssec:existingtvss}
 
@@ -186,4 +204,3 @@ Uli Köhler
 \end{center}
 \vfill
 \end{document}
-\label{ssec:existingtvss}
