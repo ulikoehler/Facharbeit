@@ -83,24 +83,8 @@ Schon heute werden medizinische Visualisationssysteme in den verschiedensten Ber
 \end{itemize}
 
 \section{Konzepte zur Tumorvisualisation}\label{ssec:concepts}
-\subsection{Algorithmen zur Klassifizierung}
-\begin{figure}[p]
-\begin{center}
-\includegraphics[width=\textwidth]{graphics/Classification.pdf}
-\caption{Verarbeitung von CT-Eingabedaten in VERTEBRA}
-\label{gradientmapping-graphic}
-\end{center}
-\end{figure}ssec:implementations
-\subsection{Implementationsmöglichkeiten am Beispiel des Projektes VERTEBRA}\label{ssec:implementations}
-Als Begleitprojekt zu dieser Arbeit wurde das Programm VERTEBRA (Volumetric Examiner for Radiological and Tomographical Experimental Basic Realtime Analysis) geschrieben, dessen Hauptzweck darin besteht, die Machbarkeit in dieser Arbeit vorgestellten Konzepte zu demonstrieren und im Rahmen der erreichbaren Genauigkeit vergleichbare Daten über die Echtzeittauglichkeit der Algorithmen und Verfahren zu liefern.
-
-VERTEBRA ist ein Proof-of-Concept-Projekt, zielt also nicht darauf ab, ein im medizinischen Alltag einsetzbares Produkt zu sein oder die für eine Zulassung nach dem Medizinproduktegesetz (bezogen auf deutsches Recht) notwendigen Vorraussetzungen zu schaffen.
-\subsection{Grenzen der vorgestellten Konzepte}\label{ssec:limits}
-\paragraph{Abhängigkeit von den Eingabedaten}
-Die in dieser Arbeit vorgestellten Verfahren benutzen algorithmische Verfahren, um den medizinischen Eingabedatensatz in einen visualisierbaren Ausgabedatensatz umzurechnen (siehe Kapitel \ref{ssec:requirements}). Daher hängt die Qualität der Ausgabedaten direkt von der Qualität der Eingabedaten ab. Da die Daten üblicher
-\subsection{Methoden zur performanten Berechnung von Visualisationsdaten}\label{ssec:hpmethods}
-\subsubsection{Vergleich von Hardware- und Softwarealgorithmen}\label{ssec:swhwcomparison}
-Grundsätzlich lassen sich zwei Methoden zur Umwandlung der Eingabedaten in Ausgabedaten unterscheiden\footnote{Anmerkung: Hierzu zählen nicht die visuellen Ausgabegeräte, die mitunter von System zu System variieren}:
+\subsection{Vergleich von Hardware- und Softwarealgorithmen}\label{ssec:swhwcomparison}
+Bei Betrachtung der Hardware, auf ein System die Berechnungen zur Transformation der Eingabedaten in Ausgabedaten durchführt, lassen  sich zwei Konzepte unterscheiden:
 \begin{itemize}
  \item \textbf{Hardwarealgorithmen}: Diese Methode benutzt für einen oder mehrere Berechnungsschritte Hardware, deren Vorhandensein nicht auf allen Plattformen garantiert ist.\footnote{Anmerkung: Im Sinne dieser Definition gelten CPUs nicht als Spezialhardware, da sie notwendigerweise zur Datenverarbeitung auf Systemen, auf denen die hier beschriebenen Algorithmen lauffähig  wären, vorhanden sein müssen.}\textsuperscript{,}\footnote{Anmerkung: Diese Hardware ist nicht zwangsläufig mit der in Kapitel \ref{sssec:specialhardwarecalculation} beschriebenen Spezialhardware gleichzusetzen}\\
  Beispiele für Hardware im Sinne dieser Definition beschrieben, sind:
@@ -109,9 +93,24 @@ Grundsätzlich lassen sich zwei Methoden zur Umwandlung der Eingabedaten in Ausg
   \item FPGAs, siehe Kapitel \vref{sssec:fpgacalculation}
   \item Spezialhardware, siehe Kapitel \vref{sssec:specialhardwarecalculation}
  \end{itemize}
- \item \textbf{Softwarealgorithmen}: Diese Methode benutzt für keinen Berechnungsschritt derartige Hardware.
+ \item \textbf{Softwarealgorithmen}: Diese Methode benutzt für keinen Berechnungsschritt derartige Hardware, sondern lediglich die auf allen üblichen Plattformen vorhandenen CPUs. Bevor die Daten zur Anzeige auf einem Display and die Grafikeinheit übergeben werden, ist die Transformation von dreidimensionalen Eingabedaten in zweidimensionale Ausgabedaten bereits abgeschlossen.
 \end{itemize}
 
+\subsection{Vergleich von Volumen- und Oberflächenverfahren}
+Abgesehen von der in Kapitel \ref{ssec:swhwcomparison} diskutierten Unterscheidung zwischen 
+\subsubsection{Surface Rendering}\label{sssec:surfacerendering}
+Die in dieser Arbeit behandelten Methoden beschränken sich auf das Volume Rendering (\glqq Volumenrendern\grqq\footnote{Anmerkung: Die Begriffe Volumenrendern und Volumenrendering werden in dieser Arbeit synonym verwendet}), d.h. die Daten werden unter Beachtung der räumlichen Information gerendert. Als Alternative bietet sich das so genannte Surface Rendering (`Oberflächenrendern`) an, bei dem durch mathematische Verfahren Oberflächen im Datensatz gesucht werden, die dann als zusammenhängende Fläche gerendert werden. 
+
+Kuszyk et al. stellen in \cite{Kuszyk1996} die Nachteile des Surface Renderings gegenüber dem Volume Rendering dar. Als Beispiel für einen Nachteil des Surface Rendering wird dargestellt, dass Läsionen unter Knochen verborgen werden während Volume Rendering-Algorithmen diese korrekt darstellen (Quelle: \cite{Kuszyk1996}, Abstract). Da die Publikation jedoch schon 1996 veröffentlicht wurde, gelten die Resultate unter Umständen für die heutigen Algorithmen und hochauflösenden Tomographen. Eine aktuellere Darstellung liefern Udupa et al. in \cite{Udupa2009}. Die Autoren kommen zu dem Schluss, dass Surface Rendering-Algorithmen im Bereich der Informationsdarstellung einen kleinen Vorteil gegenüber volumenbasierten Algorithmen haben und außerdem durch den geringeren Bedarf an Rechenzeit und Speicherplatz überlegen sind. Auch \cite{Bruckner2004} thematisiert den Vergleich von Oberflächen- und Volumenrendering, kommt aber im Gegensatz zur vorgenannten Publikation zum Schluss, dass der Mehraufwand an Rechenzeit und Speicher die Mehrinformation wert, die im gerenderten Bild angezeigt wird - tatsächlich würde beim Rendern der Oberflächen eine Dimension verloren gehen, da das Innere von Objekten verborgen bleibt (Quelle: \cite[Seite 2f.]{Bruckner2004}).
+
+\subsection{Implementationsmöglichkeiten am Beispiel des Projektes VERTEBRA}\label{ssec:implementations}
+Als Begleitprojekt zu dieser Arbeit wurde das Programm VERTEBRA (Volumetric Examiner for Radiological and Tomographical Experimental Basic Realtime Analysis) geschrieben, dessen Hauptzweck darin besteht, die Machbarkeit in dieser Arbeit vorgestellten Konzepte zu demonstrieren und im Rahmen der erreichbaren Genauigkeit vergleichbare Daten über die Echtzeittauglichkeit der Algorithmen und Verfahren zu liefern.
+
+VERTEBRA ist ein Proof-of-Concept-Projekt, zielt also nicht darauf ab, ein im medizinischen Alltag einsetzbares Produkt zu sein oder die für eine Zulassung nach dem Medizinproduktegesetz (bezogen auf deutsches Recht) notwendigen Vorraussetzungen zu schaffen.
+\subsection{Grenzen der vorgestellten Konzepte}\label{ssec:limits}
+\paragraph{Abhängigkeit von den Eingabedaten}
+Die in dieser Arbeit vorgestellten Verfahren benutzen algorithmische Verfahren, um den medizinischen Eingabedatensatz in einen visualisierbaren Ausgabedatensatz umzurechnen (siehe Kapitel \ref{ssec:requirements}). Daher hängt die Qualität der Ausgabedaten direkt von der Qualität der Eingabedaten ab. Da die Daten üblicher
+\subsection{Plattformen zur performanten Berechnung von Visualisationsdaten}\label{ssec:hpmethods}
 Bruckner vergleicht in \cite{Bru08} diese Methoden wie folgt:\\
 Obwohl Grafikhardware genutzt werden könnte, um die Geschwindigkeit eines Volumenrenderingsystems zu erhöhen, entstehen dadurch Probleme wie veraltete Treiber\footnote{Anmerkung: Ein Treiberupdate würde eine erneute Zertifizierung nach dem Medizinproduktegesetz erfordern und wäre daher kosten- und zeitintensiv} oder der Unterschied von unterstützten Funktionen von System zu System (übersetzt aus \cite[Kapitel 3.1.1, Seite 17, Paragraph \glqq Pure Software \grqq]{Bruckner2004}).
 Bruckner stellt daher an die in seiner Arbeit verwendeten Verfahren den Anspruch, in reiner Software implementiert zu sein, also Softwarealgorithmen im Sinne der obigen Definition zu sein. Diese Arbeit behandelt dagegen auch Hardwarealgorithmen, da der Performancegewinn mitunter nicht unerheblich ist und aktive Forschung über beide Methoden betrieben wird (für Publikationen über Hardwarealgorithmen siehe auch Kapitel \ref{sssec:gpucalculation} sowie Kapitel \ref{sssec:fpgacalculation}).
@@ -148,19 +147,23 @@ Neben den dargestellten Visualisationsmethoden gibt es durchaus Ansätze, die f�
  \item EM-Cube dient zudem als Basis für das kommerziell verfügbare VolumePro board, das in \cite{Pfister1999} beschrieben wird (vgl. \cite[Kapitel 2.2.5, Seite 14]{Bruckner2004})
 \end{itemize}
 Insbesondere bei \cite{Knittel1995}, \cite{Guenther1995} sowie \cite{Osborne1997} ist zu beachten, dass das Publikationsdatum sehr lange zurückliegt und daher unter Umständen nicht ausreichend mit aktueller Hardware zusammenarbeiten - beispielsweise könnte die Auflösung und Geschwindigkeit der heutigen Tomographen für die echtzeitfähigen Systeme ein Problem darstellen. Das kommerziell verfügbare VolumePro-Board aus \cite{Pfister1999} ist jedoch laut \cite[Kapitel 2.2.5, Seite 14]{Bruckner2004} fähig, einen Datensatz mit einer Auflösung von 512 in allen drei Raumdimensionen mit einer Geschwindigkeit von 30 FPS\footnote{FPS - Frames per second - Bilder pro Sekunde} zu rendern.
-\subsubsection{Surface Rendering}\label{sssec:surfacerendering}
-Die in dieser Arbeit behandelten Methoden beschränken sich auf das Volume Rendering (\glqq Volumenrendern\grqq\footnote{Anmerkung: Die Begriffe Volumenrendern und Volumenrendering werden in dieser Arbeit synonym verwendet}), d.h. die Daten werden unter Beachtung der räumlichen Information gerendert. Als Alternative bietet sich das so genannte Surface Rendering (`Oberflächenrendern`) an, bei dem durch mathematische Verfahren Oberflächen im Datensatz gesucht werden, die dann als zusammenhängende Fläche gerendert werden. 
 
-Kuszyk et al. stellen in \cite{Kuszyk1996} die Nachteile des Surface Renderings gegenüber dem Volume Rendering dar. Als Beispiel für einen Nachteil des Surface Rendering wird dargestellt, dass Läsionen unter Knochen verborgen werden während Volume Rendering-Algorithmen diese korrekt darstellen (Quelle: \cite{Kuszyk1996}, Abstract). Da die Publikation jedoch schon 1996 veröffentlicht wurde, gelten die Resultate unter Umständen für die heutigen Algorithmen und hochauflösenden Tomographen. Eine aktuellere Darstellung liefern Udupa et al. in \cite{Udupa2009}. Die Autoren kommen zu dem Schluss, dass Surface Rendering-Algorithmen im Bereich der Informationsdarstellung einen kleinen Vorteil gegenüber volumenbasierten Algorithmen haben und außerdem durch den geringeren Bedarf an Rechenzeit und Speicherplatz überlegen sind. Auch \cite{Bruckner2004} thematisiert den Vergleich von Oberflächen- und Volumenrendering, kommt aber im Gegensatz zur vorgenannten Publikation zum Schluss, dass der Mehraufwand an Rechenzeit und Speicher die Mehrinformation wert, die im gerenderten Bild angezeigt wird - tatsächlich würde beim Rendern der Oberflächen eine Dimension verloren gehen, da das Innere von Objekten verborgen bleibt (Quelle: \cite[Seite 2f.]{Bruckner2004}).
+\subsection{Algorithmen zur Klassifizierung}
+\begin{figure}[p]
+\begin{center}
+\includegraphics[width=\textwidth]{graphics/Classification.pdf}
+\caption{Verarbeitung von CT-Eingabedaten in VERTEBRA}
+\label{gradientmapping-graphic}
+\end{center}
+\end{figure}\label{ssec:implementations}
 
 \section{Augmented Reality - Zukunft von Visualisationssystemen?}\label{sec:augmentedreality}
-In den letzten Jahren wird neben den herkömmlichen Geräten zu Darstellung der Informationen medizinischer Informationssysteme (z.B. Bildschirme) intensiv an der so genannten `Augmented Reality` geforscht. Dieser Begriff, der sich mit 'Erweiterte Realität' (Quelle: \cite[Seite 1]{Toe2010}) übersetzen lässt, beschreibt laut \cite{Suthau2002DE} (Seite 1; Englische Publikation: \cite{Suthau2002}) das Konzept, reale Bilder mit zusätzlichen Informationen zu ergänzen.
+In den letzten Jahren wird neben den herkömmlichen Geräten zu Darstellung der Informationen medizinischer Informationssysteme (z.B. Bildschirme) intensiv an der so genannten `Augmented Reality` geforscht. Dieser Begriff, der sich mit 'Erweiterte Realität' (Quelle: \cite[Seite 1]{Toe2010}) übersetzen lässt, beschreibt laut \cite{Suthau2002DE} (Seite 1; Englische Publikation: \cite{Suthau2002}) das Konzept, reale Bilder mit zusätzlichen Informationen zu ergänzen. Zuerst wurden präoperativ CT-Aufnahmen erstellt, die 
 
 \subsection{Displays für AR-Applikationen}
 In \cite[Kapitel 2.2, Seite 21]{Toe2010} werden zwei grundsätzliche Methoden unterschieden, die Kombination von realen und virtuellen Daten in visuellen Ausgabegeräten (Displays) umzusetzen:
 \begin{itemize}
- \item \textbf{Optical See-Through Displays}: Diese Art von Displays, ermöglicht den \glqq direkten Blick auf die umgebende Welt\grqq\footnoteremember{f:Toe2010-S21}{Zitiert aus \cite[Kapitel 2.2, Seite 21f.]{Toe2010}}. Technisch kann dieses Konzept beispielsweise durch einen halbdurchlässigen Spiegel, der Combiner genannt wird, realisiert werden. Dadurch bleibt die \glqq direkte Sicht auf die Umgebung\grqq\footnoterecall{f:Toe2010-S21} erhalten und die Darstellungsqualität der realen Informationen wird nicht merklich verringert\footnote{Anmerkung: Der Anteil des Lichtes von aussen, der durch den halbdurchlässigen Spiegel das Auge nicht erreicht, ist üblicherweise vernachlässigbar klein}. Problematisch ist hierbei die je nach Geschwindigkeit des Systems verschieden große Verzögerung der virtuellen Komponented gegenüber dem realen Bild, die je nach Verarbeitung der Daten durch die Applikation unterschiedlich viel Zeit in Anspruch nehmen kann. Im Englischen wird diese Verzögerung mit \textit{lag} bezeichnet. Zur reinen Datenverarbeitung kommt hier noch hinzu, dass Position und Ausrichtung derjenigen Person, aus deren Sicht die Daten dargestellt werden sollen, von Sensoren erfasst und in Koordinaten und Winkel umgerechnet werden müssen, um dem Teil der Applikation, die die Visualisationsdaten berechnet, den zu rendern Blickwinkel sowie die Position des Betrachters mitteilen zu können. (vgl. \cite[Kapitel 2.2, Seite 21f.]{Toe2010}). Eine zentrale Anforderung dieser Arbeit an die vorgestellten Konzepte ist, diesen \textit{lag} durch den Einsatz von echtzeitfähigen Algorithmen und Techniken gering zu halten - optimalerweise unter der Wahrnehmbarkeitsschwelle. Technisch bedingt ist diese Verzögerung jedoch immer vorhanden.
- Ein weiteres Problem von \textit{Optical See-Through Displays} stellt die Tatsache dar, dass durch die Projektion des virtuellen Bildes über den halbdurchlässigen Spiegel in jedem Fall das reale Umfeld des Betrachters durchscheint.
+ \item \textbf{Optical See-Through Displays}: Diese Art von Displays, ermöglicht den \glqq direkten Blick auf die umgebende Welt\grqq\footnoteremember{f:Toe2010-S21}{Zitiert aus \cite[Kapitel 2.2, Seite 21f.]{Toe2010}}. Technisch kann dieses Konzept beispielsweise durch einen halbdurchlässigen Spiegel, der Combiner genannt wird, realisiert werden. Dadurch bleibt die \glqq direkte Sicht auf die Umgebung\grqq\footnoterecall{f:Toe2010-S21} erhalten und die Darstellungsqualität der realen Informationen wird kaum verringern - lediglich der Transmissionsgrad des halbdurchlässigen Spiegels von mitunter weniger als 50\% führt zu einer verringerten Lichtstärke des realen Bildes (vgl. \cite[Kapitel 3.1.3, Seite 7]{Suthau2002DE}. Problematisch ist hierbei die je nach Geschwindigkeit des Systems verschieden große Verzögerung der virtuellen Komponented gegenüber dem realen Bild, die je nach Verarbeitung der Daten durch die Applikation unterschiedlich viel Zeit in Anspruch nehmen kann. Im Englischen wird diese Verzögerung mit \textit{lag} bezeichnet. Zur reinen Datenverarbeitung kommt hier noch hinzu, dass Position und Ausrichtung derjenigen Person, aus deren Sicht die Daten dargestellt werden sollen, von Sensoren erfasst und in Koordinaten und Winkel umgerechnet werden müssen, um dem Teil der Applikation, die die Visualisationsdaten berechnet, den zu rendern Blickwinkel sowie die Position des Betrachters mitteilen zu können. (vgl. \cite[Kapitel 2.2, Seite 21f.]{Toe2010}). Eine zentrale Anforderung dieser Arbeit an die vorgestellten Konzepte ist, diesen \textit{lag} durch den Einsatz von echtzeitfähigen Algorithmen und Techniken gering zu halten - optimalerweise unter der Wahrnehmbarkeitsschwelle. Technisch bedingt ist diese Verzögerung jedoch immer vorhanden. Ein weiteres Problem von \textit{Optical See-Through Displays} stellt die Tatsache dar, dass durch die Projektion des virtuellen Bildes über den halbdurchlässigen Spiegel in jedem Fall das reale Umfeld des Betrachters durchscheint.
  \item \textbf{Video See-Through Displays}: Entgegen dem Ansatz von \textit{Optical See-Through Displays} wird bei diesen Displays das Bild komplett über einen bzw. (häufiger, siehe auch \glqq Head-Mounted Displays\grqq) zwei Monitore angezeigt. Der reale Anteil des Bildes wird hier über eine bzw. zwei Videokameras (je eine für jedes Auge) aufgenommen und um die gleiche Zeitspanne verzögert, die benötigt wird, um den virtuellen Anteil des Bildes soweit zu verarbeiten, dass er auf dem Monitor angezeigt werden kann. Durch das fehlen eines halbdurchlässigen Spiegels kann konstruktionsbedingt für Teile des Bildes nur der virtuelle Anteil angezeigt werden.
  Obwohl bei dieser Art von Displays kein Unterschied zwischen dem \textit{lag} des realen und des virtuellen Bildes besteht, ist die Anzeige des Gesamtbildes verzögert. Zudem wird je nach Auflösung und Qualität der Kamera(s) beziehungsweise der Monitore der reale Anteil des Bildes in schlechterer Qualität als bei \textit{Optical See-Through Displays} dargestellt (vgl. \cite[Kapitel 2.2, Seite 22]{Toe2010}). 
 \end{itemize}
@@ -168,7 +171,11 @@ Diese Konzepte werden zudem in \cite{Rolland2000} verglichen, wobei auch hier di
 
 Basierend auf den dargestellten Grundkonzepten lassen sich laut \cite[Kapitel 2.2, Seite 22-30]{Toe2010} die folgenden Grundtypen von Displays unterscheiden, die in \cite{Toe2010} sowie in der einschlägigen Fachliteratur genauer erörtert werden:
  \begin{itemize}
- \item Head-Mounted Displays; siehe \cite[Kapitel 2.2.1, Seite 23-25]{Toe2010}
+ \item Head-Mounted Displays (HMDs); siehe \cite[Kapitel 2.2.1, Seite 23-25]{Toe2010}
+ \begin{itemize}
+  \item Monokulare Displays mit einem Bildschirm nur für ein Auge
+  \item Binokulare Displays mit Bildschirmen für beide Augen
+ \end{itemize}
  \item Raum- und umgebungsfixierte Displays; siehe \cite[Kapitel 2.2.2, Seite 25-28]{Toe2010}, darunter:
  \begin{itemize}
     \item Feststehende Displays
@@ -176,8 +183,13 @@ Basierend auf den dargestellten Grundkonzepten lassen sich laut \cite[Kapitel 2.
  \end{itemize}
  \item Bewegliche Displays; siehe \cite[Kapitel 2.2.3, Seite 28]{Toe2010}
  \item Handheld-Displays; siehe \cite[Kapitel 2.2.4, Seite 28f.]{Toe2010}
+ \item VRD (Virtual Retinal Display): Hierbei wird das Bild von Laserstrahlen direkt auf die Netzhaut projiziert; siehe \cite[Kapitel 3.1.2, Seite 5f.]{Suthau2002DE}
 \end{itemize}
 
+\subsubsection{Stereoskopische und Autostereoskopische Displays}
+Bei den bereits genannten Displays lassen sich normale Displays, die nur eine zweidimensionale Sicht erlauben, von stereoskopischen Displays abgrenzen, die entweder durch spezielle Brillen (z.B. Shutterbrillen) oder durch autostereoskopische Verfahren, die keine solche Brille benötigen, dreidimensionale Bilder anzeigen. Binokulare HMDs sind prinzipbedingt stereoskopisch (vgl. \cite[Kapitel 2.2.1, Seite 23-25]{Toe2010}). Problem
+
+\subsubsection{Weitere Darstellungsmethoden}
 Schlussendlich sei noch darauf hingewiesen, dass aufgrund der obigen Definition von Augmented Reality abgesehen von den bereits genannten Darstellungen durch visuelle Mittel auch die folgenden nicht visuellen Erweiterungen der Realität sowie Kombinationen möglich sind, die in \cite[Kapitel 2.4, Seite 36-41]{Toe2010} erörtert werden. 
 \begin{itemize}
  \item Akustische Darstellung; siehe \cite[Seite 37]{Toe2010}
@@ -185,13 +197,23 @@ Schlussendlich sei noch darauf hingewiesen, dass aufgrund der obigen Definition 
  \item Gustatorische\footnote{Gustatorisch - Den Geschmackssinn betreffend} bzw. olfaktorische\footnote{Olfaktorisch - den Geruchssinn betreffend} Darstellung; siehe \cite[Seite 39-41]{Toe2010}
 \end{itemize}
 
-
 \section{Existierende Visualisationssysteme} \label{ssec:existingtvss}
-Wie bereits in Kapitel \vref{ssec:applications} beschrieben existieren für verschiedene Anwendungsbereiche innerhalb der Medizin verschiedene Visualisationssysteme. Diese sollen im Folgenden soweit aufgrund der zur Verfügung stehenden Informationen möglich
+Wie bereits in Kapitel \vref{ssec:applications} beschrieben existieren bereits jetzt für verschiedene Anwendungsbereiche innerhalb der Medizin verschiedene Visualisationssysteme. Da die Zahl der bestehenden Systeme unüberschaubar groß ist, sollen an dieser Stelle exemplarische 2 Systeme diskutiert werden, die sich auch für den Einsatz als Tumorvisualisationssystem eignen.
+\subsubsection{ARION\texttrademark}
+Das System ARION\texttrademark\footnote{ARION - Augmented Reality for Intra-Operative Navigation} wurde von der Abteilung für Medizinische und Biologische Informatik sowie der Chirurgischen und Radiologischen Klinik der Universität Heidelberg als Augmented Reality-basierender Prototyp eines intraoperativen Visualisationssystems (IGSS\footnote{IGSS - Image-guided surgery system - Bildgeführtes Operationssystem}) für die onkologische Leberchirurgie entwickelt. Suthau et al stellen in \cite{Suthau2002DE} bzw. \cite{Suthau2002} den Einsatz dieses Systems bei der Resektion eines Lebertumors dar. Die Autoren unterscheiden in \cite{Suthau2002DE} fünf Module des beschriebenen Einsatzes von ARION\texttrademark:
+\begin{itemize}
+ \item \textit{Modul 1}: Es wurden präoperativ kontrastmittelgestützte CT-Aufnahmen der betroffenen Leber angefertigt, anhand derer mithilfe des Operationsplanungssystem LENA des DKFZ\footnote{DKFZ - Deutsches KrebsForschungsZentrum} der chirurgische Eingriff geplant wurde. Zudem wurde hier ein mathematisches Modell (Graph) der Gefässe des betroffenen Organs erstellt.
+ \item \textit{Modul 2}: Während des Eingriffs wurden mithilfe von Ultraschallaufnahmen die Gefässbäume erfasst und ebenfalls dreidimensional als Graph modelliert. Während die Module 2 bis 4 ausgeführt werden, wird die betroffene Leber fixiert.
+ \item \textit{Modul 3}: Die prä- und intraoperativen Gefässgraphen, werden zueinander registriert\footnote{Registrierung - Prozess, der versucht, die beste Überlagerung zwischen zwei Graphen zu finden}; daher können mithilfe eines Trackingsystems die in der Planung festgelegten Schritte exakt ausgeführt werden.
+ \item \textit{Modul 4}: Navigationshilfen werden in der Nähe des Tumors in die Leber eingesetzt, um während des Eingriffes Lageveränderungen mitverfolgen zu können und somit die geplanten Schritte auch weiterhin exakt ausführen zu können.
+ \item \textit{Modul 5}: Während der Resektion werden auch die chirurgischen Instrumente mithilfe des zuvor beschriebenen Trackingsystems lokalisiert - diese Informationen werden \glqq in Beziehung zu den transparenten intrahepatischen\footnote{Intrahepatisch - Innerhalb der Leber liegend} Strukturen\grqq\footnote{Zitiert aus \cite[Kapitel 2, Seite 3]{Suthau2002DE}} gesetzt und auf einem halbtransparenten beweglichem Display (siehe auch 
+\end{itemize}
 
 \section{Fazit}
 In dieser Arbeit wurden Konzepte und Methoden zur dreidimensionalen Visualisierung von Tumoren vorgestellt.
-Der Vergleich von Plattformen und Methoden in Kapitel \ref{ssec:hpmethods} zeigte, dass sowohl Software- als auch Hardwarealgorithmen jeweils Vor- und Nachteile habe, und bei der Auswahl der Plattform letztlich immer ein Kompromiss zwischen Kompatibilität und Geschwindigkeit gefunden werden muss, jedoch in der Forschung verschiedenste Ansätze verfolgt werden. Das vorgestelle exemplarische Konzept zur Tumorklassifizierung sowie die Proof-of-Concept-Implementierung VERTEBRA zeigen, dass die Implementierung von einfachen Klassifizierungsverfahren ohne großen Aufwand möglich ist. 
+Der Vergleich von Plattformen und Methoden in Kapitel \ref{ssec:hpmethods} zeigte, dass sowohl Software- als auch Hardwarealgorithmen jeweils Vor- und Nachteile habe, und bei der Auswahl der Plattform letztlich immer ein Kompromiss zwischen Kompatibilität und Geschwindigkeit gefunden werden muss, jedoch in der Forschung verschiedensäte Ansätze verfolgt werden. Das vorgestelle exemplarische Konzept zur Tumorklassifizierung sowie die Proof-of-Concept-Implementierung VERTEBRA zeigen, dass die Implementierung von einfachen Klassifizierungsverfahren ohne großen Aufwand möglich ist, jedoch prinzipbedingt alle Visualisationssysteme grenzen haben.
+Schließlich wurden in Kapitel \ref{ssec:existingtvss} mit einem Überblick über bereits bestehende Visualisationssysteme die in Kapitel \ref{ssec:applications} dargestellten Anwendungsmöglichkeiten ergänzt.
+Das in Kapitel \ref{sec:augmentedreality} vorgestellte Konzept der Augmented Reality zeigt einen der Einsatzbereich der vorgestellten Algorithmen und Methoden, der Gegenstand vieler aktueller Forschungsprojekte ist.
 
 \appendix \label{appendixstart}
 \section{Anleitung zur Übersetzung von VERTEBRA}
