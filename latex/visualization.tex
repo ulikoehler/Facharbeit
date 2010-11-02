@@ -1,4 +1,4 @@
-\documentclass[a4paper,titlepage,12pt]{scrartcl}
+\documentclass[pdftex,a4paper,titlepage,12pt]{scrartcl}
 \usepackage[utf8x]{inputenc}
 \usepackage[paper=a4paper,includefoot,includehead,left=30mm,right=20mm,top=20mm,bottom=20mm]{geometry}
 \usepackage[T1]{fontenc}
@@ -26,6 +26,9 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
+
+
+
 \title{3D-Tumorvisualisation}
 \subtitle{Seminararbeit}
 \author{Uli Köhler}
@@ -43,9 +46,31 @@
 
 %Utility to insert a newline after a paragraph declaration
 \newcommand{\paranl}{$~~$\\}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
 \begin{document}
-\maketitle\thispagestyle{empty}\newpage
+
+
+\begin{titlepage}
+ Ernst-Mach-Gymnasium Haar\hfill Kollegiatenjahrgang 2010/2011
+\vspace{2cm}
+\begin{center}
+ \large\textsc{Facharbeit im W-Seminar \glqq Medizinische Bildgebungsverfahren\grqq}\\[1.5cm]
+ {\Huge \textbf{3D-Tumorvisualisation}}\\[1cm]
+ \textsc{Verfasser:} Ulrich Köhler\\
+ \textsc{W-Seminar:} Medizinische Bildgebungsverfahrens
+ \textsc{Kursleiter:} Hr. Bartels\\[2cm]
+
+\begin{tabular}[c]{l|c|c|c}
+ ×
+\end{tabular}
+
+\end{center}
+
+\end{titlepage}
+
+
+\thispagestyle{empty}\newpage
 \tableofcontents\thispagestyle{empty}\newpage
 \section{Einleitung}\label{sec:introduction}
 In dieser Arbeit sollen Methoden und Algorithmen diskutiert verglichen werden, die zur dreidimensionalen Visualisierung von Tumoren in Echtzeit dienen. Hierzu werden zuerst in Kapitel \vref{ssec:requirements} nach einer Definition dieses Begriffs die allgemeinen Anforderungen sowie in Kapitel \vref{ssec:applications} Anwendungsmöglichkeiten für solche Systeme dargestellt. Darauf aufbauend werden in Kapitel \vref{ssec:swhwcomparison} reine Softwarealgorithmen\footnote{Algorithmus - Verarbeitungsvorschrift} mit Hardwarebasierten Algorithmen verglichen. Kapitel \vref{ssec:volsurfacealgorithms} stellt kurz die in dieser Arbeit beschriebenen Volumenrenderingalgorithmen Oberflächenverfahren gegenüber. Schliesslich zeigt Kapitel \vref{ssec:platforms} einen Überblick der verfügbaren Plattformen zur Implementierung von Visualisationsalgorithmen. Kapitel \vref{ssec:algoexample} führt einen beispielhaften Algorithmus zur Hervorhebung von Tumoren sowie dessen im Rahmen dieser Arbeit entstandene Implementation (\glqq VERTEBRA\footnote{VERTEBRA - Volumetric Examiner for Radiological/Tomographical Experimental Basic Realtime Analysis}\grqq) ein.
@@ -222,14 +247,6 @@ Der Vergleich von Software- und Hardwarealgorithmen in Kapitel \ref{ssec:swhwcom
 Das in Kapitel \ref{sec:augmentedreality} vorgestellte Konzept der Augmented Reality zeigt einen der Einsatzbereich der vorgestellten Algorithmen und Methoden, der Gegenstand vieler aktueller Forschungsprojekte ist. Zudem wurde mit ARION\texttrademark ein System vorgestellt, das auf Augmented Reality-Methoden basiert - dieses zeigte schon 2002, dass der Einsatz von Augmented Reality-basierenden Systemen für onkologische Operationen möglich ist. Durch eine weitere Verbesserung der Technik sowie der Algorithmen wird der Einsatz von medizinischen Visualisationssysteme, speziell auch von Tumorvisualisationssystemen in den nächsten Jahren weiter steigen.
 
 \appendix \label{appendixstart}
-\section{Grafiken und Bilder}
-\begin{figure}[p]
-\begin{center}
-\includegraphics[width=\textwidth]{graphics/Classification.pdf}
-\caption{Verarbeitung von CT-Eingabedaten in VERTEBRA}
-\label{fig:gradientmapping-graphic}
-\end{center}
-\end{figure}\label{ssec:implementations}
 \section{Anleitung zur Übersetzung von VERTEBRA}
 Um den Quellcode von VERTEBRA in Maschinencode zu übersetzen, werden die folgenden Hilfsprogramme bzw. Bibliotheken benötigt:
 \begin{itemize}
