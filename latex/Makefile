@@ -7,6 +7,6 @@ pdf:
 viewpdf: pdf
 	evince visualization.pdf
 clean:
-	rm *.aux *.bbl *.blg *.log *.backup *.toc *.bib.bak
+	rm *.aux *.bbl *.blg *.log *.backup *.toc *.bib.bak *.brf *.lof
 spellcheck:
 	aspell --mode=tex -c visualization.tex
