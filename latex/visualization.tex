@@ -212,8 +212,8 @@ Abbildung \vref{fig:vertebra-screenshot} zeigt VERTEBRAs Darstellung eines Gesun
 
 \begin{figure}[p]
 \begin{center}
-\includegraphics[width=\textwidth]{graphics/vertebra-screenshot.png}
-\caption{V}
+\includegraphics[width=\textwidth]{graphics/vertebra-screenshot-1.png}
+\caption{Beispielrendering aus VERTEBRA}
 \label{fig:vertebra-screenshot}
 \end{center}
 \end{figure}\label{ssec:implementations}
@@ -279,22 +279,19 @@ In dieser Arbeit wurden Konzepte und Methoden zur dreidimensionalen Visualisieru
 Der Vergleich von Software- und Hardwarealgorithmen in Kapitel \ref{ssec:swhwcomparison} sowie die behandelten Plattformen in Kapitel \ref{ssec:platforms} zeigten, dass bei der Auswahl der Plattform letztlich immer ein Kompromiss zwischen Kompatibilität und Geschwindigkeit gefunden werden muss, jedoch in der Forschung verschiedensäte Ansätze verfolgt werden. Das vorgestelle exemplarische Konzept zur Tumorklassifizierung sowie die Proof-of-Concept-Implementierung VERTEBRA verdeutlichen, dass die Implementierung von einfachen, performanten Klassifizierungsverfahren ohne großen Aufwand möglich ist, jedoch prinzipbedingt alle Visualisationssysteme Grenzen haben.
 Das in Kapitel \ref{sec:augmentedreality} vorgestellte Konzept der Augmented Reality zeigt einen der Einsatzbereich der vorgestellten Algorithmen und Methoden, der Gegenstand vieler aktueller Forschungsprojekte ist. Zudem wurde mit ARION\texttrademark ein System vorgestellt, das auf Augmented Reality-Methoden basiert - dieses zeigte schon 2002, dass der Einsatz von Augmented Reality-basierenden Systemen für onkologische Operationen möglich ist. Durch eine weitere Verbesserung der Technik sowie der Algorithmen wird der Einsatz von medizinischen Visualisationssysteme, speziell auch von Tumorvisualisationssystemen in den nächsten Jahren weiter steigen.
 
+\newpage
 \appendix \label{appendixstart}
-\section{Anleitung zur Übersetzung von VERTEBRA}
-Um den Quellcode von VERTEBRA in Maschinencode zu übersetzen, werden die folgenden Hilfsprogramme bzw. Bibliotheken benötigt:
+\section{Die Begleit-CD}
+Dieser Arbeit liegt eine Begleit-CD, die die folgenden Daten enthält:
 \begin{itemize}
- \item C++-Compiler kompatibel zu ISO/IEC C++ 2003
- \item Qt Software Development Toolkit (SDK): minimal Version 4.7.0 = Qt SDK 2009.05.1
- \item DCMTK 3.5.4
+ \item Quellcode von VERTEBRA im Verzeichnis \texttt{vertebra} sowie eine Anleitung zur Übersetzung in der Datei \texttt{INSTALL} in ebendiesem Verzeichnis
+ \item Doxygen\footnote{Doxygen: Programm, um Dokumentationen aus Quellcode zu extrahieren}-Dokumentation von VERTEBRA als HTML sowie als PDF im Verzeichnis \texttt{doc}
+ \item \LaTeX-Quellcode dieser Seminararbeit sowie die Arbeit als verlinkte PDF-Version\footnote{Für die digitale Version wurde das Paket \texttt{hyperref} benutzt, um durch Klicks innerhalb des Dokuments umherspringen zu können. Für die korrekte Verklinkung kann keine Gewähr übernommen werden} im Verzeichnis \texttt{latex} 
 \end{itemize}
 
-Das Qt SDK kann von \url{http://qt.nokia.com} bezogen werden; die DCMTK-Bibliothek, die zum einlesen von DICOM-Daten benutzt wird, wird vom OFFIS e.v. (Oldenburger Forschungs- und Entwicklungsinstitut für Informatik, \url{http://offis.de}) auf \url{http://www.dcmtk.org/dcmtk.php.de} zu Verfügung gestellt.
+Hinweis: Alle Quellcodekommentare sowie Dokumentationen zu VERTEBRA wurden in englischer Sprache verfasst, da dies eine mögliche Weiterentwicklung des Projektes vereinfachen würde.
 
-Das Programm wurde mit der folgenden Konfiguration erfolgreich getestet (siehe auch Kapitel \vref{apdx:testplatform}):
-\begin{itemize}
- \item C++-Compiler: GNU Compiler Collection \textit{gcc (Ubuntu/Linaro 4.4.4-14ubuntu5) 4.4.5}
- \item Qt SDK: 4.7.0 = Qt SDK 2009.05.1
-\end{itemize}
+Zusätzlich liegt eine Sicherungskopie der Begleit-CD mit identischem Dateninhalt bei, die zur Absicherung gegen technische Defekte dient.
 
 \section{Testplattform}\label{apdx:testplatform}
 Die in dieser Arbeit vorgestellten Geschwindigkeitsmessungen wurden auf der folgenden Plattform durchgeführt:
