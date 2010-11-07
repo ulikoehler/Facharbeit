@@ -1,28 +1,53 @@
-\documentclass[ngerman,pdftex,a4paper,titlepage,12pt]{scrartcl}
-\usepackage[utf8x]{inputenc}
+\documentclass[ngerman,pdftex,paper=A4,DIV=calc,titlepage,12pt]{scrartcl}
+
+%Global options
 \usepackage[paper=a4paper,includefoot,includehead,left=30mm,right=20mm,top=20mm,bottom=20mm]{geometry}
-\usepackage[T1]{fontenc}
 \usepackage[pdftex]{graphicx}
 \usepackage[ngerman]{babel}
-\usepackage{thmbox}
-\usepackage{fixltx2e}
-%\usepackage{german}
-%\usepackage[colorlinks=true,linkcolor=red,anchorcolor=black,citecolor=green,pagecolor=red,urlcolor=cyan,backref]{hyperref}
-\usepackage{cite}
-\usepackage{url}
-\usepackage[german]{varioref}
-%\usepackage{booktabs}
-\usepackage{array}
-%Adds a box around floats
-\usepackage{float}
-\usepackage{fancyref}
-\floatstyle{boxed} 
-\restylefloat{figure}
-\usepackage{xspace}
-\usepackage{lmodern}
+\usepackage[%colorlinks=true,
+	    linkcolor=red,
+	    anchorcolor=black,
+	    citecolor=green,
+	    pagecolor=red,
+	    urlcolor=cyan]{hyperref}
+\usepackage{nameref}
 
+%Theorems
+\usepackage{thmbox} %Boxed theorems
+
+%Tables, Floats and figures
+\usepackage{array}
+\usepackage{float} %COnfigure figure floats to be boxed
+  \floatstyle{boxed} 
+  \restylefloat{figure}
+
+%Special formats
+\usepackage{url}
+
+%Citations and references
+\usepackage{cite}
+\usepackage[german]{varioref}
+\renewcommand{\reftextfaceafter}{auf der \reftextvario{gegenüberliegenden}{nächsten} Seite} 
+\renewcommand{\reftextfacebefore}{auf der \reftextvario{gegenüberliegenden}{vorherigen} Seite} 
+\renewcommand{\reftextafter}{auf der \reftextvario{nächsten}{folgenden} Seite} 
+\renewcommand{\reftextbefore}{auf \reftextvario{der vorhergehenden}{der letzten} Seite} 
+\renewcommand{\reftextcurrent}{auf \reftextvario{der aktuellen}{dieser} Seite}
+\usepackage[german]{fancyref}
+\usepackage{cleveref}
+
+%Typography, language and error corrections:
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} %Latin modern = enhanced CM font
+\usepackage{xspace} %Space enhancements
+\usepackage[tracking=true,activate={true,nocompatibility},babel=true]{microtype} %PDFTeX typography enhancements
+\usepackage{fixltx2e}
+
+
+%Header declarations
 \pagestyle{headings}
 
+%Create a new boxed type of theorems
 \newtheorem[L]{boxedDefinition}{Definition}
 \newtheorem{definition}{Definition}
 
@@ -44,10 +69,9 @@
 %Utility to insert a newline after a paragraph declaration
 \newcommand{\paranl}{$~~$\\}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\sloppy
 
 \begin{document}
-
-
 \begin{titlepage}
  Ernst-Mach-Gymnasium Haar\hfill Qualifikantenjahrgang 2010/2011
 \vspace{4cm}
@@ -76,12 +100,8 @@ Datum der Abgabe im Kollegstufensekretariat\hfill Unterschrift des Kursleiters
 \thispagestyle{empty}
 
 \end{titlepage}
-
-\sloppy
-
-
-\thispagestyle{empty}\newpage
-\tableofcontents\thispagestyle{empty}\newpage
+\thispagestyle{empty}\newpage %No page numbering on titlepage
+\tableofcontents\thispagestyle{empty}\newpage 
 \section{Einleitung}\label{sec:introduction}
 In dieser Arbeit sollen Methoden und Algorithmen diskutiert und verglichen werden, die zur dreidimensionalen Visualisierung von Tumoren in Echtzeit dienen. Hierzu werden zuerst in Kapitel \vref{ssec:requirements} nach einer Definition dieses Begriffs die allgemeinen Anforderungen sowie in Kapitel \vref{ssec:applications} Anwendungsmöglichkeiten für solche Systeme dargestellt. Darauf aufbauend werden in Kapitel \vref{ssec:swhwcomparison} reine Softwarealgorithmen\footnote{Algorithmus -- Verarbeitungsvorschrift} mit auf spezieller Hardware basierenden Algorithmen verglichen. Kapitel \vref{ssec:volsurfacealgorithms} stellt kurz die in dieser Arbeit beschriebenen Volumenrenderingverfahren Oberflächenrenderingalgorithmen gegenüber. Danach zeigt Kapitel \vref{ssec:platforms} einen Überblick der verfügbaren Plattformen zur Implementierung von Visualisationsalgorithmen. Kapitel \vref{ssec:algoexample} führt einen beispielhaften Algorithmus zur Hervorhebung von Tumoren sowie dessen im Rahmen dieser Arbeit entstandene Implementation (\glqq VERTEBRA\footnote{VERTEBRA -- engl. \textit{vertebra} = Wirbel -- Volumetric Examiner for Radiological/Tomographical Experimental Basic Realtime Analysis}\grqq) ein.
 
@@ -279,7 +299,10 @@ Der Vergleich von Software- und Hardwarealgorithmen in Kapitel \ref{ssec:swhwcom
 Das in Kapitel \ref{sec:augmentedreality} vorgestellte Konzept der Augmented Reality zeigt einen der Einsatzbereiche der vorgestellten Algorithmen und Methoden, der Gegenstand vieler aktueller Forschungsprojekte ist. Zudem wurde mit ARION\texttrademark\ ein System vorgestellt, das auf Augmented Reality-Methoden basiert -- dieses zeigte schon 2002, dass der Einsatz von Augmented Reality-basierenden Systemen für onkologische Operationen möglich ist. Durch eine weitere Verbesserung der Technik sowie der Algorithmen wird der Einsatz von medizinischen Visualisationssystemen, speziell auch der von Tumorvisualisationssystemen, in den nächsten Jahren weiter steigen.
 
 \newpage
-\appendix \label{appendixstart}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%----Appendix---%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\appendix\label{appendixstart}
 \section{Die Begleit-CD}
 Dieser Arbeit liegt eine Begleit-CD bei, die die folgenden Daten enthält:
 \begin{itemize}
