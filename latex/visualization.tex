@@ -5,11 +5,13 @@
 \usepackage[pdftex]{graphicx}
 \usepackage[ngerman]{babel}
 \usepackage[%colorlinks=true,
-	    linkcolor=red,
-	    anchorcolor=black,
-	    citecolor=green,
-	    pagecolor=red,
-	    urlcolor=cyan]{hyperref}
+	    %linkcolor=red,
+	    %anchorcolor=black,
+	    %citecolor=green,
+	    %pagecolor=red,
+	    %urlcolor=cyan
+	    ]
+	    {hyperref}
 \usepackage{nameref}
 
 %Theorems
@@ -232,9 +234,11 @@ Das Verfahren, das VERTEBRA implementiert, ist als Hardwarealgorithmus einzustuf
 \end{figure}\label{ssec:implementations}
 
 \paragraph{Geschwindigkeit}
-VERTEBRA erreicht durch seine Implementierung des zuvor dargestellten Verfahrens auf der in Anhang \vref{apdx:testplatform} beschriebenen Plattform mit Eingabedaten von 20 Einzelbildern mit 512x512 Bildpunkten aus dem Visible Human Project eine Bildrate von TODO Bildern pro Sekunde, was für diese Auflösung gerade noch ausreichend für eine Einteilung als Echtzeitsystem nach Kapitel \vref{p:rtcapability} ist. Bei einem Einsatz als intraoperatives Echtzeitsystem ist zudem die Auflösung der Eingabedaten stark von der verwendeten Bildgebungshardware abhängig. Je nach Einsatzszenario könnten bei einem Produktivsystem die oben beschriebenen Kriterien für eine Einhaltung des Echtzeitkriteriums zwischen Änderungen der Eingabedaten sorgen, während für die komplette Neuberechnung bei Änderung der Eingabedaten eine höhere Latenzzeit akzeptabel wäre. Für Softwarealgorithmen nach der Definition in Kapitel \ref{ssec:swhwcomparison} müssen wiederum andere Optimierungsverfahren zum Einsatz kommen, da der Prozess des Renderns hier viel Rechenzeit in Anspruch nimmt.
+VERTEBRA erreicht durch seine Implementierung des zuvor dargestellten Verfahrens auf der in Anhang \vref{apdx:testplatform} beschriebenen Plattform mit Eingabedaten von 15 Einzelbildern mit 512x512 Bildpunkten aus dem Visible Human Project eine Bildrate von 7 Bildern pro Sekunde, was für diese Auflösung gerade noch ausreichend für eine Einteilung als Echtzeitsystem nach Kapitel \vref{p:rtcapability} ist. Bei einem Einsatz als intraoperatives Echtzeitsystem ist zudem die Auflösung der Eingabedaten stark von der verwendeten Bildgebungshardware abhängig. Je nach Einsatzszenario könnten bei einem Produktivsystem die oben beschriebenen Kriterien für eine Einhaltung des Echtzeitkriteriums zwischen Änderungen der Eingabedaten sorgen, während für die komplette Neuberechnung bei Änderung der Eingabedaten eine höhere Latenzzeit akzeptabel wäre. Für Softwarealgorithmen nach der Definition in Kapitel \ref{ssec:swhwcomparison} müssen wiederum andere Optimierungsverfahren zum Einsatz kommen, da der Prozess des Renderns hier viel Rechenzeit in Anspruch nimmt.
 
-Abbildung \fref{fig:vertebra-screenshot} zeigt VERTEBRAs Darstellung eines Gesunden Gewebes\footnote{Quelle der DICOM-Daten: Visible Human Project; Männlicher Pelvis -- 1mm CT-Schnittbilder; \textsc{vhm.500.dcm} bis \textsc{vhm.520.scm}; Verwendet wurde ein Weichteil-Hounsfield-Fenster mit einer Breite von 350 HU und einem Zentrum bei 50 HU}; deutlich zu sehen sind teils volltransparente Gebiete (durch die der schwarze Hintergrund zu sehen ist) sowie die in der Signalfarbe rot angezeigten Knochen. Ein gut auszumachender, weil stark absorbierender Tumor, würde ebenfalls rot angezeigt werden.
+VERTEBRA erreicht damit bei weitem nicht eine echtzeitfähige Geschwindigkeit mit Datensätzen in der Größenordnung des VolumePro-Boards (siehe \ref{sssec:specialhardwarecalculation}), was jedoch auch am auf der Testplattform nur begrenzt zur Verfügung stehenden Grafikkartenspeicher liegen dürfte - dieser wird im beschriebenen Verfahren stark ausgelastet.
+
+Abbildung \fref{fig:vertebra-screenshot} zeigt VERTEBRAs Darstellung eines Gesunden Gewebes\footnote{Quelle der DICOM-Daten: Visible Human Project; Männlicher Pelvis -- 1mm CT-Schnittbilder; \textsc{vhm.501.dcm} bis \textsc{vhm.515.scm}; Verwendet wurde ein Weichteil-Hounsfield-Fenster mit einer Breite von 350 HU und einem Zentrum bei 50 HU}; deutlich zu sehen sind teils volltransparente Gebiete (durch die der schwarze Hintergrund zu sehen ist) sowie die in der Signalfarbe rot angezeigten Knochen. Ein gut auszumachender, weil stark absorbierender Tumor, würde ebenfalls rot angezeigt werden.
 \enlargethispage{2\baselineskip}
 
 \section{Augmented Reality -- Zukunft von Visualisationssystemen?}\label{sec:augmentedreality}
