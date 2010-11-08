@@ -110,7 +110,7 @@ Anschließend wird in Kapitel \vref{sec:augmentedreality} das Konzept der \glqq 
 Mit dem Fazit und einem kurzen Ausblick in Kapitel \vref{sec:facit}, das in Kurzform die wichtigsten Thesen, Konzepte und Resultate rekapituliert, endet der Hauptteil dieser Arbeit.
 \section{Echtzeit-Tumorvisualisationssysteme}\label{sec:vissystems}
 \subsection{Anforderungen}\label{ssec:requirements}
-Um die Anforderungen für Echtzeit-Tumorvisualisationssysteme zu erläutern, muss der Begriff zuerst mit allen zu erfüllenden Anforderungen definiert werden. Die folgende Definition basiert auf \cite[Kapitel 3.1.1, Seite 17]{Bruckner2004} sowie auf \cite{Kutter2008}
+Um die Anforderungen für Echtzeit-Tumorvisualisationssysteme zu erläutern, muss der Begriff zuerst mit allen zu erfüllenden Anforderungen definiert werden. Die folgende Definition basiert auf \cite[Kapitel 3.1.1, Seite 17]{Bruckner2004} sowie auf \cite{Kutter2008}:
 \begin{boxedDefinition}[Echtzeit-Tumorvisualisationssystem]\label{def:rttumorvissystem}
  Als Echtzeit-Tumorvisualisationssystem sei ein System definiert, das in Echtzeit in der Lage ist, aus dreidimensionalen medizinischen Eingabedatensätzen hochqualitative Ausgabedaten zu generieren, die auf Displays in einer Weise dargestellt werden können, die menschlichen Benutzern ermöglicht, Informationen über anatomische Strukturen zu erkennen, selbige zu unterscheiden sowie interaktiv im Datensatz zu navigieren. Der primäre Einsatzzweck des Systems besteht hierbei in der Visualisation von Tumoren, die durch spezielle Klassifizierungsverfahren visuell hervorgehoben werden.
 
@@ -145,7 +145,7 @@ Schon heute werden medizinische Visualisationssysteme in den verschiedensten Ber
 \subsection{Vergleich von Hardware- und Softwarealgorithmen}\label{ssec:swhwcomparison}
 Bei Betrachtung der Hardware, auf der ein System die Berechnungen zur Umwandlung der Eingabedaten in Ausgabedaten durchführt, lassen sich zwei grundlegende Konzepte unterscheiden:
 \begin{itemize}
- \item \textbf{Hardwarealgorithmen}: Diese Methode benutzt für einen oder mehrere Berechnungsschritte Hardware, deren Vorhandensein nicht auf allen Plattformen garantiert ist. D\footnote{Anmerkung: Im Sinne dieser Definition gelten CPUs nicht als Spezialhardware, da sie notwendigerweise zur Datenverarbeitung auf Systemen, auf denen die hier beschriebenen Algorithmen lauffähig  wären, vorhanden sein müssen.}\textsuperscript{,}\footnote{Anmerkung: Diese Hardware ist nicht zwangsläufig mit der in Kapitel \ref{sssec:specialhardwarecalculation} beschriebenen Spezialhardware gleichzusetzen}urch diese Hardware steigt meist die Geschwindigkeit des Systems.\\
+ \item \textbf{Hardwarealgorithmen}: Diese Methode benutzt für einen oder mehrere Berechnungsschritte Hardware, deren Vorhandensein nicht auf allen Plattformen garantiert ist\footnote{Anmerkung: Im Sinne dieser Definition gelten CPUs nicht als Spezialhardware, da sie notwendigerweise zur Datenverarbeitung auf Systemen, auf denen die hier beschriebenen Algorithmen lauffähig  wären, vorhanden sein müssen.}\textsuperscript{,}\footnote{Anmerkung: Diese Hardware ist nicht zwangsläufig mit der in Kapitel \ref{sssec:specialhardwarecalculation} beschriebenen Spezialhardware gleichzusetzen}. Durch diese Hardware steigt meist die Geschwindigkeit des Systems.\\
  Beispiele für Hardware im Sinne dieser Definition sind:
  \begin{itemize}
   \item GPUs, siehe Kapitel \vref{sssec:gpucalculation} 
