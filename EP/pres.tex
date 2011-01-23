@@ -1,0 +1,149 @@
+\documentclass[14pt]{beamer}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+\usepackage{cite}
+\usetheme[secheader]{Boadilla}
+\usefonttheme{serif}
+
+\title{3D-Tumorvisualisation}
+\subtitle{Endpräsentation}
+\author{Uli Köhler}
+\institute[EMG]{Ernst-Mach-Gymnasium Haar}
+\date{8.~Juli 2010}
+
+
+\AtBeginSection[]{} % for optional outline or other recurrent slide
+
+\begin{document}
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Aufbau der Präsentation}
+\tableofcontents
+\end{frame}
+\section{Behandelte Hauptkonzepte}
+%%%%%%
+\subsection{Hervorhebung von Tumoren}
+\begin{frame}[allowframebreaks]
+ \frametitle{Hervorhebung von Tumoren}
+    \begin{itemize}
+     \item \textbf{Idee:} Mediziner sollen Tumoren schnell erkennen können
+     \item Automatisierte Erkennung anhand der HUs\\
+	  $\Rightarrow$ Algorithmus: Abbildung der Hounsfield-Skala auf einen Farbverlauf (`Klassifizierung`)
+     \item Grenzen des Verfahrens:
+      \begin{itemize}
+	\item Tumoren mit geringem Kontrast zum umliegenden Gewebe
+	\item Menschliche Kenntnis zur Zuordnung von anatomischen Strukturen nötig
+      \end{itemize}
+    \end{itemize}
+    \pgfimage[width=\textwidth]{F36-rendered.png}
+\end{frame}
+%%%%%%
+\subsection{Generierung von Zwischenbildern}
+\begin{frame}[allowframebreaks]
+ \frametitle{Generierung von Zwischenbildern}
+      \begin{block}{Problem}
+	      Bildstapel mit geringer Anzahl an Bildern können von der Seite aus nur in ungenügender
+	      Auflösung betrachtet werden.
+      \end{block}
+    \begin{itemize}
+     \item Lösungsmöglichkeit: \textit{Interpolation} von Zwischenbildern:
+      \begin{itemize}
+	\item Automatisch, z.B. Farbverlauf zwischen \textit{Vertices} in OpenGL
+	\item Manuell $\rightarrow$ Vorberechnung von virtuellen Bildern
+      \end{itemize}
+    \end{itemize}
+    \pgfimage[width=\textwidth]{interimage1.jpg}
+\end{frame}
+%%%%%%
+\subsection{3D-Navigation}
+\begin{frame}
+ \frametitle{3D-Navigation}
+ \begin{itemize}
+  \item Grundoperationen (Transformationen):
+  \begin{itemize}
+   \item Translation
+   \item Rotation
+   \item Skalierung
+  \end{itemize}
+  \item Algorithmen für die Umsetzung Eingabegerät $\rightarrow$ Transformation
+  \item Ziel: Intuitive Bedienbarkeit
+ \end{itemize}
+\end{frame}
+%
+%
+%
+\section{Projekt: MediGL}
+%
+\subsection{Architektur}
+\begin{frame}[allowframebreaks]
+\frametitle{Architektur}
+\pgfimage[width=\textwidth]{ws-1-1.jpg}\\
+\pgfimage[width=\textwidth]{ws-1-2.jpg}
+\end{frame}
+%
+\subsection{Fortschritt}
+\begin{frame}
+\frametitle{Fortschritt}
+\begin{itemize}
+ \item Implementiert:
+  \begin{itemize}
+   \item Point Cloud Rendering
+   \item 3D-Navigation
+   \item DICOM- und Image-Import
+  \end{itemize}
+  \item Noch fehlend:
+  \begin{itemize}
+   \item Zwischenbildberechnung
+   \item Einschränkung des HU-Intervalls
+   \item Weitere Rendering- und Klassifizierungsmethoden
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+%
+%
+%
+\section{Augmented Reality - Zukunft der Visualisation}
+\begin{frame}[allowframebreaks]
+\frametitle{Augmented Reality}
+\begin{columns}
+        \column{.45\textwidth}
+	    \begin{itemize}
+	    \item `Erweiterte Realität`
+	    \item Echtzeiteinblendung von Informationen, z.B. für Chirurgen
+	    \item Beispiel: Überlagerung des sichtbaren Bildes mit CT/MR-Informationen
+	    \end{itemize}
+        \column{.55\textwidth}
+	\pgfimage[width=\textwidth]{Stereodisplay.jpeg}
+\end{columns}
+
+\pgfimage[width=\textwidth]{ar-full.jpg}
+\end{frame}
+%
+%
+%
+\section{Literatur}
+\begin{frame}[allowframebreaks]
+\frametitle{Literatur}
+\bibliography{pres}
+\bibliographystyle{alpha}
+\nocite{*}
+\end{frame}
+%
+%
+%
+\section{Quellen}
+\begin{frame}[shrink]
+ \frametitle{Bildquellen}
+ \begin{itemize}
+  \item Hervorhebung von Tumoren II :\\ \url{http://radiographics.rsna.org/content/27/3/687/F36.expansion}
+  \item Augmented Reality I :\\ \url{http://www.iwb.tum.de/AR_HMI_f\%C3\%BCr_Industrieroboter.print}
+  \item Augmented Reality II :\\ \url{http://www.stonybrookmedicalcenter.org/pathology/neuropathology/chapter3}
+  \item Weitere: Selbst erstellt / Public Domain
+ \end{itemize}
+ 
+\end{frame}
+
+\end{document}
