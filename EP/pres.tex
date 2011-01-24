@@ -3,7 +3,6 @@
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 \usepackage{hyperref}
-\usepackage{cite}
 \usetheme[secheader]{Boadilla}
 \usefonttheme{serif}
 
@@ -19,7 +18,7 @@
 \begin{document}
 \frame{\titlepage}
 \begin{frame}
-\frametitle{Aufbau der Präsentation}
+\frametitle{Aufbau dieser Präsentation}
 \tableofcontents
 \end{frame}
 \section{Kernkonzepte}
@@ -54,14 +53,14 @@
 %
 %
 \section{Projekt: MediGL}
-%
-\subsection{MediGL: Implementierte Funktionalität}
 \begin{frame}
-\frametitle{Funktionalität}
+\frametitle{MediGL: Funktionalität}
 \begin{itemize}
  \item Ziel: Demonstration eines Klassifizierungsalgorithmus
- \item Berechnung auf der CPU / Rendering auf der GPU $\rightarrow$ Nur Consumer-Hardware nötig
- \item Lediglich eine Renderingmethode implementiert $\rightarrow$ Keine unverständlichen Auswahlmöglichkeiten
+ \item Berechnung auf der CPU / Rendering auf der GPU $\rightarrow$ Nur Standardhardware nötig
+ \item DICOM-Import
+ \item Hounsfield-Fenster
+ \item Nur Demonstration - keine Produktivsoftware!
 \end{itemize}
 \end{frame}
 %
@@ -79,18 +78,39 @@
         \column{.55\textwidth}
 	\pgfimage[width=\textwidth]{Stereodisplay.jpeg}
 \end{columns}
+\end{frame}
 
-%\pgfimage[width=\textwidth]{ar-full.jpg}
+\begin{frame}
+\frametitle{Displaytypen (Auszug)}
+\begin{itemize}
+ \item Optical See-Through $\rightarrow$ Halbdurchlässig
+ \item Video See-Through
+ \item Head Up Displays (HUDs) (Monokular / Binokular
+ \item (Auto)stereoskopische Displays
+ \item Virtual Retinal Displays
+ \item 
+\end{itemize}
+
 
 \end{frame}
 %
 %
 \section{ARION\texttrademark - Ein existierendes Visualisationssystem}
 \begin{frame}
+\frametitle{ARION\texttrademark - Ein existierendes Visualisationssystem}
 \begin{itemize}
-\item 
+\item Vorgestellt 2002 von Suthau et al.
+\item Benutzt CT- sowie Angiographische Daten
+\item Magnetisches Trackingsystem zum Ausgleich der Körperbewegungen und zur Ortung der chirurgischen Instrumente
+\item Augmented Reality: Autostereoskopisches Display
 \end{itemize}
- 
+\end{frame}
+
+\begin{frame}
+ \frametitle{Download der Arbeit sowie der Präsentationen auf:}
+ \begin{center}
+   \textbf{\url{http://tinyurl.com/ulikoehler-seminararbeit}}
+ \end{center}
 \end{frame}
 
 %
@@ -99,9 +119,8 @@
 \begin{frame}[shrink]
  \frametitle{Bildquellen}
  \begin{itemize}
-  \item Hervorhebung von Tumoren II :\\ \url{http://radiographics.rsna.org/content/27/3/687/F36.expansion}
+  \item Hervorhebung von Tumoren:\\ \url{http://radiographics.rsna.org/content/27/3/687/F36.expansion}
   \item Augmented Reality I :\\ \url{http://www.iwb.tum.de/AR_HMI_f\%C3\%BCr_Industrieroboter.print}
-  \item Augmented Reality II :\\ \url{http://www.stonybrookmedicalcenter.org/pathology/neuropathology/chapter3}
   \item Weitere: Selbst erstellt / Public Domain
  \end{itemize}
  
